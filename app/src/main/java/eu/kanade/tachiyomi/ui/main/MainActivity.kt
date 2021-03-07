@@ -13,6 +13,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.view.marginTop
 import androidx.core.view.updateLayoutParams
@@ -266,6 +267,12 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             BlacklistedSources.HIDDEN_SOURCES += EH_SOURCE_ID
             BlacklistedSources.HIDDEN_SOURCES += EXH_SOURCE_ID
         }
+        // SY -->
+
+        // SY <--
+        preferences.labels()
+            .asImmediateFlow { binding.labels.isGone = it }
+            .launchIn(lifecycleScope)
         // SY -->
 
         preferences.extensionUpdatesCount()

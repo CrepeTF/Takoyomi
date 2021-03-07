@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_gravity="start"
+            android:background="@color/transparent"
             android:orientation="horizontal"
             android:visibility="visible"
             tools:visibility="visible">
