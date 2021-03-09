@@ -126,9 +126,9 @@ dependencies {
     implementation("tachiyomi.sourceapi:source-api:1.1")
 
     // AndroidX libraries
-    implementation("androidx.annotation:annotation:1.2.0-beta01")
+    implementation("androidx.annotation:annotation:1.2.0-rc01")
     implementation("androidx.appcompat:appcompat:1.3.0-beta01")
-    implementation("androidx.biometric:biometric-ktx:1.2.0-alpha02")
+    implementation("androidx.biometric:biometric-ktx:1.2.0-alpha03")
     implementation("androidx.browser:browser:1.3.0")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0-alpha2")
@@ -136,10 +136,10 @@ dependencies {
     implementation("androidx.core:core-ktx:1.5.0-beta01")
     implementation("androidx.multidex:multidex:2.0.1")
     implementation("androidx.preference:preference-ktx:1.1.1")
-    implementation("androidx.recyclerview:recyclerview:1.2.0-beta01")
+    implementation("androidx.recyclerview:recyclerview:1.2.0-beta02")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
 
-    val lifecycleVersion = "2.3.0-rc01"
+    val lifecycleVersion = "2.3.0"
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-process:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
@@ -211,7 +211,7 @@ dependencies {
 
     // implementation("com.github.tachiyomiorg:subsampling-scale-image-view:6caf219")
     // TODO: switch to new decoder for stable releases
-    implementation("com.github.tachiyomiorg:subsampling-scale-image-view:93d74f0")
+    implementation("com.github.tachiyomiorg:subsampling-scale-image-view:547d9c0")
 
     // Logging
     implementation("com.jakewharton.timber:timber:4.7.1")
@@ -289,7 +289,7 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics-ktx:17.3.1")
 
     // Better logging (EH)
-    implementation("com.elvishew:xlog:1.7.1")
+    implementation("com.elvishew:xlog:1.8.0")
 
     // Debug utils (EH)
     val debugOverlayVersion = "1.1.3"
@@ -304,10 +304,8 @@ dependencies {
     // JsonReader for similar manga
     implementation("com.squareup.moshi:moshi:1.11.0")
 
-    implementation("androidx.gridlayout:gridlayout:1.0.0")
-
     implementation("com.mikepenz:fastadapter:5.3.4")
-    // SY -->
+    // SY <--
 }
 
 tasks {
