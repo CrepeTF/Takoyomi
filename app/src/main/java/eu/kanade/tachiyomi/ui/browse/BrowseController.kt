@@ -88,6 +88,8 @@ class BrowseController :
         with(tabs) {
             tabGravity = TabLayout.GRAVITY_CENTER
             tabMode = TabLayout.MODE_FIXED
+
+            tabs.setPadding(0, 0, 0, 0)
         }
     }
 
