@@ -68,7 +68,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="5dp">
+                android:paddingBottom="5dp"
+                app:subtitleTextColor="@color/md_white_1000">
 
                 <ImageButton
                     android:id="@+id/expand_eh_button"
@@ -203,6 +204,7 @@
                     android:contentDescription="@string/action_previous_chapter"
                     android:padding="@dimen/material_layout_keylines_screen_edge_margin"
                     android:rotation="90"
+                    android:hapticFeedbackEnabled="true"
                     app:srcCompat="@drawable/ic_skip_previous_24dp"
                     app:tint="?attr/colorOnPrimary" />
 
@@ -270,6 +272,7 @@
                     android:contentDescription="@string/action_next_chapter"
                     android:padding="@dimen/material_layout_keylines_screen_edge_margin"
                     android:rotation="90"
+                    android:hapticFeedbackEnabled="true"
                     app:srcCompat="@drawable/ic_skip_next_24dp"
                     app:tint="?attr/colorOnPrimary" />
 
@@ -290,6 +293,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:paddingTop="45dp"
+            android:background="@drawable/reader_menu_bottom"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -312,6 +317,7 @@
                     android:background="@drawable/reader_seekbar_button"
                     android:contentDescription="@string/action_previous_chapter"
                     android:padding="@dimen/material_layout_keylines_screen_edge_margin"
+                    android:hapticFeedbackEnabled="true"
                     app:srcCompat="@drawable/ic_skip_previous_24dp"
                     app:tint="?attr/colorOnPrimary" />
 
@@ -364,6 +370,7 @@
                     android:background="@drawable/reader_seekbar_button"
                     android:contentDescription="@string/action_next_chapter"
                     android:padding="@dimen/material_layout_keylines_screen_edge_margin"
+                    android:hapticFeedbackEnabled="true"
                     app:srcCompat="@drawable/ic_skip_next_24dp"
                     app:tint="?attr/colorOnPrimary" />
 
@@ -372,8 +379,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_gravity="bottom"
-                android:background="@drawable/reader_menu_bottom">
+                android:layout_gravity="bottom">
 
                 <ImageButton
                     android:id="@+id/action_chapter_list"

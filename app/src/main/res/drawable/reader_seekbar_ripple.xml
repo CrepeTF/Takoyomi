@@ -3,8 +3,8 @@
     android:color="?attr/colorOnPrimary">
     <item android:id="@android:id/mask">
         <shape android:shape="rectangle">
-            <solid android:color="@android:color/white" />
-            <corners android:radius="48dp" />
+            <solid android:color="@color/md_white_1000_50" />
+            <corners android:radius="40dp" />
         </shape>
     </item>
 </ripple>

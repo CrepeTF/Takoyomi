@@ -270,9 +270,9 @@
         <item name="colorOnPrimary">@color/textColorPrimaryDark</item>
         <item name="colorPrimaryVariant">@color/readerColorDarkPrimary</item>
         <item name="colorSurface">#1A1B1E</item>
-        <item name="readerMenu">@color/readerMenuBackgroundDark</item>
+        <item name="readerMenu">@color/readerMenuBackground</item>
 
-        <item name="android:colorBackground">#FF1A1B1E</item>
+        <item name="android:colorBackground">@color/md_black_1000</item>
         <item name="android:statusBarColor">?attr/readerMenu</item>
         <item name="android:navigationBarColor">?attr/readerMenu</item>
 
@@ -287,7 +287,7 @@
         <item name="colorOnPrimary">@color/textColorPrimaryDark</item>
         <item name="colorPrimaryVariant">@color/readerColorDarkPrimary</item>
         <item name="colorSurface">@color/md_white_1000</item>
-        <item name="readerMenu">@color/readerMenuBackgroundLight</item>
+        <item name="readerMenu">@color/readerMenuBackground</item>
 
         <item name="android:colorBackground">@color/md_white_1000</item>
         <item name="android:statusBarColor">?attr/readerMenu</item>
@@ -303,7 +303,6 @@
 
     <style name="Theme.Reader.Dark.Grey" parent="Theme.Base.Reader.Dark">
         <item name="android:colorBackground">@color/backgroundDark</item>
-        <item name="readerMenu">@color/readerMenuBackgroundGray</item>
     </style>
 
     <style name="Theme.Reader.Light" parent="Theme.Base.Reader.Light" />

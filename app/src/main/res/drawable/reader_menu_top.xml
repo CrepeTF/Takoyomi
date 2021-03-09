@@ -5,6 +5,6 @@
     <gradient
         android:angle="90"
         android:startColor="#00ffffff"
-        android:endColor="?attr/readerMenu" />
+        android:endColor="@color/readerMenuBackground" />
 
 </shape>
