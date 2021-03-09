@@ -686,7 +686,7 @@ class LibraryController(
                 it.source in nHentaiSourceIds ||
                 it.source == PERV_EDEN_EN_SOURCE_ID ||
                 it.source == PERV_EDEN_IT_SOURCE_ID
-        }.toList()
+        }
         presenter.cleanTitles(mangas)
         destroyActionModeIfNeeded()
     }
@@ -694,7 +694,7 @@ class LibraryController(
     private fun pushToMdList() {
         val mangas = selectedMangas.filter {
             it.source in mangaDexSourceIds
-        }.toList()
+        }
         presenter.syncMangaToDex(mangas)
     }
     // SY <--

@@ -36,7 +36,6 @@ import com.afollestad.materialdialogs.list.listItemsSingleChoice
 import com.bluelinelabs.conductor.ControllerChangeHandler
 import com.bluelinelabs.conductor.ControllerChangeType
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.elvishew.xlog.XLog
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import eu.davidea.flexibleadapter.FlexibleAdapter
@@ -102,6 +101,7 @@ import eu.kanade.tachiyomi.util.system.toast
 import eu.kanade.tachiyomi.util.view.getCoordinates
 import eu.kanade.tachiyomi.util.view.shrinkOnScroll
 import eu.kanade.tachiyomi.util.view.snack
+import exh.log.xLogD
 import exh.md.similar.ui.MangaDexSimilarController
 import exh.metadata.metadata.base.FlatMetadata
 import exh.recs.RecommendsController
@@ -355,7 +355,7 @@ class MangaController :
 
         presenter.redirectFlow
             .onEach { redirect ->
-                XLog.d("Redirecting to updated manga (manga.id: %s, manga.title: %s, update: %s)!", redirect.manga.id, redirect.manga.title, redirect.update)
+                xLogD("Redirecting to updated manga (manga.id: %s, manga.title: %s, update: %s)!", redirect.manga.id, redirect.manga.title, redirect.update)
                 // Replace self
                 router?.replaceTopController(MangaController(redirect).withFadeTransaction())
             }
@@ -528,16 +528,18 @@ class MangaController :
             R.id.action_migrate -> migrateManga()
             // SY -->
             R.id.action_save -> {
-                if (presenter.saveCover(activity!!)) {
+                try {
+                    presenter.saveCover(activity!!)
                     activity?.toast(R.string.cover_saved)
-                } else {
-                    activity?.toast(R.string.error_saving_cover)
+                } catch (e: Exception) {
+                    e.message?.let { activity?.toast(it) } ?: activity?.toast(R.string.error_saving_cover)
                 }
             }
             R.id.action_share_cover -> {
-                val cover = presenter.shareCover(activity!!)
-                if (cover != null) {
-                    val stream = cover.getUriCompat(activity!!)
+                try {
+                    val activity = activity!!
+                    val cover = presenter.shareCover(activity)
+                    val stream = cover.getUriCompat(activity)
                     val intent = Intent(Intent.ACTION_SEND).apply {
                         putExtra(Intent.EXTRA_STREAM, stream)
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -545,8 +547,8 @@ class MangaController :
                         type = "image/*"
                     }
                     startActivity(Intent.createChooser(intent, activity?.getString(R.string.action_share)))
-                } else {
-                    activity?.toast(R.string.error_sharing_cover)
+                } catch (e: Exception) {
+                    e.message?.let { activity?.toast(it) } ?: activity?.toast(R.string.error_sharing_cover)
                 }
             }
             // SY <--

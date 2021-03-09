@@ -541,15 +541,27 @@ class LibraryPresenter(
     fun downloadUnreadChapters(mangas: List<Manga>) {
         mangas.forEach { manga ->
             launchIO {
-                /* SY --> */ val chapters = if (manga.isEhBasedManga()) {
-                    val chapter = db.getChapters(manga).executeOnIO().minByOrNull { it.source_order }
-                    if (chapter != null && !chapter.read) listOf(chapter) else emptyList()
-                } else if (manga.source == MERGED_SOURCE_ID) {
-                    (sourceManager.getOrStub(MERGED_SOURCE_ID) as MergedSource).getChaptersAsBlocking(manga).filter { !it.read }
-                } else /* SY <-- */ db.getChapters(manga).executeAsBlocking()
-                    .filter { !it.read }
+                if (manga.source == MERGED_SOURCE_ID) {
+                    val mergedSource = sourceManager.get(MERGED_SOURCE_ID) as MergedSource
+                    val mergedMangas = db.getMergedMangas(manga.id!!).executeAsBlocking()
+                    mergedSource
+                        .getChaptersAsBlocking(manga)
+                        .filter { !it.read }
+                        .groupBy { it.manga_id!! }
+                        .forEach ab@{ (mangaId, chapters) ->
+                            val mergedManga = mergedMangas.firstOrNull { it.id == mangaId } ?: return@ab
+                            downloadManager.downloadChapters(mergedManga, chapters)
+                        }
+                } else {
+                    /* SY --> */ val chapters = if (manga.isEhBasedManga()) {
+                        db.getChapters(manga).executeOnIO().minByOrNull { it.source_order }?.let { chapter ->
+                            if (!chapter.read) listOf(chapter) else emptyList()
+                        } ?: emptyList()
+                    } else /* SY <-- */ db.getChapters(manga).executeAsBlocking()
+                        .filter { !it.read }
 
-                downloadManager.downloadChapters(manga, chapters)
+                    downloadManager.downloadChapters(manga, chapters)
+                }
             }
         }
     }
@@ -565,18 +577,19 @@ class LibraryPresenter(
                 }
             }
             if (manga.title == editedTitle) return@forEach
-            val mangaJson = manga.id?.let {
+            val mangaJson = manga.id?.let { mangaId ->
                 CustomMangaManager.MangaJson(
-                    it,
+                    mangaId,
                     editedTitle.nullIfBlank(),
-                    (if (manga.author != manga.originalAuthor) manga.author else null),
-                    (if (manga.artist != manga.originalArtist) manga.artist else null),
-                    (if (manga.description != manga.originalDescription) manga.description else null),
-                    (if (manga.genre != manga.originalGenre) manga.getGenres() else null)
+                    manga.author.takeUnless { it == manga.originalAuthor },
+                    manga.artist.takeUnless { it == manga.originalArtist },
+                    manga.description.takeUnless { it == manga.originalDescription },
+                    manga.genre.takeUnless { it == manga.originalGenre }?.let { manga.getGenres() },
+                    manga.status.takeUnless { it == manga.originalStatus }
                 )
             }
-            mangaJson?.let {
-                customMangaManager.saveMangaInfo(it)
+            if (mangaJson != null) {
+                customMangaManager.saveMangaInfo(mangaJson)
             }
         }
     }
@@ -622,10 +635,10 @@ class LibraryPresenter(
             if (source is MergedSource) {
                 val mergedMangas = db.getMergedMangas(manga.id!!).executeAsBlocking()
                 val sources = mergedMangas.distinctBy { it.source }.map { sourceManager.getOrStub(it.source) }
-                chapters.groupBy { it.manga_id }.forEach { map ->
-                    val mergedManga = mergedMangas.firstOrNull { it.id == map.key } ?: return@forEach
+                chapters.groupBy { it.manga_id }.forEach { (mangaId, chapters) ->
+                    val mergedManga = mergedMangas.firstOrNull { it.id == mangaId } ?: return@forEach
                     val mergedMangaSource = sources.firstOrNull { it.id == mergedManga.source } ?: return@forEach
-                    downloadManager.deleteChapters(map.value, mergedManga, mergedMangaSource)
+                    downloadManager.deleteChapters(chapters, mergedManga, mergedMangaSource)
                 }
             } else /* SY <-- */ downloadManager.deleteChapters(chapters, manga, source)
         }
@@ -658,7 +671,7 @@ class LibraryPresenter(
                             val mergedMangas = db.getMergedMangas(manga.id!!).executeAsBlocking()
                             val sources = mergedMangas.distinctBy { it.source }.map { sourceManager.getOrStub(it.source) }
                             mergedMangas.forEach merge@{ mergedManga ->
-                                val mergedSource = sources.firstOrNull { mergedManga.source == it.id } ?: return@merge
+                                val mergedSource = sources.firstOrNull { mergedManga.source == it.id } as? HttpSource ?: return@merge
                                 downloadManager.deleteManga(mergedManga, mergedSource)
                             }
                         } else downloadManager.deleteManga(manga, source)
