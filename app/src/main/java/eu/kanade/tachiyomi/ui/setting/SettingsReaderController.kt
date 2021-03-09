@@ -62,18 +62,6 @@ class SettingsReaderController : SettingsController() {
             summaryRes = R.string.pref_left_handed_vertical_seekbar_summary
             defaultValue = false
         }
-        switchPreference {
-            key = Keys.dualPageSplit
-            titleRes = R.string.pref_dual_page_split
-            defaultValue = false
-        }
-        switchPreference {
-            key = Keys.dualPageInvert
-            titleRes = R.string.pref_dual_page_invert
-            summaryRes = R.string.pref_dual_page_invert_summary
-            defaultValue = false
-            preferences.dualPageSplit().asImmediateFlow { isVisible = it }.launchIn(viewScope)
-        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             switchPreference {
                 key = Keys.trueColor
@@ -326,10 +314,24 @@ class SettingsReaderController : SettingsController() {
                 titleRes = R.string.pref_crop_borders
                 defaultValue = false
             }
+            // SY -->
             switchPreference {
                 key = Keys.enableTransitionsPager
                 titleRes = R.string.pref_page_transitions
                 defaultValue = true
+            }
+            // SY <--
+            switchPreference {
+                key = Keys.dualPageSplitPaged
+                titleRes = R.string.pref_dual_page_split
+                defaultValue = false
+            }
+            switchPreference {
+                key = Keys.dualPageInvertPaged
+                titleRes = R.string.pref_dual_page_invert
+                summaryRes = R.string.pref_dual_page_invert_summary
+                defaultValue = false
+                preferences.dualPageSplitPaged().asImmediateFlow { isVisible = it }.launchIn(viewScope)
             }
         }
 
@@ -387,6 +389,19 @@ class SettingsReaderController : SettingsController() {
                 defaultValue = false
             }
             switchPreference {
+                key = Keys.dualPageSplitWebtoon
+                titleRes = R.string.pref_dual_page_split
+                defaultValue = false
+            }
+            switchPreference {
+                key = Keys.dualPageInvertWebtoon
+                titleRes = R.string.pref_dual_page_invert
+                summaryRes = R.string.pref_dual_page_invert_summary
+                defaultValue = false
+                preferences.dualPageSplitWebtoon().asImmediateFlow { isVisible = it }.launchIn(viewScope)
+            }
+            // SY -->
+            switchPreference {
                 key = Keys.enableTransitionsWebtoon
                 titleRes = R.string.pref_page_transitions
                 defaultValue = true
@@ -396,6 +411,7 @@ class SettingsReaderController : SettingsController() {
                 titleRes = R.string.enable_zoom_out
                 defaultValue = false
             }
+            // SY <--
         }
 
         // SY -->

@@ -29,7 +29,6 @@ import androidx.core.view.setPadding
 import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.elvishew.xlog.XLog
 import com.google.android.material.snackbar.Snackbar
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.database.models.Chapter
@@ -71,6 +70,7 @@ import eu.kanade.tachiyomi.util.view.showBar
 import eu.kanade.tachiyomi.util.view.snack
 import eu.kanade.tachiyomi.widget.SimpleAnimationListener
 import eu.kanade.tachiyomi.widget.SimpleSeekBarListener
+import exh.log.xLogE
 import exh.source.isEhBasedSource
 import exh.util.defaultReaderType
 import exh.util.mangaType
@@ -128,8 +128,6 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
     private val autoScrollFlow = MutableSharedFlow<Unit>()
     private var autoScrollJob: Job? = null
     private val sourceManager: SourceManager by injectLazy()
-
-    private val logger = XLog.tag("ReaderActivity")
 
     private lateinit var chapterBottomSheet: ReaderChapterSheet
     // SY <--
@@ -435,6 +433,37 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
                 .launchIn(lifecycleScope)
         }
         // SY <--
+
+        /*binding.actionRotation.setOnClickListener {
+            val newOrientation = OrientationType.getNextOrientation(preferences.rotation().get(), resources)
+
+            preferences.rotation().set(newOrientation.prefValue)
+            setOrientation(newOrientation.flag)
+
+            rotationToast?.cancel()
+            rotationToast = toast(newOrientation.stringRes)
+        }
+        preferences.rotation().asImmediateFlow { updateRotationShortcut(it) }
+            .onEach {
+                updateRotationShortcut(it)
+            }
+            .launchIn(lifecycleScope)
+         */
+
+        binding.actionCustomFilter.setOnClickListener {
+            val sheet = ReaderColorFilterSheet(this)
+                // Remove dimmed backdrop so changes can be previewed
+                .apply { window?.setDimAmount(0f) }
+
+            // Hide toolbars while sheet is open for better preview
+            sheet.setOnDismissListener { setMenuVisibility(true) }
+            setMenuVisibility(false)
+
+            sheet.show()
+        }
+        binding.actionSettings.setOnClickListener {
+            ReaderSettingsSheet(this).show()
+        }
 
         /*binding.actionRotation.setOnClickListener {
             val newOrientation = OrientationType.getNextOrientation(preferences.rotation().get(), resources)
@@ -955,7 +984,7 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
             ReaderPageSheet(this, page).show()
             // EXH -->
         } catch (e: WindowManager.BadTokenException) {
-            logger.e("Caught and ignoring reader page sheet launch exception!", e)
+            xLogE("Caught and ignoring reader page sheet launch exception!", e)
         }
         // EXH <--
     }
@@ -1058,6 +1087,16 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
     }
 
     /**
+     * Forces the user preferred [orientation] on the activity.
+     */
+    private fun setOrientation(orientation: Int) {
+        val newOrientation = OrientationType.fromPreference(orientation, resources)
+        if (newOrientation.flag != requestedOrientation) {
+            requestedOrientation = newOrientation.flag
+        }
+    }
+
+    /**
      * Class that handles the user preferences of the reader.
      */
     private inner class ReaderConfig {
@@ -1108,33 +1147,6 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
             preferences.colorFilterMode().asFlow()
                 .onEach { setColorFilter(preferences.colorFilter().get()) }
                 .launchIn(lifecycleScope)
-        }
-
-        /**
-         * Forces the user preferred [orientation] on the activity.
-         */
-        private fun setOrientation(orientation: Int) {
-            val newOrientation = when (orientation) {
-                // Lock in current orientation
-                2 -> {
-                    val currentOrientation = resources.configuration.orientation
-                    if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
-                        ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
-                    } else {
-                        ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
-                    }
-                }
-                // Lock in portrait
-                3 -> ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
-                // Lock in landscape
-                4 -> ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
-                // Rotation free
-                else -> ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-            }
-
-            if (newOrientation != requestedOrientation) {
-                requestedOrientation = newOrientation
-            }
         }
 
         /**
