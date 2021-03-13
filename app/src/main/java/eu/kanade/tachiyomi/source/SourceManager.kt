@@ -15,7 +15,6 @@ import eu.kanade.tachiyomi.source.online.all.NHentai
 import eu.kanade.tachiyomi.source.online.all.PervEden
 import eu.kanade.tachiyomi.source.online.english.EightMuses
 import eu.kanade.tachiyomi.source.online.english.HBrowse
-import eu.kanade.tachiyomi.source.online.english.HentaiCafe
 import eu.kanade.tachiyomi.source.online.english.Pururin
 import eu.kanade.tachiyomi.source.online.english.Tsumino
 import exh.log.xLogD
@@ -26,7 +25,6 @@ import exh.source.EIGHTMUSES_SOURCE_ID
 import exh.source.EXH_SOURCE_ID
 import exh.source.EnhancedHttpSource
 import exh.source.HBROWSE_SOURCE_ID
-import exh.source.HENTAI_CAFE_SOURCE_ID
 import exh.source.PERV_EDEN_EN_SOURCE_ID
 import exh.source.PERV_EDEN_IT_SOURCE_ID
 import exh.source.PURURIN_SOURCE_ID
@@ -155,13 +153,12 @@ open class SourceManager(private val context: Context) {
 
     // SY -->
     private fun createEHSources(): List<Source> {
-        val exSrcs = mutableListOf<HttpSource>(
+        val sources = listOf<HttpSource>(
             EHentai(EH_SOURCE_ID, false, context)
         )
-        if (prefs.enableExhentai().get()) {
-            exSrcs += EHentai(EXH_SOURCE_ID, true, context)
-        }
-        return exSrcs
+        return if (prefs.enableExhentai().get()) {
+            sources + EHentai(EXH_SOURCE_ID, true, context)
+        } else sources
     }
     // SY <--
 
@@ -195,12 +192,6 @@ open class SourceManager(private val context: Context) {
     companion object {
         private const val fillInSourceId = Long.MAX_VALUE
         val DELEGATED_SOURCES = listOf(
-            DelegatedSource(
-                "Hentai Cafe",
-                HENTAI_CAFE_SOURCE_ID,
-                "eu.kanade.tachiyomi.extension.en.hentaicafe.HentaiCafe",
-                HentaiCafe::class
-            ),
             DelegatedSource(
                 "Pururin",
                 PURURIN_SOURCE_ID,

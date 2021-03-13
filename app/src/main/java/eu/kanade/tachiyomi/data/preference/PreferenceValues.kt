@@ -26,6 +26,7 @@ object PreferenceValues {
         red,
         lime,
         midnightdusk,
+        hotpink,
     }
 
     enum class DisplayMode {

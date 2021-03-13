@@ -136,6 +136,7 @@ class SettingsGeneralController : SettingsController() {
                     R.string.theme_dark_red,
                     R.string.theme_dark_lime,
                     R.string.theme_dark_midnightdusk,
+                    R.string.theme_dark_hotpink,
                 )
                 entryValues = arrayOf(
                     Values.DarkThemeVariant.default.name,
@@ -144,6 +145,7 @@ class SettingsGeneralController : SettingsController() {
                     Values.DarkThemeVariant.red.name,
                     Values.DarkThemeVariant.lime.name,
                     Values.DarkThemeVariant.midnightdusk.name,
+                    Values.DarkThemeVariant.hotpink.name,
                 )
                 defaultValue = Values.DarkThemeVariant.default.name
                 summary = "%s"

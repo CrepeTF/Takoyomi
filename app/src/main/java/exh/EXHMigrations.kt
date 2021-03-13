@@ -26,7 +26,6 @@ import exh.merged.sql.models.MergedMangaReference
 import exh.source.BlacklistedSources
 import exh.source.EH_SOURCE_ID
 import exh.source.HBROWSE_SOURCE_ID
-import exh.source.HENTAI_CAFE_SOURCE_ID
 import exh.source.MERGED_SOURCE_ID
 import exh.source.PERV_EDEN_EN_SOURCE_ID
 import exh.source.PERV_EDEN_IT_SOURCE_ID
@@ -57,6 +56,8 @@ object EXHMigrations {
         val oldVersion = preferences.ehLastVersionCode().get()
         try {
             if (oldVersion < BuildConfig.VERSION_CODE) {
+                preferences.ehLastVersionCode().set(BuildConfig.VERSION_CODE)
+
                 // Fresh install
                 if (oldVersion == 0) {
                     // Set up default background tasks
@@ -215,8 +216,6 @@ object EXHMigrations {
 
                 // TODO BE CAREFUL TO NOT FUCK UP MergedSources IF CHANGING URLs
 
-                preferences.ehLastVersionCode().set(BuildConfig.VERSION_CODE)
-
                 return true
             }
         } catch (e: Exception) {
@@ -239,11 +238,6 @@ object EXHMigrations {
             manga.source = NHentai.otherId
             // Migrate nhentai URLs
             manga.url = getUrlWithoutDomain(manga.url)
-        }
-
-        // Migrate HentaiCafe source IDs
-        if (manga.source == 6908L) {
-            manga.source = HENTAI_CAFE_SOURCE_ID
         }
 
         // Migrate Tsumino source IDs
