@@ -88,7 +88,6 @@
     <!-- Main Theme-->
     <!--===========-->
     <style name="Theme.Tachiyomi.Light" parent="Theme.Base">
-        <item name="android:statusBarColor">@color/backgroundLight</item>
         <item name="android:navigationBarColor">@color/md_black_1000_54</item>
         <item name="background">@color/backgroundLight</item>
         <item name="border">@color/borderLight</item>
@@ -101,13 +100,8 @@
     </style>
 
     <style name="Theme.Tachiyomi.LightFlat" parent="Theme.Base">
-        <item name="colorPrimary">@color/backgroundLightFlat</item>
-        <item name="colorOnPrimary">@color/textColorPrimaryLight</item>
         <item name="colorAccentOnPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
-        <item name="colorOnSurface">@color/textColorPrimaryLight</item>
-        <item name="colorOnBackground">@color/textColorPrimaryLight</item>
-        <item name="colorOnSecondary">@color/textColorPrimaryLight</item>
         <item name="background">@color/backgroundLightFlat</item>
         <item name="border">@color/lowlightLightFlat</item>
         <item name="lowlight">@color/lowlightLightFlat</item>
@@ -223,7 +217,7 @@
     </style>
 
     <style name="Theme.Tachiyomi.Amoled" parent="Theme.Base.Dark">
-        <item name="colorPrimary">@color/colorAmoledPrimary</item>
+        <item name="colorPrimary">@color/dialogAmoled</item>
         <item name="colorPrimaryVariant">@color/colorAmoledPrimary</item>
         <item name="colorSurface">@color/colorAmoledPrimary</item>
         <item name="background">@color/colorAmoledPrimary</item>

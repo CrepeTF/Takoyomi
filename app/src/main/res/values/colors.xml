@@ -20,6 +20,7 @@
     <color name="colorDarkPrimary">#2C2D32</color>
     <color name="colorDarkPrimaryDark">#202125</color>
     <color name="colorAmoledPrimary">@color/md_black_1000</color>
+    <color name="dialogAmoled">#131313</color>
     <color name="borderAmoled">#151619</color>
     <color name="lowlightAmoled">#0AFFFFFF</color>
 
@@ -94,7 +95,7 @@
     <color name="textColorSecondaryPink">@color/md_white_1000_70</color>
     <color name="textColorHintPink">@color/md_white_1000_50</color>
     <color name="backgroundPink">@color/md_black_1000</color>
-    <color name="dialogPink">@color/md_black_1000</color>
+    <color name="dialogPink">#131313</color>
     <color name="selectorColorPink">#80FF69B4</color>
 
     <!-- Reader Theme -->

@@ -21,6 +21,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/background"
             android:theme="?attr/actionBarTheme"
+            app:titleTextColor="?attr/colorOnPrimary"
             app:layout_scrollFlags="scroll|enterAlways|snap" />
 
         <com.google.android.material.tabs.TabLayout
