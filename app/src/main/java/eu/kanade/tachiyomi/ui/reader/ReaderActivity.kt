@@ -830,10 +830,8 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
 
         // --> Vertical seekbar hide on landscape
 
-        if (preferences.forceHorizontalSeekbar().get() && ((resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE && preferences.landscapeVerticalSeekbar().get()) || resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) && (viewer is WebtoonViewer || viewer is VerticalPagerViewer)) {
-            binding.readerNavVert.isVisible = false
-            binding.readerNavHorz.isVisible = true
-        } else if (((resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE && preferences.landscapeVerticalSeekbar().get()) || resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) && (viewer is WebtoonViewer || viewer is VerticalPagerViewer)) {
+        if (!preferences.forceHorizontalSeekbar().get() && ((resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE && preferences.landscapeVerticalSeekbar().get()) || resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) && (viewer is WebtoonViewer || viewer is VerticalPagerViewer)
+        ) {
             binding.readerNavVert.isVisible = true
             binding.readerNavHorz.isVisible = false
         } else {
