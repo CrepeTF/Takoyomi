@@ -57,6 +57,7 @@ import okhttp3.Headers
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.Request
 import okhttp3.Response
+import okhttp3.internal.closeQuietly
 import okio.EOFException
 import rx.Observable
 import tachiyomi.source.model.ChapterInfo
@@ -204,13 +205,15 @@ class MangaDex(delegate: HttpSource, val context: Context) :
                 add("two_factor", twoFactorCode)
             }
 
-            client.newCall(
-                POST(
-                    "${MdUtil.baseUrl}/ajax/actions.ajax.php?function=login",
-                    headers,
-                    formBody.build()
-                )
-            ).await()
+            runCatching {
+                client.newCall(
+                    POST(
+                        "${MdUtil.baseUrl}/ajax/actions.ajax.php?function=login",
+                        headers,
+                        formBody.build()
+                    )
+                ).await().closeQuietly()
+            }
 
             val response = client.newCall(GET(MdUtil.apiUrl + MdUtil.isLoggedInApi, headers)).await()
 
@@ -234,10 +237,10 @@ class MangaDex(delegate: HttpSource, val context: Context) :
             if (token.isNullOrEmpty()) {
                 return@withIOContext true
             }
-            val result = client.newCall(
-                POST("${MdUtil.baseUrl}/ajax/actions.ajax.php?function=logout", headers).newBuilder().addHeader(REMEMBER_ME, token).build()
-            ).await()
             try {
+                val result = client.newCall(
+                    POST("${MdUtil.baseUrl}/ajax/actions.ajax.php?function=logout", headers).newBuilder().addHeader(REMEMBER_ME, token).build()
+                ).await()
                 val resultStr = withIOContext { result.body?.string() }
                 if (resultStr?.contains("success", true) == true) {
                     network.cookieManager.remove(httpUrl)
@@ -276,7 +279,7 @@ class MangaDex(delegate: HttpSource, val context: Context) :
     }
 
     suspend fun getTrackingAndMangaInfo(track: Track): Pair<Track, MangaDexSearchMetadata> {
-        return MangaHandler(client, headers, lang).getTrackingInfo(track, useLowQualityThumbnail())
+        return MangaHandler(client, headers, mdLang).getTrackingInfo(track, useLowQualityThumbnail())
     }
 
     override suspend fun updateFollowStatus(mangaID: String, followStatus: FollowStatus): Boolean {

@@ -1,6 +1,6 @@
-| Release Builds | Tachiyomi Support Server |
-|----------|----------|
-| [![stable release](https://img.shields.io/github/release/jobobby04/tachiyomisy.svg?maxAge=3600&label=download)](https://github.com/crepetf/tachiyomisy/releases/latest) | [![Discord](https://img.shields.io/discord/349436576037732353.svg)](https://discord.gg/tachiyomi) |
+| Preview Builds | Release Builds | Tachiyomi Support Server |
+|-------|----------|----------|
+| [![Preview](https://github.com/jobobby04/TachiyomiSYPreview/workflows/Remote%20Dispatch%20Build%20App/badge.svg)](https://github.com/jobobby04/TachiyomiSYPreview/releases) | [![stable release](https://img.shields.io/github/release/jobobby04/tachiyomisy.svg?maxAge=3600&label=download)](https://github.com/jobobby04/tachiyomisy/releases/latest) | [![Discord](https://img.shields.io/discord/349436576037732353.svg?label=discord&labelColor=7289da&color=2c2f33&style=flat)](https://discord.gg/tachiyomi) |
 
 
 SY Comics
@@ -23,7 +23,7 @@ Please make sure to read the full guidelines. Your issue may be closed without w
 
 <details><summary>Issues</summary>
 
-1. **Before reporting a new issue, take a look at the [FAQ](https://tachiyomi.org/help/faq/), the [changelog](https://github.com/crepetf/tachiyomisy/releases) and the already opened [issues](https://github.com/crepetf/tachiyomisy/issues).**
+1. **Before reporting a new issue, take a look at the [FAQ](https://tachiyomi.org/help/faq/), the [changelog](https://github.com/jobobby04/tachiyomisy/releases) and the already opened [issues](https://github.com/jobobby04/tachiyomisy/issues).**
 2. If you are unsure, ask here: [![Discord](https://img.shields.io/discord/349436576037732353.svg)](https://discord.gg/tachiyomi)
 
 </details>
@@ -55,7 +55,12 @@ Source requests should be created at https://github.com/tachiyomiorg/tachiyomi-e
 
 <details><summary>Contributing</summary>
 
-See [CONTRIBUTING.md](https://github.com/tachiyomiorg/tachiyomi/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING.md](./CONTRIBUTING.md).
+</details>
+
+<details><summary>Code of Conduct</summary>
+
+See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 </details>
 
 ## FAQ

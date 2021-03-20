@@ -56,7 +56,7 @@
         <item name="toolbarNavigationButtonStyle">@style/Theme.Toolbar.Navigation</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <item name="dialogTheme">@style/Theme.AlertDialog.Light</item>
-        <item name="alertDialogTheme">@style/Theme.AlertDialog.Dark</item>
+        <item name="materialAlertDialogTheme">@style/Theme.AlertDialog.Light</item>
         <item name="bottomSheetDialogTheme">@style/Theme.BottomSheet</item>
         <item name="chipStyle">@style/Theme.Widget.Chip</item>
         <item name="buttonStyle">@style/Theme.Widget.Button</item>
@@ -76,7 +76,7 @@
         <item name="md_color_content">?attr/colorOnSurface</item>
         <item name="md_color_button_text">?attr/colorAccent</item>
         <item name="md_button_casing">literal</item>
-        <item name="md_corner_radius">@dimen/card_radius</item>
+        <item name="md_corner_radius">@dimen/dialog_radius</item>
 
         <!-- Custom Attributes-->
         <item name="colorLibrarySelection">?attr/colorAccent</item>
@@ -171,7 +171,7 @@
         <item name="toolbarNavigationButtonStyle">@style/Theme.Toolbar.Navigation</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <item name="dialogTheme">@style/Theme.AlertDialog.Dark</item>
-        <item name="alertDialogTheme">@style/Theme.AlertDialog.Dark</item>
+        <item name="materialAlertDialogTheme">@style/Theme.AlertDialog.Dark</item>
         <item name="bottomSheetDialogTheme">@style/Theme.BottomSheet</item>
         <item name="chipStyle">@style/Theme.Widget.Chip</item>
         <item name="buttonStyle">@style/Theme.Widget.Button</item>
@@ -191,7 +191,7 @@
         <item name="md_color_content">?attr/colorOnSurface</item>
         <item name="md_color_button_text">?attr/colorAccent</item>
         <item name="md_button_casing">literal</item>
-        <item name="md_corner_radius">@dimen/card_radius</item>
+        <item name="md_corner_radius">@dimen/dialog_radius</item>
 
         <!-- Custom Attributes-->
         <item name="colorLibrarySelection">?attr/colorAccent</item>

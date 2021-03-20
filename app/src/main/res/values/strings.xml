@@ -200,7 +200,9 @@
     <string name="update_1hour">Hourly</string>
     <string name="update_2hour">Every 2 hours</string>
     <string name="update_3hour">Every 3 hours</string>
+    <string name="update_4hour">Every 4 hours</string>
     <string name="update_6hour">Every 6 hours</string>
+    <string name="update_8hour">Every 8 hours</string>
     <string name="update_12hour">Every 12 hours</string>
     <string name="update_24hour">Daily</string>
     <string name="update_48hour">Every 2 days</string>
@@ -378,9 +380,6 @@
     <string name="pref_backup_service_category">Automatic backups</string>
     <string name="pref_backup_interval">Backup frequency</string>
     <string name="pref_backup_slots">Maximum backups</string>
-    <string name="full_restore_mode">Network Mode</string>
-    <string name="full_restore_online">Restore online, much slower but gives you more updated info and chapters</string>
-    <string name="full_restore_offline">Restore offline, finishes quickly but contains only what your backup has</string>
     <string name="source_not_found_name">Source not found: %1$s</string>
     <string name="tracker_not_logged_in">Not logged in: %1$s</string>
     <string name="backup_created">Backup created</string>
@@ -391,6 +390,7 @@
     <string name="backup_restore_missing_sources">Missing sources:</string>
     <string name="backup_restore_missing_trackers">Trackers not logged into:</string>
     <string name="backup_restore_content">Restore uses sources to fetch data, carrier costs may apply.\n\nMake sure you have installed all necessary extensions and are logged in to sources and tracking services before restoring.</string>
+    <string name="backup_restore_content_full">Data from the backup file will be restored.\n\nYou will need to install any missing extensions and log in to tracking services afterwards to use them.</string>
     <string name="restore_completed">Restore completed</string>
     <string name="restore_duration">%02d min, %02d sec</string>
     <plurals name="restore_completed_message">
@@ -432,10 +432,6 @@
     <string name="pref_disable_battery_optimization_summary">Helps with background library updates and backups</string>
     <string name="battery_optimization_disabled">Battery optimization is already disabled</string>
     <string name="battery_optimization_setting_activity_not_found">Couldn\'t open device settings</string>
-    <string name="clear_history_completed">History deleted</string>
-    <string name="clear_history_confirmation">Are you sure? All history will be lost.</string>
-    <string name="pref_clear_history">Clear history</string>
-    <string name="pref_clear_history_summary">Delete reading history for all manga</string>
 
       <!-- About section -->
     <string name="website">Website</string>
@@ -651,6 +647,9 @@
 
     <!-- History fragment -->
     <string name="recent_manga_time">Chapter %1$s • %2$s</string>
+    <string name="pref_clear_history">Clear history</string>
+    <string name="clear_history_completed">History deleted</string>
+    <string name="clear_history_confirmation">Are you sure? All history will be lost.</string>
 
     <!-- Source migration screen -->
     <string name="migration_help_guide">Source migration guide</string>
