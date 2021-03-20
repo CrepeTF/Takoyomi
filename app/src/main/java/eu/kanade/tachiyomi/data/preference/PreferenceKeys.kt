@@ -25,6 +25,8 @@ object PreferenceKeys {
 
     const val showPageNumber = "pref_show_page_number_key"
 
+    const val forceHorizontalSeekbar = "pref_force_horz_seekbar"
+
     const val landscapeVerticalSeekbar = "pref_show_vert_seekbar_landscape"
 
     const val leftVerticalSeekbar = "pref_left_handed_vertical_seekbar"
