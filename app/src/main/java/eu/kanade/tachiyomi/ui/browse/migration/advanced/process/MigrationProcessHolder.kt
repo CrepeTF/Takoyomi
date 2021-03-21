@@ -61,12 +61,12 @@ class MigrationProcessHolder(
             binding.skipManga.setVectorCompat(
                 R.drawable.ic_close_24dp,
                 view.context.getResourceColor(
-                    R
-                        .attr.colorOnPrimary
+                    R.attr.colorOnPrimary
                 )
             )
             binding.migrationMenu.isInvisible = true
             binding.skipManga.isVisible = true
+            binding.skipMangaFrame.isVisible = true
             binding.migrationMangaCardTo.resetManga()
             if (manga != null) {
                 withUIContext {
@@ -123,6 +123,7 @@ class MigrationProcessHolder(
                     }
                     binding.migrationMenu.isVisible = true
                     binding.skipManga.isVisible = false
+                    binding.skipMangaFrame.isVisible = false
                     adapter.sourceFinished()
                 }
             }
