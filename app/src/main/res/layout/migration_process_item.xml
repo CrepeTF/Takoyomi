@@ -39,30 +39,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/migration_menu"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/description_cover"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp"
-            android:layout_marginBottom="45dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/migration_manga_card_to"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_more_vert_24dp"
-            android:visibility="invisible"/>
-
         <include
             android:id="@+id/migration_manga_card_to"
             layout="@layout/migration_manga_card"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/migration_menu"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content" />
 
     </FrameLayout>
 
@@ -71,6 +52,7 @@
         android:layout_width="34dp"
         android:layout_height="34dp"
         android:layout_margin="6dp"
+        android:background="?attr/colorPrimary"
         app:cardCornerRadius="1000dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="@+id/migration_to_frame"
@@ -84,6 +66,30 @@
             android:background="?selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_close_24dp"
             app:tint="?attr/colorAccent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/migration_menu_frame"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_margin="6dp"
+        android:background="?attr/colorPrimary"
+        app:cardCornerRadius="1000dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/migration_to_frame"
+        app:layout_constraintTop_toTopOf="@+id/migration_to_frame"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/migration_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/description_cover"
+            android:padding="4dp"
+            app:srcCompat="@drawable/ic_more_vert_24dp"
+            app:tint="?attr/colorAccent"
+            android:visibility="invisible" />
 
     </androidx.cardview.widget.CardView>
 

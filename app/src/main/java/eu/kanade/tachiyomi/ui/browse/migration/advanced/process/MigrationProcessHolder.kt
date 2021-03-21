@@ -65,6 +65,7 @@ class MigrationProcessHolder(
                 )
             )
             binding.migrationMenu.isInvisible = true
+            binding.migrationMenuFrame.isInvisible = true
             binding.skipManga.isVisible = true
             binding.skipMangaFrame.isVisible = true
             binding.migrationMangaCardTo.resetManga()
@@ -122,6 +123,7 @@ class MigrationProcessHolder(
                             .getString(R.string.no_alternatives_found)
                     }
                     binding.migrationMenu.isVisible = true
+                    binding.migrationMenuFrame.isVisible = true
                     binding.skipManga.isVisible = false
                     binding.skipMangaFrame.isVisible = false
                     adapter.sourceFinished()
