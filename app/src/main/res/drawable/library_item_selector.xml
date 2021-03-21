@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="?attr/colorPrimary">
+    android:color="?attr/colorAccent"
+    android:inset="2.1dp">
     <item>
 
         <selector>
