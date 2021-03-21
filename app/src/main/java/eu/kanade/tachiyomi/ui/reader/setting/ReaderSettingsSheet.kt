@@ -79,6 +79,14 @@ class ReaderSettingsSheet(private val activity: ReaderActivity) : BaseBottomShee
         binding.autoWebtoonMode.bindToPreference(preferences.useAutoWebtoon())
         // SY <--
 
+        // Hides landscapeVerticalSeekbar & leftVerticalSeekbar option when forceHorizontalSeekbar is enabled
+        binding.forceHorzSeekbar.bindToPreference(preferences.forceHorizontalSeekbar())
+        preferences.forceHorizontalSeekbar()
+            .asImmediateFlow { binding.landscapeVerticalSeekbar.isVisible = !it; binding.leftVerticalSeekbar.isVisible = !it }
+            .launchIn(activity.lifecycleScope)
+        binding.landscapeVerticalSeekbar.bindToPreference(preferences.landscapeVerticalSeekbar())
+        binding.leftVerticalSeekbar.bindToPreference(preferences.leftVerticalSeekbar())
+
         // If the preference is explicitly disabled, that means the setting was configured since there is a cutout
         if (activity.hasCutout || !preferences.cutoutShort().get()) {
             binding.cutoutShort.isVisible = true
