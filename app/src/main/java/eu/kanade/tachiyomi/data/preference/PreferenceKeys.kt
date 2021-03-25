@@ -25,12 +25,6 @@ object PreferenceKeys {
 
     const val showPageNumber = "pref_show_page_number_key"
 
-    const val forceHorizontalSeekbar = "pref_force_horz_seekbar"
-
-    const val landscapeVerticalSeekbar = "pref_show_vert_seekbar_landscape"
-
-    const val leftVerticalSeekbar = "pref_left_handed_vertical_seekbar"
-
     const val dualPageSplitPaged = "pref_dual_page_split"
 
     const val dualPageSplitWebtoon = "pref_dual_page_split_webtoon"
@@ -86,6 +80,10 @@ object PreferenceKeys {
     const val navigationModePager = "reader_navigation_mode_pager"
 
     const val navigationModeWebtoon = "reader_navigation_mode_webtoon"
+
+    const val showNavigationOverlayNewUser = "reader_navigation_overlay_new_user"
+
+    const val showNavigationOverlayOnStart = "reader_navigation_overlay_on_start"
 
     const val webtoonSidePadding = "webtoon_side_padding"
 
@@ -364,4 +362,10 @@ object PreferenceKeys {
     const val extensionRepos = "extension_repos"
 
     const val cropBordersContinuesVertical = "crop_borders_continues_vertical"
+
+    const val landscapeVerticalSeekbar = "pref_show_vert_seekbar_landscape"
+
+    const val leftVerticalSeekbar = "pref_left_handed_vertical_seekbar"
+
+    const val forceHorizontalSeekbar = "pref_force_horz_seekbar"
 }
