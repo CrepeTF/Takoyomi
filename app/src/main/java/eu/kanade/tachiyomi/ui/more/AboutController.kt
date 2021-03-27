@@ -104,6 +104,14 @@ class AboutController : SettingsController() {
                 }
             }
             preference {
+                key = "pref_about_discord_sy_comics"
+                title = "SY Comics Discord"
+                "https://discord.gg/acPEgaqGK4".also {
+                    summary = it
+                    onClick { openInBrowser(it) }
+                }
+            }
+            preference {
                 key = "pref_about_github"
                 title = "GitHub"
                 // SY -->
