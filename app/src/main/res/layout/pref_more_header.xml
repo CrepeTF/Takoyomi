@@ -8,10 +8,10 @@
     android:padding="32dp">
 
     <ImageView
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/ic_tachi"
+        app:srcCompat="@drawable/ic_launcher_foreground"
         app:tint="?attr/colorOnPrimary" />
 
 </FrameLayout>
