@@ -103,6 +103,16 @@ class AboutController : SettingsController() {
                     onClick { openInBrowser(it) }
                 }
             }
+            // SY -->
+            preference {
+                key = "pref_about_discord_takoyomi"
+                title = "Takoyomi Discord"
+                "https://discord.gg/acPEgaqGK4".also {
+                    summary = it
+                    onClick { openInBrowser(it) }
+                }
+            }
+            // SY <--
             preference {
                 key = "pref_about_github"
                 title = "GitHub"
