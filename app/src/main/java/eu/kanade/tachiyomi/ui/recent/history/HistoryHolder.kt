@@ -31,7 +31,7 @@ class HistoryHolder(
     private val binding = HistoryItemBinding.bind(view)
 
     init {
-        binding.holder.setOnClickListener {
+        binding.cover.setOnClickListener {
             adapter.itemClickListener.onItemClick(bindingAdapterPosition)
         }
 
@@ -39,7 +39,7 @@ class HistoryHolder(
             adapter.removeClickListener.onRemoveClick(bindingAdapterPosition)
         }
 
-        binding.resume.setOnClickListener {
+        binding.holder.setOnClickListener {
             adapter.resumeClickListener.onResumeClick(bindingAdapterPosition)
         }
     }
