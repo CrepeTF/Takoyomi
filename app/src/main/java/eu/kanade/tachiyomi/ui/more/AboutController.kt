@@ -107,7 +107,7 @@ class AboutController : SettingsController() {
                 key = "pref_about_github"
                 title = "GitHub"
                 // SY -->
-                "https://github.com/jobobby04/TachiyomiSY".also {
+                "https://github.com/CrepeTF/Takoyomi".also {
                     summary = it
                     onClick { openInBrowser(it) }
                 }
