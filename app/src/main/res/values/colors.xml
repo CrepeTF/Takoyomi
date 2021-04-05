@@ -4,6 +4,8 @@
     <color name="colorPrimary">#54759E</color>
     <color name="colorPrimaryDark">#435E7E</color>
 
+    <color name="downloadedIcon">#4AA97D</color>
+
     <!-- Dark Application Colors -->
     <color name="colorDarkPrimary">#242529</color>
     <color name="colorDarkPrimaryDark">#202125</color>
@@ -35,6 +37,9 @@
     
     <color name="red">#FF0000</color>
     <color name="dark_red">#880000</color>
+
+    <!-- Takoyomi -->
+    <color name="downloadedIconRed">#99FF0000</color>
 
     <!-- Midnight Dusk Theme -->
     <color name="colorAccentDusk">#F02475</color>

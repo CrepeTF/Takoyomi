@@ -23,4 +23,7 @@
     <attr name="colorBackgroundSplash" format="reference|integer"/>
     <attr name="colorAccentOnPrimary" format="reference|integer"/>
 
+    <!-- Takoyomi -->
+    <attr name="downloadedIcon" format="reference|integer"/>
+
 </resources>
