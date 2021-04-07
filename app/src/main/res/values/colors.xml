@@ -24,6 +24,10 @@
     <color name="dialogLight">@color/md_white_1000</color>
     <color name="selectorColorLight">@color/md_blue_A400_38</color>
 
+    <!-- Takoyomi -->
+    <color name="trackerBackgroundLight">#1A000000</color>
+    <color name="trackerForegroundLight">#FFFFFF</color>
+
     <!-- Dark Theme -->
     <color name="colorAccentDark">#3399FF</color>
     <color name="textColorPrimaryDark">@color/md_white_1000</color>
@@ -40,6 +44,11 @@
 
     <!-- Takoyomi -->
     <color name="downloadedIconRed">#99FF0000</color>
+    <color name="trackerBackgroundRed">#1AFFFFFF</color>
+    <color name="trackerForegroundRed">#0D000000</color>
+
+    <color name="trackerBackgroundDark">#4D000000</color>
+    <color name="trackerForegroundDark">#08FFFFFF</color>
 
     <!-- Midnight Dusk Theme -->
     <color name="colorAccentDusk">#F02475</color>
@@ -52,6 +61,11 @@
     <color name="dialogDusk">#201F27</color>
     <color name="selectorColorDusk">#80F02475</color>
 
+    <!-- Takoyomi -->
+    <color name="downloadedIconDusk">#CCF02475</color>
+    <color name="trackerBackgroundDusk">#66000000</color>
+    <color name="trackerForegroundDusk">#0DFFFFFF</color>
+
     <!-- Hot Pink Theme -->
     <color name="colorAccentPink">#FF3399</color>
     <color name="textColorPrimaryPink">@color/md_white_1000</color>
@@ -60,6 +74,11 @@
     <color name="backgroundPink">@color/md_black_1000</color>
     <color name="dialogPink">@color/md_black_1000</color>
     <color name="selectorColorPink">#80FF69B4</color>
+
+    <!-- Takoyomi -->
+    <color name="downloadedIconPink">#CCFF3399</color>
+    <color name="trackerBackgroundPink">#1AFFFFFF</color>
+    <color name="trackerForegroundPink">#0D000000</color>
 
     <!-- Reader Theme -->
     <color name="readerColorDarkPrimary">@color/colorDarkPrimary</color>

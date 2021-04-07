@@ -19,6 +19,11 @@
 
         <item name="android:colorBackground">@color/backgroundDusk</item>
 
+        <!-- Takoyomi -->
+        <item name="downloadedIcon">@color/downloadedIconDusk</item>
+        <item name="trackerBackground">@color/trackerBackgroundDusk</item>
+        <item name="trackerForeground">@color/trackerForegroundDusk</item>
+
         <!-- Some ROMs make black navbars white (e.g. OxygenOS) -->
         <item name="android:navigationBarColor">@android:color/transparent</item>
 
@@ -41,6 +46,11 @@
         <item name="colorOnBackground">@color/textColorPrimaryPink</item>
         <item name="colorAccent">@color/colorAccentPink</item>
         <item name="background">@color/backgroundPink</item>
+
+        <!-- Takoyomi -->
+        <item name="downloadedIcon">@color/downloadedIconPink</item>
+        <item name="trackerBackground">@color/trackerBackgroundPink</item>
+        <item name="trackerForeground">@color/trackerForegroundPink</item>
 
         <item name="android:colorBackground">@color/backgroundPink</item>
         <item name="android:windowBackground">@color/backgroundPink</item>

@@ -94,6 +94,8 @@
 
         <!-- Takoyomi -->
         <item name="downloadedIcon">@color/downloadedIcon</item>
+        <item name="trackerBackground">@color/trackerBackgroundLight</item>
+        <item name="trackerForeground">@color/trackerForegroundLight</item>
 
         <item name="colorFilterActive">@color/filterColorLight</item>
     </style>
@@ -133,6 +135,8 @@
 
         <!-- Takoyomi -->
         <item name="downloadedIcon">@color/downloadedIcon</item>
+        <item name="trackerBackground">@color/trackerBackgroundDark</item>
+        <item name="trackerForeground">@color/trackerForegroundDark</item>
 
         <!-- Handles RTL text -->
         <item name="android:textAlignment">gravity</item>
@@ -241,6 +245,8 @@
 
         <!-- Takoyomi -->
         <item name="downloadedIcon">@color/downloadedIconRed</item>
+        <item name="trackerBackground">@color/trackerBackgroundRed</item>
+        <item name="trackerForeground">@color/trackerForegroundRed</item>
     </style>
 
     <!--==============-->
