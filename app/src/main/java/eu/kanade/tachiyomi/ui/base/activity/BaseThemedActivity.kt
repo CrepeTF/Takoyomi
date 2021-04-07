@@ -24,21 +24,18 @@ abstract class BaseThemedActivity : AppCompatActivity() {
 
     private val lightTheme: Int by lazy {
         when (preferences.themeLight().get()) {
-            Values.LightThemeVariant.blue -> R.style.Theme_Tachiyomi_LightBlue
-            else -> {
-                when {
-                    // Light status + navigation bar
-                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1 -> {
-                        R.style.Theme_Tachiyomi_Light_Api27
-                    }
-                    // Light status bar + fallback gray navigation bar
-                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> {
-                        R.style.Theme_Tachiyomi_Light_Api23
-                    }
-                    // Fallback gray status + navigation bar
-                    else -> {
-                        R.style.Theme_Tachiyomi_Light
-                    }
+            Values.LightThemeVariant.default -> when {
+                // Light status + navigation bar
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1 -> {
+                    R.style.Theme_Tachiyomi_Light_Api27
+                }
+                // Light status bar + fallback gray navigation bar
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> {
+                    R.style.Theme_Tachiyomi_Light_Api23
+                }
+                // Fallback gray status + navigation bar
+                else -> {
+                    R.style.Theme_Tachiyomi_Light
                 }
             }
         }
@@ -46,7 +43,6 @@ abstract class BaseThemedActivity : AppCompatActivity() {
 
     private val darkTheme: Int by lazy {
         when (preferences.themeDark().get()) {
-            Values.DarkThemeVariant.blue -> R.style.Theme_Tachiyomi_DarkBlue
             Values.DarkThemeVariant.amoled -> R.style.Theme_Tachiyomi_Amoled
             Values.DarkThemeVariant.red -> R.style.Theme_Tachiyomi_Red
             Values.DarkThemeVariant.midnightdusk -> R.style.Theme_Tachiyomi_MidnightDusk
