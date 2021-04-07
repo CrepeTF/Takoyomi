@@ -1,7 +1,5 @@
 package eu.kanade.tachiyomi.ui.manga.info
 
-import android.graphics.PorterDuff
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +21,6 @@ import eu.kanade.tachiyomi.source.online.HttpSource
 import eu.kanade.tachiyomi.source.online.all.MergedSource
 import eu.kanade.tachiyomi.ui.manga.MangaController
 import eu.kanade.tachiyomi.util.system.copyToClipboard
-import eu.kanade.tachiyomi.util.system.getResourceColor
 import exh.merged.sql.models.MergedMangaReference
 import exh.source.MERGED_SOURCE_ID
 import exh.util.SourceTagsUtil
@@ -288,6 +285,7 @@ class MangaInfoHeaderAdapter(
 
             // Set cover if changed.
             val mangaThumbnail = manga.toMangaThumbnail()
+            /*
             if (mangaThumbnail != currentMangaThumbnail) {
                 currentMangaThumbnail = mangaThumbnail
                 listOf(binding.mangaCover, binding.backdrop)
@@ -299,7 +297,20 @@ class MangaInfoHeaderAdapter(
                             .into(it)
                     }
             }
+            */
+            if (mangaThumbnail != currentMangaThumbnail) {
+                currentMangaThumbnail = mangaThumbnail
+                listOf(binding.mangaCover)
+                    .forEach {
+                        GlideApp.with(view.context)
+                            .load(mangaThumbnail)
+                            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                            .centerCrop()
+                            .into(it)
+                    }
+            }
 
+            /*
             if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
                 @Suppress("DEPRECATION")
                 binding.backdropOverlay.background.setColorFilter(
@@ -307,6 +318,7 @@ class MangaInfoHeaderAdapter(
                     PorterDuff.Mode.SRC_ATOP
                 )
             }
+            */
         }
 
         /**

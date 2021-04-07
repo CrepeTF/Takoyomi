@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/backdrop"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -30,15 +30,15 @@
             android:layout_marginBottom="44dp"
             android:background="@drawable/manga_info_gradient"
             android:backgroundTint="?android:attr/colorBackground"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent" />-->
 
         <LinearLayout
             android:id="@+id/manga_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingStart="16dp"
-            android:paddingTop="48dp"
+            android:paddingStart="24dp"
+            android:paddingTop="8dp"
             android:paddingEnd="16dp"
             android:paddingBottom="8dp"
             app:layout_constraintTop_toTopOf="parent">
@@ -55,7 +55,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="4dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
                 android:orientation="vertical">
@@ -65,7 +66,6 @@
                     style="@style/TextAppearance.Medium.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="bottom"
                     android:maxLines="3"
                     android:text="@string/manga_info_full_title_label"
                     android:textIsSelectable="false"
