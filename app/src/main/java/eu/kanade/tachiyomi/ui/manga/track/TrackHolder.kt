@@ -56,6 +56,7 @@ class TrackHolder(private val binding: TrackItemBinding, adapter: TrackAdapter) 
                 binding.trackFinishDate.text =
                     if (track.finished_reading_date != 0L) dateFormat.format(track.finished_reading_date) else "-"
             } else {
+                binding.divider.isVisible = false
                 binding.trackStartDate.isVisible = false
                 binding.trackFinishDate.isVisible = false
             }
