@@ -46,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:fontFamily="@font/ptsans_narrow_bold"
+        android:fontFamily="@font/roboto_regular"
         android:lineSpacingExtra="-4dp"
         android:maxLines="2"
         android:padding="4dp"

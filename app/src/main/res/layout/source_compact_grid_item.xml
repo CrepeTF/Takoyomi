@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:ellipsize="end"
-            android:fontFamily="@font/ptsans_narrow_bold"
+            android:fontFamily="@font/roboto_medium"
             android:lineSpacingExtra="-4dp"
             android:maxLines="2"
             android:padding="8dp"
