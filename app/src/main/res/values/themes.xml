@@ -44,7 +44,7 @@
         <item name="android:textDirection">locale</item>
 
         <!-- Themes -->
-        <item name="android:statusBarColor">?android:attr/colorBackground</item>
+        <item name="android:statusBarColor">@color/backgroundLight</item>
         <item name="android:navigationBarColor">?attr/colorPrimary</item>
         <item name="android:enforceNavigationBarContrast" tools:targetApi="29">false</item>
         <item name="windowActionModeOverlay">true</item>
