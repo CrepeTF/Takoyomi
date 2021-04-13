@@ -26,6 +26,9 @@
         <item name="colorOnBackground">@color/textColorPrimaryLight</item>
         <item name="colorAccent">@color/colorAccentLight</item>
 
+        <!-- Takoyomi -->
+        <item name="background">@color/backgroundLight</item>
+
         <!-- Base background/text colors -->
         <item name="android:colorBackground">@color/backgroundLight</item>
         <item name="android:textColorPrimary">@color/textColorPrimaryLight</item>
@@ -90,7 +93,7 @@
     <style name="Theme.Tachiyomi.Light" parent="Theme.Base">
         <item name="android:statusBarColor">@color/md_black_1000_54</item>
         <item name="android:navigationBarColor">@color/md_black_1000_54</item>
-        <item name="background">@color/dialogLight</item>
+        <item name="background">@color/backgroundLight</item>
 
         <!-- Takoyomi -->
         <item name="downloadedIcon">@color/downloadedIcon</item>
@@ -119,7 +122,7 @@
         <item name="colorOnSurface">@color/textColorPrimaryDark</item>
         <item name="colorOnBackground">@color/textColorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccentDark</item>
-        <item name="background">@color/colorDarkPrimaryDark</item>
+        <item name="background">@color/backgroundDark</item>
 
         <!-- Takoyomi -->
         <item name="downloadedIcon">@color/downloadedIcon</item>
