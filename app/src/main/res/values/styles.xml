@@ -27,7 +27,7 @@
     </style>
 
     <style name="Theme.ActionMode" parent="Base.Widget.AppCompat.ActionMode">
-        <item name="background">?attr/colorPrimary</item>
+        <item name="background">?attr/background</item>
     </style>
 
     <style name="Theme.ActionMode.CloseButton" parent="Base.Widget.AppCompat.ActionButton.CloseMode">
