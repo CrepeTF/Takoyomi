@@ -30,6 +30,7 @@
 
         <!-- Takoyomi -->
         <item name="background">@color/backgroundLight</item>
+        <item name="downloadIcon">@color/downloadIconLight</item>
 
         <!-- Base background/text colors -->
         <item name="android:colorBackground">@color/backgroundLight</item>
@@ -128,7 +129,9 @@
         <item name="background">@color/backgroundDark</item>
 
         <!-- Takoyomi -->
+        <item name="downloadIcon">@color/downloadIconDark</item>
         <item name="downloadedIcon">@color/downloadedIcon</item>
+
         <item name="trackerBackground">@color/trackerBackgroundDark</item>
         <item name="trackerForeground">@color/trackerForegroundDark</item>
 

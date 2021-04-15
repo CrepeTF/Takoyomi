@@ -31,6 +31,8 @@
     <color name="trackerBackgroundLight">#ffffff</color>
     <color name="trackerForegroundLight">#0D000000</color>
 
+    <color name="downloadIconLight">#85A3A3A3</color>
+
     <!-- Dark Theme -->
     <color name="colorAccentDark">#3399FF</color>
     <color name="textColorPrimaryDark">@color/md_white_1000</color>
@@ -47,8 +49,11 @@
 
     <!-- Takoyomi -->
     <color name="downloadedIconRed">#99FF0000</color>
+
     <color name="trackerBackgroundRed">#1AFFFFFF</color>
     <color name="trackerForegroundRed">#26FFFFFF</color>
+
+    <color name="downloadIconDark">#85505050</color>
 
     <color name="trackerBackgroundDark">#08FFFFFF</color>
     <color name="trackerForegroundDark">#14FFFFFF</color>
@@ -66,6 +71,7 @@
 
     <!-- Takoyomi -->
     <color name="downloadedIconDusk">#CCF02475</color>
+
     <color name="trackerBackgroundDusk">#99000000</color>
     <color name="trackerForegroundDusk">#0DFFFFFF</color>
 
@@ -80,6 +86,7 @@
 
     <!-- Takoyomi -->
     <color name="downloadedIconPink">#CCFF3399</color>
+
     <color name="trackerBackgroundPink">#1AFFFFFF</color>
     <color name="trackerForegroundPink">#26FFFFFF</color>
 
