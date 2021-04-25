@@ -39,37 +39,13 @@
         app:indicatorSize="26dp"
         app:trackThickness="2.7dp" />
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/download_queued"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:indeterminate="true"
-        android:padding="3dp"
-        android:visibility="gone"
-        app:indicatorColor="?attr/downloadedIcon"
-        app:indicatorInset="0dp"
-        app:indicatorSize="26dp"
-        app:trackThickness="2.7dp" />
-
     <ImageView
-        android:id="@+id/downloaded_icon"
+        android:id="@+id/download_status_icon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:visibility="gone"
-        app:srcCompat="@drawable/ic_download_filled_18dp"
         app:tint="?attr/downloadedIcon"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/error_icon"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:visibility="gone"
-        app:srcCompat="@drawable/ic_error_outline_24dp"
-        app:tint="?attr/colorError"
         tools:ignore="ContentDescription" />
 
 </FrameLayout>
