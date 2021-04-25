@@ -75,6 +75,23 @@
     <color name="trackerBackgroundDusk">#99000000</color>
     <color name="trackerForegroundDusk">#0DFFFFFF</color>
 
+    <!-- Lime Theme -->
+    <color name="colorAccentLime">#4AF88A</color>
+    <color name="textColorPrimaryLime">@color/md_white_1000</color>
+    <color name="textColorSecondaryLime">@color/md_white_1000_70</color>
+    <color name="textColorHintLime">@color/md_white_1000_50</color>
+    <color name="dividerLime">#12ffffff</color>
+    <color name="rippleColorLime">@color/md_white_1000_20</color>
+    <color name="backgroundLime">@color/colorDarkPrimaryDark</color>
+    <color name="dialogLime">#282A2E</color>
+    <color name="selectorColorLime">#804AF88A</color>
+
+    <!-- Takoyomi -->
+    <color name="downloadedIconLime">#E64AA97D</color>
+
+    <color name="trackerBackgroundLime">#08FFFFFF</color>
+    <color name="trackerForegroundLime">#14FFFFFF</color>
+
     <!-- Hot Pink Theme -->
     <color name="colorAccentPink">#FF3399</color>
     <color name="textColorPrimaryPink">@color/md_white_1000</color>
