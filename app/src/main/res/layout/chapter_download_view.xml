@@ -23,7 +23,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:padding="3dp"
-        android:progress="100"
+        android:progress="0"
         android:visibility="gone"
         app:indicatorColor="?attr/downloadedIcon"
         app:indicatorInset="0dp"

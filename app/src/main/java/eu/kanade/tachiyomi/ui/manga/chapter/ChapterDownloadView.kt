@@ -65,7 +65,7 @@ class ChapterDownloadView @JvmOverloads constructor(context: Context, attrs: Att
             if (state == Download.State.DOWNLOADED || state == Download.State.ERROR) {
                 isVisible = true
                 if (state == Download.State.DOWNLOADED) {
-                    setVectorCompat(R.drawable.ic_check_circle_24dp, android.R.attr.textColorPrimary)
+                    setVectorCompat(R.drawable.ic_download_filled_18dp, android.R.attr.textColorPrimary)
                 } else {
                     setVectorCompat(R.drawable.ic_error_outline_24dp, R.attr.colorError)
                 }
