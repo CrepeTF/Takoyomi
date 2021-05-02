@@ -4,110 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/library_item_selector">
+    android:background="@drawable/library_item_selector"
+    android:padding="4dp">
 
-    <FrameLayout
-        android:id="@+id/card"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_frame"
         android:layout_width="wrap_content"
         android:layout_height="220dp"
-        android:background="?attr/colorSurface"
         app:layout_constraintDimensionRatio="0.75"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_min="100dp"
-        app:layout_constraintHeight_min="100dp">
+        app:layout_constraintHeight_min="100dp"
+        app:cardCornerRadius="4dp">
 
-        <ImageView
-            android:id="@+id/thumbnail"
+        <FrameLayout
+            android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?android:attr/colorBackground"
-            tools:background="?android:attr/colorBackground"
-            tools:ignore="ContentDescription"
-            tools:src="@mipmap/ic_launcher" />
+            android:background="?attr/colorSurface">
 
-        <View
-            android:id="@+id/gradient"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@drawable/gradient_shape" />
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?android:attr/colorBackground"
+                tools:background="?android:attr/colorBackground"
+                tools:ignore="ContentDescription"
+                tools:src="@mipmap/ic_launcher" />
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/loading_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            app:indicatorSize="56dp"/>
+            <View
+                android:id="@+id/gradient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/gradient_shape" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/rounded_rectangle"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/manga_chapters"
-                style="@style/TextAppearance.Regular.Caption"
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/loading_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccentDark"
-                android:paddingStart="3dp"
-                android:paddingTop="1dp"
-                android:paddingEnd="3dp"
-                android:paddingBottom="1dp"
-                android:text="101"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                app:indicatorSize="56dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_rectangle"
+                android:backgroundTint="?attr/colorAccent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/manga_chapters"
+                    style="@style/TextAppearance.Regular.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="3dp"
+                    android:paddingTop="1dp"
+                    android:paddingEnd="3dp"
+                    android:paddingBottom="1dp"
+                    android:text="101"
+                    android:textColor="?attr/background"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                style="@style/TextAppearance.Regular.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:ellipsize="end"
+                android:lineSpacingExtra="-4dp"
+                android:maxLines="2"
+                android:padding="8dp"
+                android:shadowColor="@color/textColorPrimaryLight"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="4"
                 android:textColor="@color/md_white_1000"
+                tools:text="Sample name" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progress"
+                style="@style/Theme.Widget.CircularProgressIndicator.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:visibility="gone"
-                tools:visibility="visible" />
-        </LinearLayout>
+                android:indeterminate="true" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/title"
-            style="@style/TextAppearance.Regular.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:ellipsize="end"
-            android:fontFamily="@font/roboto_medium"
-            android:lineSpacingExtra="-4dp"
-            android:maxLines="2"
-            android:padding="8dp"
-            android:shadowColor="@color/textColorPrimaryLight"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="4"
-            android:textColor="@color/md_white_1000"
-            tools:text="Sample name" />
+        </FrameLayout>
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progress"
-            style="@style/Theme.Widget.CircularProgressIndicator.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:indeterminate="true" />
-
-    </FrameLayout>
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:id="@+id/card_scroll_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:paddingBottom="20dp"
         android:gravity="start"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/card"
-        app:layout_constraintStart_toStartOf="@id/card"
-        app:layout_constraintTop_toBottomOf="@id/card">
+        app:layout_constraintEnd_toEndOf="@id/card_frame"
+        app:layout_constraintStart_toStartOf="@id/card_frame"
+        app:layout_constraintTop_toBottomOf="@id/card_frame">
 
 
         <TextView
