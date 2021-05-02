@@ -77,7 +77,7 @@ class SimilarUpdateService(
     private val progressNotification by lazy {
         NotificationCompat.Builder(this, Notifications.CHANNEL_SIMILAR)
             .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.mipmap.ic_launcher))
-            .setSmallIcon(R.drawable.ic_baseline_get_app_24)
+            .setSmallIcon(R.drawable.ic_tako)
             .setOngoing(true)
             .setContentTitle(getString(R.string.similar_loading_progress_start))
             .setAutoCancel(true)
