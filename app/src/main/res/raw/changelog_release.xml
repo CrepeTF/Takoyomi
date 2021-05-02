@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
     <changelogversion versionName="1.0.0" changeDate="Apr 28,2021">
+        <changelogtext>[b]Make a backup before you update your app, also if you are currently using flat lime theme temporarily switch to another theme (e.g. Default) until after you have updated.[/b]</changelogtext>
         <changelogtext>[b]Based on TachiyomiSY 1.6.2[/b]</changelogtext>
         <changelogtext>[b]New[/b] New app icon and name</changelogtext>
         <changelogtext>[b]New[/b] Can long-click migrate-to manga on migration b=page to bring up pop-up menu</changelogtext>
