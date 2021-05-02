@@ -5,5 +5,7 @@
         <item name="android:windowLightNavigationBar">true</item>
     </style>
 
-    <style name="Theme.Tachiyomi.Light" parent="Base.V27.Theme.Tachiyomi.Light" />
+    <style name="Theme.Tachiyomi.Light" parent="Base.V27.Theme.Tachiyomi.Light">
+        <item name="android:statusBarColor">@color/backgroundLight</item>
+    </style>
 </resources>
