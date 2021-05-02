@@ -232,11 +232,12 @@
         <item name="colorPrimary">@color/readerColorDarkPrimary</item>
         <item name="colorOnPrimary">@color/textColorPrimaryDark</item>
         <item name="colorPrimaryVariant">@color/readerColorDarkPrimary</item>
-        <item name="colorSurface">@color/md_black_1000</item>
+        <item name="colorSurface">#1A1B1E</item>
+        <item name="readerMenu">@color/readerMenuBackground</item>
 
         <item name="android:colorBackground">@color/md_black_1000</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/readerMenu</item>
+        <item name="android:navigationBarColor">?attr/readerMenu</item>
 
         <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
         <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialComponents</item>
@@ -249,10 +250,11 @@
         <item name="colorOnPrimary">@color/textColorPrimaryDark</item>
         <item name="colorPrimaryVariant">@color/readerColorDarkPrimary</item>
         <item name="colorSurface">@color/md_white_1000</item>
+        <item name="readerMenu">@color/readerMenuBackground</item>
 
         <item name="android:colorBackground">@color/md_white_1000</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/readerMenu</item>
+        <item name="android:navigationBarColor">?attr/readerMenu</item>
 
         <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
         <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialComponents</item>

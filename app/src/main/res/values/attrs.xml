@@ -29,5 +29,6 @@
     <attr name="trackerBackground" format="reference|integer"/>
     <attr name="trackerForeground" format="reference|integer"/>
     <attr name="tabSelectorColor" format="reference|integer"/>
+    <attr name="readerMenu" format="reference|integer"/>
 
 </resources>

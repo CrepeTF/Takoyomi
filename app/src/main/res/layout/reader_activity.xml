@@ -62,8 +62,9 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="65dp"
             android:animateLayoutChanges="true"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/reader_menu_top"
             app:elevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +74,20 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="?attr/actionBarSize" />
+                android:paddingBottom="5dp"
+                app:subtitleTextColor="@color/md_white_1000">
+
+                <ImageButton
+                    android:id="@+id/expand_eh_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/ic_keyboard_arrow_down_white_32dp"
+                    app:layout_constraintEnd_toEndOf="@id/reader_menu"/>
+
+            </com.google.android.material.appbar.MaterialToolbar>
 
             <LinearLayout
                 android:id="@+id/eh_utils"
@@ -153,14 +167,6 @@
 
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/expand_eh_button"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="0dp"
-                app:srcCompat="@drawable/ic_keyboard_arrow_down_white_32dp" />
-
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.Guideline
@@ -184,7 +190,7 @@
 
             <LinearLayout
                 android:id="@+id/reader_nav_vert"
-                android:layout_width="48dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
@@ -195,8 +201,8 @@
 
                 <ImageButton
                     android:id="@+id/above_chapter"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="80dp"
                     android:layout_marginBottom="8dp"
@@ -262,8 +268,8 @@
 
                 <ImageButton
                     android:id="@+id/below_chapter"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="80dp"
@@ -291,6 +297,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:paddingTop="45dp"
+            android:background="@drawable/reader_menu_bottom"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -302,14 +310,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="16dp"
                 android:layoutDirection="ltr"
                 android:orientation="horizontal">
 
                 <ImageButton
                     android:id="@+id/left_chapter"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/reader_seekbar_button"
                     android:contentDescription="@string/action_previous_chapter"
@@ -344,8 +351,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:maxHeight="?attr/actionBarSize"
-                        android:minHeight="?attr/actionBarSize" />
+                        android:maxHeight="40dp"
+                        android:minHeight="40dp" />
 
                     <TextView
                         android:id="@+id/right_page_text"
@@ -360,8 +367,8 @@
 
                 <ImageButton
                     android:id="@+id/right_chapter"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/reader_seekbar_button"
                     android:contentDescription="@string/action_next_chapter"
@@ -373,9 +380,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_gravity="bottom"
-                android:background="?attr/colorPrimary">
+                android:layout_height="70dp"
+                android:layout_gravity="bottom">
 
                 <ImageButton
                     android:id="@+id/action_chapter_list"

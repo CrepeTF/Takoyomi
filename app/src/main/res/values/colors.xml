@@ -128,6 +128,14 @@
     <color name="pageNumberBackgroundLight">@color/md_grey_50_75</color>
     <color name="pageNumberBackgroundDark">@color/md_grey_900_75</color>
 
+    <!-- Takoyomi -->
+    <color name="readerMenuBackgroundLight">#80000000</color>
+    <color name="readerMenuBackgroundGray">#80000000</color>
+    <color name="readerMenuBackgroundDark">#80000000</color>
+
+    <color name="readerMenuBackground">#D9000000</color>
+    <color name="readerMenuBackgroundSeekbar">#8018191C</color>
+
     <color name="filterColorLight">#FFC107</color>
     <color name="filterColorDark">#FFEB3B</color>
 
