@@ -5,12 +5,16 @@
     <color name="colorPrimaryDark">#435E7E</color>
     <color name="colorPrimary_70">#B354759E</color>
 
+
+    <!-- Takoyomi -->
     <color name="transparent">#00ffffff</color>
 
     <color name="downloadedIcon">#4AA97D</color>
 
+    <color name="rippleColor">#40FFFFFF</color>
+
     <!-- Dark Application Colors -->
-    <color name="colorDarkPrimary">#242529</color>
+    <color name="colorDarkPrimary">#2C2D32</color>
     <color name="colorDarkPrimaryDark">#202125</color>
     <color name="colorAmoledPrimary">@color/md_black_1000</color>
 
@@ -40,7 +44,7 @@
     <color name="textColorPrimaryDark">@color/md_white_1000</color>
     <color name="textColorSecondaryDark">@color/md_white_1000_70</color>
     <color name="textColorHintDark">@color/md_white_1000_50</color>
-    <color name="dividerDark">@android:color/transparent</color>
+    <color name="dividerDark">@color/md_white_1000_12</color>
     <color name="rippleColorDark">@color/md_white_1000_20</color>
     <color name="backgroundDark">@color/colorDarkPrimaryDark</color>
     <color name="dialogDark">@color/colorDarkPrimary</color>
