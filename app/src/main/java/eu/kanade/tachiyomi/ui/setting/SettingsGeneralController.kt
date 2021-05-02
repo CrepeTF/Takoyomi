@@ -280,13 +280,6 @@ class SettingsGeneralController : SettingsController() {
             titleRes = R.string.pref_category_fork
 
             switchPreference {
-                key = Keys.labelVisibility
-                titleRes = R.string.pref_hide_labels
-                summaryRes = R.string.pref_hide_labels_summary
-                defaultValue = false
-            }
-
-            switchPreference {
                 key = Keys.labels
                 titleRes = R.string.pref_hide_labels
                 summaryRes = R.string.pref_hide_labels_summary
