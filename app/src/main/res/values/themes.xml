@@ -275,7 +275,7 @@
     <!-- Launch Screen -->
     <!--===============-->
     <style name="Theme.Splash" parent="Theme.Tachiyomi.Dark">
-        <item name="colorBackgroundSplash">?android:attr/background</item>
+        <item name="colorBackgroundSplash">@color/backgroundDark</item>
 
         <item name="android:windowBackground">@drawable/splash_background</item>
         <item name="android:statusBarColor">?attr/colorBackgroundSplash</item>
