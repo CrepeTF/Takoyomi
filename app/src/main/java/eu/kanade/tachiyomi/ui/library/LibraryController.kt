@@ -275,6 +275,8 @@ class LibraryController(
         with(tabs) {
             tabGravity = TabLayout.GRAVITY_START
             tabMode = TabLayout.MODE_SCROLLABLE
+
+            tabs.setPadding(35, 0, 35, 0)
         }
         tabsVisibilitySubscription?.unsubscribe()
         tabsVisibilitySubscription = tabsVisibilityRelay.subscribe { visible ->

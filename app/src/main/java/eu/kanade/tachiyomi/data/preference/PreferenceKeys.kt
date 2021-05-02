@@ -370,4 +370,6 @@ object PreferenceKeys {
     const val leftVerticalSeekbar = "pref_left_handed_vertical_seekbar"
 
     const val forceHorizontalSeekbar = "pref_force_horz_seekbar"
+
+    const val labelVisibility = "pref_nav_label_visibility"
 }

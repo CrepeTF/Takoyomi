@@ -348,15 +348,20 @@
     <!--=================-->
     <style name="Theme.Widget.Tabs" parent="Widget.MaterialComponents.TabLayout.Colored">
         <item name="tabGravity">center</item>
-        <item name="tabIndicator">@drawable/tab_indicator</item>
-        <item name="tabIndicatorColor">?attr/colorAccentOnPrimary</item>
+        <item name="tabIndicator">@drawable/tab_selector_drawable</item>
+        <item name="tabIndicatorColor">?attr/colorSecondary</item>
         <item name="tabTextColor">@color/tabs_selector</item>
-        <item name="tabIndicatorFullWidth">false</item>
-        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabIndicatorFullWidth">true</item>
+        <!--<item name="tabIndicatorHeight">3dp</item>-->
         <item name="tabInlineLabel">true</item>
+        <item name="tabIndicatorGravity">center</item>
         <item name="tabMinWidth">75dp</item>
         <item name="tabMode">scrollable</item>
         <item name="tabTextAppearance">@style/TextAppearance.Widget.Tab</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabIndicatorAnimationMode">elastic</item>
+        <item name="tabIndicatorAnimationDuration">350</item>
     </style>
 
 
@@ -383,7 +388,7 @@
         <!--<item name="android:windowCloseOnTouchOutside">false</item>-->
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:colorBackground">     @android:color/transparent</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.3</item>
         <item name="android:windowFrame">@null</item>

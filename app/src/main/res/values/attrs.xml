@@ -28,5 +28,6 @@
     <attr name="downloadedIcon" format="reference|integer"/>
     <attr name="trackerBackground" format="reference|integer"/>
     <attr name="trackerForeground" format="reference|integer"/>
+    <attr name="tabSelectorColor" format="reference|integer"/>
 
 </resources>

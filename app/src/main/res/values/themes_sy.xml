@@ -20,8 +20,11 @@
 
         <!-- Takoyomi -->
         <item name="downloadedIcon">@color/downloadedIconRed</item>
+
         <item name="trackerBackground">@color/trackerBackgroundRed</item>
         <item name="trackerForeground">@color/trackerForegroundRed</item>
+
+        <item name="tabSelectorColor">@color/tabSelectorColorRed</item>
     </style>
 
     <style name="Theme.Tachiyomi.Dark.MidnightDusk" parent="Theme.Base.Dark">
@@ -44,6 +47,8 @@
 
         <item name="trackerBackground">@color/trackerBackgroundDusk</item>
         <item name="trackerForeground">@color/trackerForegroundDusk</item>
+
+        <item name="tabSelectorColor">@color/tabSelectorColorDusk</item>
 
         <!-- Some ROMs make black navbars white (e.g. OxygenOS) -->
         <item name="android:navigationBarColor">@android:color/transparent</item>
@@ -72,6 +77,8 @@
 
         <item name="trackerBackground">@color/trackerBackgroundLime</item>
         <item name="trackerForeground">@color/trackerForegroundLime</item>
+
+        <item name="tabSelectorColor">@color/tabSelectorColorLime</item>
 
         <item name="android:colorBackground">@color/backgroundLime</item>
 
