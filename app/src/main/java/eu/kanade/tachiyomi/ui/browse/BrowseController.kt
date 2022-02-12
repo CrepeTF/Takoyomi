@@ -80,13 +80,14 @@ class BrowseController :
         }
     }
 
-    override fun configureTabs(tabs: TabLayout) {
+    override fun configureTabs(tabs: TabLayout): Boolean {
         with(tabs) {
             tabGravity = TabLayout.GRAVITY_CENTER
             tabMode = TabLayout.MODE_FIXED
 
             tabs.setPadding(0, 0, 0, 0)
         }
+        return true
     }
 
     override fun cleanupTabs(tabs: TabLayout) {
