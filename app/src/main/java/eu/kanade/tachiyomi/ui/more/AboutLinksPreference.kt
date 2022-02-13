@@ -27,10 +27,6 @@ class AboutLinksPreference @JvmOverloads constructor(context: Context, attrs: At
             setTooltip(contentDescription.toString())
             setOnClickListener { context.openInBrowser("https://discord.gg/acPEgaqGK4") }
         }
-        holder.findViewById(R.id.btn_discord).apply {
-            setTooltip(contentDescription.toString())
-            setOnClickListener { context.openInBrowser("https://discord.gg/tachiyomi") }
-        }
         holder.findViewById(R.id.btn_twitter).apply {
             setTooltip(contentDescription.toString())
             setOnClickListener { context.openInBrowser("https://twitter.com/tachiyomiorg") }
