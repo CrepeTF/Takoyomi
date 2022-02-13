@@ -2,7 +2,6 @@ package eu.kanade.tachiyomi.data.download
 
 import android.content.Context
 import android.webkit.MimeTypeMap
-import android.widget.Toast
 import com.hippo.unifile.UniFile
 import com.jakewharton.rxrelay.BehaviorRelay
 import com.jakewharton.rxrelay.PublishRelay
@@ -27,7 +26,6 @@ import eu.kanade.tachiyomi.util.storage.DiskUtil
 import eu.kanade.tachiyomi.util.storage.saveTo
 import eu.kanade.tachiyomi.util.system.ImageUtil
 import eu.kanade.tachiyomi.util.system.logcat
-import eu.kanade.tachiyomi.util.system.toast
 import exh.util.DataSaver
 import exh.util.DataSaver.Companion.fetchImage
 import kotlinx.coroutines.async

@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import android.os.PowerManager
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.cache.CoverCache
@@ -45,7 +44,6 @@ import eu.kanade.tachiyomi.util.system.acquireWakeLock
 import eu.kanade.tachiyomi.util.system.createFileInCacheDir
 import eu.kanade.tachiyomi.util.system.isServiceRunning
 import eu.kanade.tachiyomi.util.system.logcat
-import eu.kanade.tachiyomi.util.system.toast
 import exh.log.xLogE
 import exh.md.utils.FollowStatus
 import exh.md.utils.MdUtil
