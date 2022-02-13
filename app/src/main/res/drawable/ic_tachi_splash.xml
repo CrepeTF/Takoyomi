@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:maxHeight="256dp"
+        android:maxHeight="242dp"
         android:drawable="@drawable/ic_tachi_variant"
         android:gravity="center" />
 
