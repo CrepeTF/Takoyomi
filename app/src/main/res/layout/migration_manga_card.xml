@@ -9,28 +9,19 @@
     android:foreground="@drawable/library_item_selector_overlay"
     android:padding="4dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/thumbnail_frame"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/thumbnail"
         android:layout_width="0dp"
         android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        android:foreground="@drawable/card_gradient_shape"
         app:layout_constraintDimensionRatio="w,2:3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="@dimen/card_radius"
-        app:cardElevation="0dp">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/thumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:foreground="@drawable/card_gradient_shape"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cover"
-            tools:ignore="ContentDescription"
-            tools:src="@mipmap/ic_launcher" />
-
-    </com.google.android.material.card.MaterialCardView>
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cover"
+        tools:ignore="ContentDescription"
+        tools:src="@mipmap/ic_launcher" />
 
     <include
         android:id="@+id/badges"
@@ -39,9 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="4dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/thumbnail_frame"
-        app:layout_constraintStart_toStartOf="@+id/thumbnail_frame"
-        app:layout_constraintTop_toTopOf="@+id/thumbnail_frame" />
+        app:layout_constraintEnd_toEndOf="@+id/thumbnail"
+        app:layout_constraintStart_toStartOf="@+id/thumbnail"
+        app:layout_constraintTop_toTopOf="@+id/thumbnail" />
 
     <TextView
         android:id="@+id/title"
@@ -58,7 +49,7 @@
         android:textAppearance="?attr/textAppearanceTitleSmall"
         android:textColor="@color/md_white_1000"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/thumbnail_frame"
+        app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Sample name" />
@@ -72,7 +63,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/thumbnail_frame">
+        app:layout_constraintTop_toBottomOf="@id/thumbnail">
 
         <TextView
             android:id="@+id/manga_source_label"
