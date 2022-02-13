@@ -282,7 +282,7 @@ class Downloader(
                     .maxOf { it.value.size }
                 if (maxDownloadsFromSource > CHAPTERS_PER_SOURCE_QUEUE_WARNING_THRESHOLD) {
                     withUIContext {
-                        context.toast(R.string.download_queue_size_warning, Toast.LENGTH_LONG)
+//                        context.toast(R.string.download_queue_size_warning, Toast.LENGTH_LONG)
                     }
                 }
                 DownloadService.start(context)

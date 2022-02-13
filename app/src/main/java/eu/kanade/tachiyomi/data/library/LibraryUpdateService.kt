@@ -367,7 +367,7 @@ class LibraryUpdateService(
             .filterKeys { sourceManager.get(it) !is UnmeteredSource }
             .maxOfOrNull { it.value.size } ?: 0
         if (maxUpdatesFromSource > MANGA_PER_SOURCE_QUEUE_WARNING_THRESHOLD) {
-            toast(R.string.notification_size_warning, Toast.LENGTH_LONG)
+//            toast(R.string.notification_size_warning, Toast.LENGTH_LONG)
         }
     }
 
