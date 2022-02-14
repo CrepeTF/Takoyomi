@@ -29,8 +29,8 @@ android {
         applicationId = "eu.kanade.tachiyomi.sy.crepe"
         minSdk = AndroidConfig.minSdk
         targetSdk = AndroidConfig.targetSdk
-        versionCode = 30
-        versionName = "3.0.4"
+        versionCode = 31
+        versionName = "3.0.5"
 
         buildConfigField("String", "COMMIT_COUNT", "\"${getCommitCount()}\"")
         buildConfigField("String", "COMMIT_SHA", "\"${getGitSha()}\"")
