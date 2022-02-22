@@ -15,6 +15,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.IdRes
 import androidx.annotation.MenuRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
@@ -29,6 +30,9 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.navigation.NavigationBarItemView
+import com.google.android.material.navigation.NavigationBarMenuView
+import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.snackbar.Snackbar
 import eu.kanade.tachiyomi.R
@@ -270,4 +274,10 @@ fun View?.isVisibleOnScreen(): Boolean {
     this.getGlobalVisibleRect(actualPosition)
     val screen = Rect(0, 0, Resources.getSystem().displayMetrics.widthPixels, Resources.getSystem().displayMetrics.heightPixels)
     return actualPosition.intersect(screen)
+}
+
+@SuppressLint("RestrictedApi")
+fun NavigationBarView.getItemView(@IdRes id: Int): NavigationBarItemView? {
+    val order = (menu as MenuBuilder).findItemIndex(id)
+    return (getChildAt(0) as NavigationBarMenuView).getChildAt(order) as? NavigationBarItemView
 }

@@ -33,6 +33,7 @@ import dev.chrisbanes.insetter.applyInsetter
 import eu.kanade.tachiyomi.BuildConfig
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.cache.ChapterCache
+import eu.kanade.tachiyomi.data.library.LibraryUpdateService
 import eu.kanade.tachiyomi.data.notification.NotificationReceiver
 import eu.kanade.tachiyomi.data.updater.AppUpdateChecker
 import eu.kanade.tachiyomi.data.updater.AppUpdateResult
@@ -65,6 +66,7 @@ import eu.kanade.tachiyomi.util.system.getThemeColor
 import eu.kanade.tachiyomi.util.system.isTablet
 import eu.kanade.tachiyomi.util.system.logcat
 import eu.kanade.tachiyomi.util.system.toast
+import eu.kanade.tachiyomi.util.view.getItemView
 import eu.kanade.tachiyomi.util.view.setNavigationBarTransparentCompat
 import eu.kanade.tachiyomi.widget.ActionModeWithToolbar
 import exh.EXHMigrations
@@ -218,6 +220,15 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
                         }
                     }
                 }
+            }
+            true
+        }
+
+        nav.getItemView(R.id.nav_library)?.setOnLongClickListener {
+            if (!LibraryUpdateService.isRunning(this)) {
+                LibraryUpdateService.start(this)
+
+                toast(resources.getString(R.string.updating_library))
             }
             true
         }
