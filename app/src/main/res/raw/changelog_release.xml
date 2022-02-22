@@ -2,6 +2,8 @@
 <changelog bulletedList="true">
     <changelogversion versionName="3.0.5" changeDate="Feb 22,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r411[/b]</changelogtext>
+        <changelogtext>Added option to switch downloads double tap shortcut to history instead of updates</changelogtext>
+        <changelogtext>Add header to reader page sheet</changelogtext>
     </changelogversion>
 
     <changelogversion versionName="3.0.4" changeDate="Feb 13,2022">
