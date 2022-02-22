@@ -61,6 +61,11 @@ class SettingsGeneralController : SettingsController() {
             titleRes = R.string.pref_category_fork
 
             switchPreference {
+                bindTo(preferences.historyDownloadShortcut())
+                titleRes = R.string.historyDownloadShortcut
+            }
+
+            switchPreference {
                 bindTo(preferences.expandFilters())
                 titleRes = R.string.toggle_expand_search_filters
             }

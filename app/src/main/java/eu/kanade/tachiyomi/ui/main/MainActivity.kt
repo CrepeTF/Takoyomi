@@ -203,7 +203,12 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
                         controller?.showSettingsSheet()
                     }
                     R.id.nav_updates -> {
-                        if (router.backstackSize == 1) {
+                        if ((router.backstackSize == 1) && !preferences.historyDownloadShortcut().get()) {
+                            router.pushController(DownloadController().withFadeTransaction())
+                        }
+                    }
+                    R.id.nav_history -> {
+                        if ((router.backstackSize == 1) && preferences.historyDownloadShortcut().get()) {
                             router.pushController(DownloadController().withFadeTransaction())
                         }
                     }

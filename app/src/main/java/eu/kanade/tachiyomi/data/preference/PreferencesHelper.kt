@@ -523,5 +523,7 @@ class PreferencesHelper(val context: Context) {
 
     // Tako -->
     fun banners() = flowPrefs.getBoolean(Keys.banners, false)
+
+    fun historyDownloadShortcut() = flowPrefs.getBoolean("pref_history_download_shortcut", false)
     // Tako <--
 }
