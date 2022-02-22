@@ -717,6 +717,6 @@
 
 
     <!-- Misc -->
-    <string name="filter">Filter</string>
+    <string name="page_sheet_title">Page action</string>
 
 </resources>
