@@ -3,6 +3,7 @@
     <changelogversion versionName="3.0.5" changeDate="Feb 22,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r411[/b]</changelogtext>
         <changelogtext>Added option to switch downloads double tap shortcut to history instead of updates</changelogtext>
+        <changelogtext>Added ability to long tap library nav icon to update library</changelogtext>
         <changelogtext>Add header to reader page sheet</changelogtext>
     </changelogversion>
 
