@@ -6,16 +6,7 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.preference.PreferenceScreen
 import eu.kanade.tachiyomi.R
-import eu.kanade.tachiyomi.util.preference.bindTo
-import eu.kanade.tachiyomi.util.preference.defaultValue
-import eu.kanade.tachiyomi.util.preference.entriesRes
-import eu.kanade.tachiyomi.util.preference.initThenAdd
-import eu.kanade.tachiyomi.util.preference.intListPreference
-import eu.kanade.tachiyomi.util.preference.listPreference
-import eu.kanade.tachiyomi.util.preference.onChange
-import eu.kanade.tachiyomi.util.preference.preferenceCategory
-import eu.kanade.tachiyomi.util.preference.switchPreference
-import eu.kanade.tachiyomi.util.preference.titleRes
+import eu.kanade.tachiyomi.util.preference.*
 import eu.kanade.tachiyomi.util.system.DeviceUtil
 import eu.kanade.tachiyomi.util.system.isTablet
 import eu.kanade.tachiyomi.widget.preference.ThemesPreference
@@ -113,6 +104,17 @@ class SettingsAppearanceController : SettingsController() {
                     bindTo(preferences.hideBottomBarOnScroll())
                     titleRes = R.string.pref_hide_bottom_bar_on_scroll
                 }
+            }
+        }
+
+        preferenceCategory {
+            titleRes = R.string.banner
+
+            switchPreference {
+                key = Keys.banners
+                titleRes = R.string.pref_hide_banners
+                summaryRes = R.string.pref_hide_banners_summary
+                defaultValue = false
             }
         }
 
