@@ -717,7 +717,7 @@
 
 
     <!-- Misc -->
-    <string name="page_sheet_title">Page action</string>
+    <string name="page_sheet_title">Page options</string>
     <string name="banner">Banners</string>
     <string name="historyDownloadShortcut">Use history navigation for downloads shortcut</string>
 
