@@ -8,19 +8,27 @@
     android:paddingStart="16dp"
     android:paddingEnd="4dp">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/manga_cover"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/manga_cover_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:scaleType="centerCrop"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.Cover"
-        tools:src="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/manga_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.Cover"
+            tools:src="@mipmap/ic_launcher" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/manga_title"
@@ -32,7 +40,7 @@
         android:textAppearance="?attr/textAppearanceBodyMedium"
         app:layout_constraintBottom_toTopOf="@+id/chapter_title"
         app:layout_constraintEnd_toStartOf="@+id/download"
-        app:layout_constraintStart_toEndOf="@+id/manga_cover"
+        app:layout_constraintStart_toEndOf="@+id/manga_cover_container"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Manga title" />
