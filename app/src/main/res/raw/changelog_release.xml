@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="3.0.6" changeDate="Feb 23,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r411[/b]</changelogtext>
+        <changelogtext>Updated browse filter sheet UI</changelogtext>
+        <changelogtext>Shifted up action toolbar slightly</changelogtext>
+        <changelogtext>Updated tablet UI to match mobile view</changelogtext>
+        <changelogtext>Fix library update shortcut when hiding a nav item</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="3.0.5" changeDate="Feb 22,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r411[/b]</changelogtext>
         <changelogtext>Added option to switch downloads double tap shortcut to history instead of updates</changelogtext>
