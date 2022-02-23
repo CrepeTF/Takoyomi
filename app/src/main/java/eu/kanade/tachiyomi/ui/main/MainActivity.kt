@@ -224,13 +224,29 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             true
         }
 
-        nav.getItemView(R.id.nav_library)?.setOnLongClickListener {
-            if (!LibraryUpdateService.isRunning(this)) {
-                LibraryUpdateService.start(this)
+        if (
+            (
+                !preferences.showNavHistory().get() && preferences.showNavUpdates().get() ||
+                    !preferences.showNavUpdates().get() && preferences.showNavHistory().get()
+                )
+        ) {
+            nav.getItemView(R.id.nav_more)?.setOnLongClickListener {
+                if (!LibraryUpdateService.isRunning(this)) {
+                    LibraryUpdateService.start(this)
 
-                toast(resources.getString(R.string.updating_library))
+                    toast(resources.getString(R.string.updating_library))
+                }
+                true
             }
-            true
+        } else {
+            nav.getItemView(R.id.nav_library)?.setOnLongClickListener {
+                if (!LibraryUpdateService.isRunning(this)) {
+                    LibraryUpdateService.start(this)
+
+                    toast(resources.getString(R.string.updating_library))
+                }
+                true
+            }
         }
 
         val container: ViewGroup = binding.controllerContainer
