@@ -61,6 +61,7 @@ import eu.kanade.tachiyomi.ui.setting.SettingsMainController
 import eu.kanade.tachiyomi.util.lang.launchIO
 import eu.kanade.tachiyomi.util.lang.launchUI
 import eu.kanade.tachiyomi.util.preference.asImmediateFlow
+import eu.kanade.tachiyomi.util.preference.toggle
 import eu.kanade.tachiyomi.util.system.dpToPx
 import eu.kanade.tachiyomi.util.system.getThemeColor
 import eu.kanade.tachiyomi.util.system.isTablet
@@ -222,6 +223,16 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
                 }
             }
             true
+        }
+
+        binding.downloadedOnly.setOnClickListener() {
+            preferences.downloadedOnly().toggle()
+            toast(resources.getString(R.string.pref_downloaded_only_off))
+        }
+
+        binding.incognitoMode.setOnClickListener() {
+            preferences.incognitoMode().toggle()
+            toast(resources.getString(R.string.pref_incognito_mode_off))
         }
 
         if (

@@ -65,6 +65,10 @@ class MoreController :
             summaryRes = R.string.downloaded_only_summary
             iconRes = R.drawable.ic_cloud_off_24dp
             iconTint = tintColor
+
+            preferences.downloadedOnly().asFlow()
+                .onEach { isChecked = it }
+                .launchIn(viewScope)
         }
 
         switchPreference {
