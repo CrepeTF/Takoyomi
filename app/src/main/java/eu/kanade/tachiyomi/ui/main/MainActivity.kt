@@ -20,6 +20,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.*
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
+import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceDialogController
 import com.bluelinelabs.conductor.Conductor
@@ -76,6 +77,7 @@ import exh.source.BlacklistedSources
 import exh.source.EH_SOURCE_ID
 import exh.source.EXH_SOURCE_ID
 import exh.uconfig.WarnConfigureDialogController
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.launchIn
@@ -84,6 +86,7 @@ import kotlinx.coroutines.flow.onEach
 import logcat.LogPriority
 import uy.kohesive.injekt.injectLazy
 import java.util.LinkedList
+import kotlin.coroutines.coroutineContext
 
 class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
 
@@ -230,10 +233,18 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             toast(resources.getString(R.string.pref_downloaded_only_off))
         }
 
+        preferences.downloadedOnly().asFlow()
+            .onEach { preferences.downloadedOnly().get() }
+            .launchIn(lifecycleScope)
+
         binding.incognitoMode.setOnClickListener() {
             preferences.incognitoMode().toggle()
             toast(resources.getString(R.string.pref_incognito_mode_off))
         }
+
+        preferences.incognitoMode().asFlow()
+            .onEach { preferences.incognitoMode().get() }
+            .launchIn(lifecycleScope)
 
         if (
             (
