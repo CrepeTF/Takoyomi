@@ -62,7 +62,7 @@ class SettingsGeneralController : SettingsController() {
 
             switchPreference {
                 bindTo(preferences.historyDownloadShortcut())
-                titleRes = R.string.historyDownloadShortcut
+                titleRes = R.string.history_download_shortcut
                 visibleIf(preferences.showNavHistory()) { it }
             }
 
