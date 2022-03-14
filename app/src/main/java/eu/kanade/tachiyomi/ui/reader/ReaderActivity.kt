@@ -62,9 +62,7 @@ import eu.kanade.tachiyomi.ui.base.activity.BaseRxActivity
 import eu.kanade.tachiyomi.ui.base.activity.BaseThemedActivity.Companion.applyAppTheme
 import eu.kanade.tachiyomi.ui.main.MainActivity
 import eu.kanade.tachiyomi.ui.manga.MangaController
-import eu.kanade.tachiyomi.ui.reader.ReaderPresenter.SetAsCoverResult.AddToLibraryFirst
-import eu.kanade.tachiyomi.ui.reader.ReaderPresenter.SetAsCoverResult.Error
-import eu.kanade.tachiyomi.ui.reader.ReaderPresenter.SetAsCoverResult.Success
+import eu.kanade.tachiyomi.ui.reader.ReaderPresenter.SetAsCoverResult.*
 import eu.kanade.tachiyomi.ui.reader.chapter.ReaderChapterDialog
 import eu.kanade.tachiyomi.ui.reader.loader.HttpPageLoader
 import eu.kanade.tachiyomi.ui.reader.model.ReaderChapter
@@ -84,14 +82,7 @@ import eu.kanade.tachiyomi.ui.reader.viewer.webtoon.WebtoonViewer
 import eu.kanade.tachiyomi.ui.webview.WebViewActivity
 import eu.kanade.tachiyomi.util.preference.toggle
 import eu.kanade.tachiyomi.util.storage.getUriCompat
-import eu.kanade.tachiyomi.util.system.applySystemAnimatorScale
-import eu.kanade.tachiyomi.util.system.createReaderThemeContext
-import eu.kanade.tachiyomi.util.system.getThemeColor
-import eu.kanade.tachiyomi.util.system.hasDisplayCutout
-import eu.kanade.tachiyomi.util.system.isLTR
-import eu.kanade.tachiyomi.util.system.isNightMode
-import eu.kanade.tachiyomi.util.system.logcat
-import eu.kanade.tachiyomi.util.system.toast
+import eu.kanade.tachiyomi.util.system.*
 import eu.kanade.tachiyomi.util.view.copy
 import eu.kanade.tachiyomi.util.view.popupMenu
 import eu.kanade.tachiyomi.util.view.setTooltip
@@ -531,6 +522,7 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
             setCornerSize(999F)
         }
         // SY <--
+
         listOf(binding.leftChapter, binding.rightChapter /* SY --> */, binding.belowChapter, binding.aboveChapter /* SY <-- */).forEach {
             it.background = binding.readerSeekbar.background.copy(this)
             it.foreground = RippleDrawable(
@@ -539,6 +531,17 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
                 it.background
             )
         }
+
+        // --> Takoyomi
+        listOf(binding.actionChapterList, binding.actionWebView, binding.actionReadingMode, binding.actionCropBorders, binding.actionRotation, binding.doublePage, binding.shiftPageButton, binding.actionSettings).forEach {
+            it.background = binding.readerSeekbar.background.copy(this)
+            it.foreground = RippleDrawable(
+                ColorStateList.valueOf(getThemeColor(android.R.attr.colorControlHighlight)),
+                null,
+                it.background
+            )
+        }
+        // <-- Takoyomi
 
         val toolbarColor = ColorUtils.setAlphaComponent(
             toolbarBackground.resolvedTintColor,

@@ -205,7 +205,7 @@
 
             <LinearLayout
                 android:id="@+id/reader_nav_vert"
-                android:layout_width="40dp"
+                android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
@@ -216,8 +216,8 @@
 
                 <ImageButton
                     android:id="@+id/above_chapter"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="80dp"
                     android:layout_marginBottom="8dp"
@@ -244,6 +244,7 @@
                             android:layout_marginTop="12dp"
                             android:gravity="center"
                             android:textColor="?attr/colorOnSurface"
+                            android:textStyle="bold"
                             android:textSize="15sp"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -270,6 +271,7 @@
 
                         </FrameLayout>
 
+
                         <TextView
                             android:id="@+id/below_page_text"
                             android:layout_width="match_parent"
@@ -277,6 +279,7 @@
                             android:layout_marginBottom="12dp"
                             android:gravity="center"
                             android:textColor="?attr/colorOnSurface"
+                            android:textStyle="bold"
                             android:textSize="15sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -288,8 +291,8 @@
 
                 <ImageButton
                     android:id="@+id/below_chapter"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="80dp"
@@ -333,8 +336,8 @@
 
                 <ImageButton
                     android:id="@+id/left_chapter"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
                     android:contentDescription="@string/action_previous_chapter"
                     android:padding="@dimen/screen_edge_margin"
@@ -357,6 +360,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:textColor="?attr/colorOnSurface"
+                        android:textStyle="bold"
                         android:textSize="15sp"
                         tools:text="1" />
 
@@ -369,9 +373,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_gravity="center_vertical"
-                        android:maxHeight="40dp"
-                        android:minHeight="40dp" />
+                        android:maxHeight="?attr/actionBarSize"
+                        android:minHeight="?attr/actionBarSize" />
 
                     <TextView
                         android:id="@+id/right_page_text"
@@ -379,6 +382,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:textColor="?attr/colorOnSurface"
+                        android:textStyle="bold"
                         android:textSize="15sp"
                         tools:text="15" />
 
@@ -386,8 +390,8 @@
 
                 <ImageButton
                     android:id="@+id/right_chapter"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="8dp"
                     android:contentDescription="@string/action_next_chapter"
                     android:padding="@dimen/screen_edge_margin"
@@ -399,16 +403,18 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/toolbar_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="80dp"
                 android:layout_gravity="bottom"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="20dp"
                 android:clickable="true"
                 tools:ignore="KeyboardInaccessibleWidget">
 
                 <ImageButton
                     android:id="@+id/action_chapter_list"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginHorizontal="2dp"
                     android:contentDescription="@string/custom_filter"
                     android:padding="@dimen/screen_edge_margin"
                     app:layout_constraintEnd_toStartOf="@+id/action_web_view"
@@ -420,9 +426,9 @@
 
                 <ImageButton
                     android:id="@+id/action_web_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginHorizontal="2dp"
                     android:contentDescription="@string/custom_filter"
                     android:padding="@dimen/screen_edge_margin"
                     app:layout_constraintEnd_toStartOf="@id/action_reading_mode"
@@ -434,9 +440,9 @@
 
                 <ImageButton
                     android:id="@+id/action_reading_mode"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginHorizontal="2dp"
                     android:contentDescription="@string/viewer"
                     android:padding="@dimen/screen_edge_margin"
                     app:layout_constraintEnd_toStartOf="@id/action_crop_borders"
@@ -448,9 +454,9 @@
 
                 <ImageButton
                     android:id="@+id/action_crop_borders"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginHorizontal="2dp"
                     android:contentDescription="@string/pref_crop_borders"
                     android:padding="@dimen/screen_edge_margin"
                     app:layout_constraintEnd_toStartOf="@id/action_rotation"
@@ -462,9 +468,9 @@
 
                 <ImageButton
                     android:id="@+id/action_rotation"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginHorizontal="2dp"
                     android:contentDescription="@string/pref_rotation_type"
                     android:padding="@dimen/screen_edge_margin"
                     app:layout_constraintEnd_toStartOf="@id/double_page"
@@ -476,9 +482,9 @@
 
                 <ImageButton
                     android:id="@+id/double_page"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginHorizontal="2dp"
                     android:contentDescription="@string/page_layout"
                     android:padding="@dimen/screen_edge_margin"
                     app:layout_constraintEnd_toStartOf="@id/shift_page_button"
@@ -490,9 +496,9 @@
 
                 <ImageButton
                     android:id="@+id/shift_page_button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginHorizontal="2dp"
                     android:contentDescription="@string/shift_double_pages"
                     android:padding="@dimen/screen_edge_margin"
                     app:layout_constraintEnd_toStartOf="@id/action_settings"
@@ -504,9 +510,9 @@
 
                 <ImageButton
                     android:id="@+id/action_settings"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginHorizontal="2dp"
                     android:contentDescription="@string/action_settings"
                     android:padding="@dimen/screen_edge_margin"
                     app:layout_constraintEnd_toEndOf="parent"
