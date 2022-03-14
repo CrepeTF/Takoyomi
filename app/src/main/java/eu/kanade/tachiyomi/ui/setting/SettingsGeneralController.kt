@@ -63,6 +63,20 @@ class SettingsGeneralController : SettingsController() {
             switchPreference {
                 bindTo(preferences.historyDownloadShortcut())
                 titleRes = R.string.historyDownloadShortcut
+                visibleIf(preferences.showNavHistory()) { it }
+            }
+
+            switchPreference {
+                bindTo(preferences.recentsShortcut())
+                titleRes = R.string.recents_shortcut
+                summaryRes = R.string.recents_shortcut_summary
+
+                if (
+                    !preferences.showNavUpdates().get() && !preferences.showNavHistory().get() ||
+                    preferences.showNavUpdates().get() && preferences.showNavHistory().get()
+                ) {
+                    isVisible = false
+                }
             }
 
             switchPreference {

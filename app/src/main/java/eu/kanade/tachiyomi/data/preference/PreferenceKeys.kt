@@ -93,5 +93,7 @@ object PreferenceKeys {
 
     // Tako -->
     const val banners = "pref_hide_banners"
+
+    const val recents_shortcut = "pref_recents_shortcut"
     // Tako <--
 }

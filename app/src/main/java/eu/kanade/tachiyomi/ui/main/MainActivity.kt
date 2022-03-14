@@ -20,7 +20,6 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.*
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
-import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceDialogController
 import com.bluelinelabs.conductor.Conductor
@@ -77,7 +76,6 @@ import exh.source.BlacklistedSources
 import exh.source.EH_SOURCE_ID
 import exh.source.EXH_SOURCE_ID
 import exh.uconfig.WarnConfigureDialogController
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.launchIn
@@ -86,7 +84,6 @@ import kotlinx.coroutines.flow.onEach
 import logcat.LogPriority
 import uy.kohesive.injekt.injectLazy
 import java.util.LinkedList
-import kotlin.coroutines.coroutineContext
 
 class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
 
@@ -228,6 +225,8 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             true
         }
 
+        // --> Takoyomi
+
         binding.downloadedOnly.setOnClickListener() {
             preferences.downloadedOnly().toggle()
             toast(resources.getString(R.string.pref_downloaded_only_off))
@@ -270,6 +269,35 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
                 true
             }
         }
+
+        if (
+            preferences.recentsShortcut().get()
+        ) {
+            nav.getItemView(R.id.nav_browse)?.setOnLongClickListener {
+                if (
+                    !preferences.showNavHistory().get() && preferences.showNavUpdates().get()
+                ) {
+                    setSelectedNavItem(R.id.nav_updates)
+                    router.popToRoot()
+                    router.pushController(HistoryController().withFadeTransaction())
+                }
+                true
+            }
+
+            nav.getItemView(R.id.nav_history)?.setOnLongClickListener {
+                if (
+                    !preferences.showNavUpdates().get() && preferences.showNavHistory().get()
+                ) {
+                    setSelectedNavItem(R.id.nav_history)
+                    router.popToRoot()
+                    router.pushController(UpdatesController().withFadeTransaction())
+                }
+
+                true
+            }
+        }
+
+        // <-- Takoyomi
 
         val container: ViewGroup = binding.controllerContainer
         router = Conductor.attachRouter(this, container, savedInstanceState)
