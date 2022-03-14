@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="3.0.8" changeDate="Mar 14,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r442[/b]</changelogtext>
+        <changelogtext>Initial reader UI update</changelogtext>
+        <changelogtext>Added more shortcuts</changelogtext>
+        <changelogtext>There is now a divider under the tabs in tabbed sheets</changelogtext>
+        <changelogtext>Fixed issue where global search items were clipping when scrolled</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="3.0.7" changeDate="Feb 28,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r441[/b]</changelogtext>
         <changelogtext>Migration sheet now launches fully expanded on start</changelogtext>
