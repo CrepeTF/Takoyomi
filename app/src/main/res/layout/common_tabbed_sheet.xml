@@ -81,6 +81,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/divider"/>
+
     <eu.kanade.tachiyomi.widget.sheet.BottomSheetViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
