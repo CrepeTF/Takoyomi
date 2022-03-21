@@ -14,4 +14,5 @@
 
     <string name="pref_downloaded_only_off">Режим «Только загруженные главы» выключен</string>
     <string name="pref_incognito_mode_off">Режим инкогнито выключен</string>
+
 </resources>
