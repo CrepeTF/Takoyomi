@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="3.0.9" changeDate="Mar 21,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r443[/b]</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="3.0.8" changeDate="Mar 14,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r442[/b]</changelogtext>
         <changelogtext>Initial reader UI update</changelogtext>
