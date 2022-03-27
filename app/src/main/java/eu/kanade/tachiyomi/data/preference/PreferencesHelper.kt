@@ -527,7 +527,5 @@ class PreferencesHelper(val context: Context) {
     fun historyDownloadShortcut() = flowPrefs.getBoolean("pref_history_download_shortcut", false)
 
     fun recentsShortcut() = flowPrefs.getBoolean("pref_recents_shortcut", false)
-
-    fun hideLatest() = flowPrefs.getBoolean("pref_hide_latest", false)
     // Tako <--
 }
