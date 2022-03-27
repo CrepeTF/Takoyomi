@@ -12,7 +12,6 @@ import android.graphics.Color
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
-import android.graphics.drawable.RippleDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -85,7 +84,6 @@ import eu.kanade.tachiyomi.ui.webview.WebViewActivity
 import eu.kanade.tachiyomi.util.preference.toggle
 import eu.kanade.tachiyomi.util.system.applySystemAnimatorScale
 import eu.kanade.tachiyomi.util.system.createReaderThemeContext
-import eu.kanade.tachiyomi.util.system.getThemeColor
 import eu.kanade.tachiyomi.util.system.hasDisplayCutout
 import eu.kanade.tachiyomi.util.system.isLTR
 import eu.kanade.tachiyomi.util.system.isNightMode
@@ -518,38 +516,20 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
 
         val toolbarBackground = (binding.toolbar.background as MaterialShapeDrawable).apply {
             elevation = resources.getDimension(R.dimen.m3_sys_elevation_level2)
-            alpha = if (isNightMode()) 230 else 242 // 90% dark 95% light
+            alpha = if (isNightMode()) 220 else 242 // 88% dark 95% light
         }
-        binding.toolbarBottom.background = toolbarBackground.copy(this@ReaderActivity)
+        binding.toolbarBottom.background = toolbarBackground.copy(this@ReaderActivity)?.apply {
+            setCornerSize(999F)
+        }
 
-        binding.readerSeekbar.background = toolbarBackground.copy(this@ReaderActivity)?.apply {
+        binding.readerNavHorz.background = toolbarBackground.copy(this@ReaderActivity)?.apply {
             setCornerSize(999F)
         }
         // SY -->
-        binding.readerSeekbarVert.background = toolbarBackground.copy(this@ReaderActivity)?.apply {
+        binding.readerNavVert.background = toolbarBackground.copy(this@ReaderActivity)?.apply {
             setCornerSize(999F)
         }
         // SY <--
-
-        listOf(binding.leftChapter, binding.rightChapter /* SY --> */, binding.belowChapter, binding.aboveChapter /* SY <-- */).forEach {
-            it.background = binding.readerSeekbar.background.copy(this)
-            it.foreground = RippleDrawable(
-                ColorStateList.valueOf(getThemeColor(android.R.attr.colorControlHighlight)),
-                null,
-                it.background
-            )
-        }
-
-        // --> Takoyomi
-        listOf(binding.actionChapterList, binding.actionWebView, binding.actionReadingMode, binding.actionCropBorders, binding.actionRotation, binding.doublePage, binding.shiftPageButton, binding.actionSettings).forEach {
-            it.background = binding.readerSeekbar.background.copy(this)
-            it.foreground = RippleDrawable(
-                ColorStateList.valueOf(getThemeColor(android.R.attr.colorControlHighlight)),
-                null,
-                it.background
-            )
-        }
-        // <-- Takoyomi
 
         val toolbarColor = ColorUtils.setAlphaComponent(
             toolbarBackground.resolvedTintColor,
@@ -991,6 +971,7 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
                 )
                 // EXH -->
                 binding.header.startAnimation(toolbarAnimation)
+                binding.aboveGradientOverlay.startAnimation(toolbarAnimation)
                 // EXH <--
 
                 val vertAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_side)
@@ -1004,6 +985,7 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
                 val bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom)
                 bottomAnimation.applySystemAnimatorScale(this)
                 binding.readerMenuBottom.startAnimation(bottomAnimation)
+                binding.belowGradientOverlay.startAnimation(bottomAnimation)
             }
 
             if (preferences.showPageNumber().get()) {
@@ -1027,6 +1009,7 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
                 )
                 // EXH -->
                 binding.header.startAnimation(toolbarAnimation)
+                binding.aboveGradientOverlay.startAnimation(toolbarAnimation)
                 // EXH <--
 
                 val vertAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out_side)
@@ -1040,6 +1023,7 @@ class ReaderActivity : BaseRxActivity<ReaderActivityBinding, ReaderPresenter>() 
                 val bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.exit_to_bottom)
                 bottomAnimation.applySystemAnimatorScale(this)
                 binding.readerMenuBottom.startAnimation(bottomAnimation)
+                binding.belowGradientOverlay.startAnimation(bottomAnimation)
             }
 
             if (preferences.showPageNumber().get()) {
