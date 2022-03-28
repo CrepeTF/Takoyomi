@@ -26,7 +26,7 @@ class SourceFeedItem(
      * @return id of view
      */
     override fun getLayoutRes(): Int {
-        return R.layout.global_search_controller_card
+        return R.layout.feed_controller_card
     }
 
     /**

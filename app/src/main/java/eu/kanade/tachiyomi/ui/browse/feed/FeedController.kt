@@ -1,17 +1,13 @@
 package eu.kanade.tachiyomi.ui.browse.feed
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dev.chrisbanes.insetter.applyInsetter
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.database.models.Manga
-import eu.kanade.tachiyomi.databinding.GlobalSearchControllerBinding
+import eu.kanade.tachiyomi.databinding.FeedControllerBinding
 import eu.kanade.tachiyomi.source.CatalogueSource
 import eu.kanade.tachiyomi.ui.base.controller.NucleusController
 import eu.kanade.tachiyomi.ui.base.controller.withFadeTransaction
@@ -28,7 +24,7 @@ import exh.savedsearches.models.SavedSearch
  * [FeedCardAdapter.OnMangaClickListener] called when manga is clicked in global search
  */
 open class FeedController :
-    NucleusController<GlobalSearchControllerBinding, FeedPresenter>(),
+    NucleusController<FeedControllerBinding, FeedPresenter>(),
     FeedCardAdapter.OnMangaClickListener,
     FeedAdapter.OnFeedClickListener {
 
@@ -123,7 +119,7 @@ open class FeedController :
         onMangaClick(manga)
     }
 
-    override fun createBinding(inflater: LayoutInflater): GlobalSearchControllerBinding = GlobalSearchControllerBinding.inflate(inflater)
+    override fun createBinding(inflater: LayoutInflater): FeedControllerBinding = FeedControllerBinding.inflate(inflater)
 
     /**
      * Called when the view is created

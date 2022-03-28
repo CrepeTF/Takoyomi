@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import eu.davidea.viewholders.FlexibleViewHolder
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.database.models.Manga
-import eu.kanade.tachiyomi.databinding.GlobalSearchControllerCardBinding
+import eu.kanade.tachiyomi.databinding.FeedControllerCardBinding
 
 /**
  * Holder that binds the [SourceFeedItem] containing catalogue cards.
@@ -18,7 +18,7 @@ import eu.kanade.tachiyomi.databinding.GlobalSearchControllerCardBinding
 class SourceFeedHolder(view: View, val adapter: SourceFeedAdapter) :
     FlexibleViewHolder(view, adapter) {
 
-    private val binding = GlobalSearchControllerCardBinding.bind(view)
+    private val binding = FeedControllerCardBinding.bind(view)
 
     /**
      * Adapter containing manga from search results.

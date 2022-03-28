@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import eu.davidea.viewholders.FlexibleViewHolder
 import eu.kanade.tachiyomi.data.database.models.Manga
-import eu.kanade.tachiyomi.databinding.GlobalSearchControllerCardBinding
+import eu.kanade.tachiyomi.databinding.FeedControllerCardBinding
 import eu.kanade.tachiyomi.util.system.LocaleHelper
 
 /**
@@ -18,7 +18,7 @@ import eu.kanade.tachiyomi.util.system.LocaleHelper
 class FeedHolder(view: View, val adapter: FeedAdapter) :
     FlexibleViewHolder(view, adapter) {
 
-    private val binding = GlobalSearchControllerCardBinding.bind(view)
+    private val binding = FeedControllerCardBinding.bind(view)
 
     /**
      * Adapter containing manga from search results.
@@ -41,6 +41,17 @@ class FeedHolder(view: View, val adapter: FeedAdapter) :
                 }
             }
         }
+
+        binding.titleMoreIcon.setOnClickListener {
+            adapter.getItem(bindingAdapterPosition)?.let {
+                if (it.savedSearch != null) {
+                    adapter.feedClickListener.onSavedSearchClick(it.savedSearch, it.source ?: return@let)
+                } else {
+                    adapter.feedClickListener.onSourceClick(it.source ?: return@let)
+                }
+            }
+        }
+
         binding.titleWrapper.setOnLongClickListener {
             adapter.getItem(bindingAdapterPosition)?.let {
                 adapter.feedClickListener.onRemoveClick(it.feed)
@@ -60,13 +71,15 @@ class FeedHolder(view: View, val adapter: FeedAdapter) :
 
         val titlePrefix = if (item.highlighted) "▶ " else ""
 
+        val subtitlePrefix = "• "
+
         binding.title.text = titlePrefix + if (item.savedSearch != null) {
             item.savedSearch.name
         } else {
             item.source?.name ?: item.feed.source.toString()
         }
         binding.subtitle.isVisible = true
-        binding.subtitle.text = if (item.savedSearch != null) {
+        binding.subtitle.text = subtitlePrefix + if (item.savedSearch != null) {
             item.source?.name ?: item.feed.source.toString()
         } else {
             LocaleHelper.getDisplayName(item.source?.lang)
