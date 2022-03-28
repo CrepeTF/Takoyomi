@@ -13,6 +13,7 @@
 /build
 *.apk
 app/**/output.json
+app/**/output-metadata.json
 
 # Hebrew assets are copied on build
 app/src/main/res/values-iw/
