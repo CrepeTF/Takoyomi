@@ -336,7 +336,7 @@
             android:id="@+id/reader_menu_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
+            android:layout_marginHorizontal="12dp"
             android:layout_gravity="bottom"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -418,7 +418,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/toolbar_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="72dp"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="12dp"
                 android:clickable="true"
