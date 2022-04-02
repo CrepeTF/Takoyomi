@@ -77,6 +77,7 @@ class LibraryController(
     private val trackManager: TrackManager = Injekt.get()
 ) : SearchableNucleusController<LibraryControllerBinding, LibraryPresenter>(bundle),
     RootController,
+    MainActivity.FloatingSearchInterface,
     TabbedController,
     ActionModeWithToolbar.Callback,
     ChangeMangaCategoriesDialog.Listener,
@@ -172,7 +173,7 @@ class LibraryController(
         }
 
     override fun getTitle(): String? {
-        return currentTitle ?: resources?.getString(R.string.label_library)
+        return searchTitle(resources?.getString(R.string.label_library))
     }
 
     private fun updateTitle() {

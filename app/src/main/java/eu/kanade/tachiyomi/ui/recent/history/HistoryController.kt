@@ -43,6 +43,7 @@ import uy.kohesive.injekt.injectLazy
 class HistoryController :
     NucleusController<HistoryControllerBinding, HistoryPresenter>(),
     RootController,
+    MainActivity.FloatingSearchInterface,
     FlexibleAdapter.OnUpdateListener,
     FlexibleAdapter.EndlessScrollListener,
     HistoryAdapter.OnRemoveClickListener,
@@ -69,7 +70,7 @@ class HistoryController :
     private var query = ""
 
     override fun getTitle(): String? {
-        return resources?.getString(R.string.label_recent_manga)
+        return searchTitle(resources?.getString(R.string.label_recent_manga))
     }
 
     override fun createPresenter(): HistoryPresenter {
