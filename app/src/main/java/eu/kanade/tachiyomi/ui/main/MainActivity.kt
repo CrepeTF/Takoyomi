@@ -4,15 +4,14 @@ import android.animation.ValueAnimator
 import android.app.SearchManager
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
-import android.view.Gravity
-import android.view.Menu
-import android.view.ViewGroup
-import android.view.Window
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.view.ActionMode
+import androidx.appcompat.widget.Toolbar
 import androidx.core.animation.doOnEnd
 import androidx.core.graphics.ColorUtils
 import androidx.core.splashscreen.SplashScreen
@@ -62,11 +61,7 @@ import eu.kanade.tachiyomi.util.lang.launchIO
 import eu.kanade.tachiyomi.util.lang.launchUI
 import eu.kanade.tachiyomi.util.preference.asImmediateFlow
 import eu.kanade.tachiyomi.util.preference.toggle
-import eu.kanade.tachiyomi.util.system.dpToPx
-import eu.kanade.tachiyomi.util.system.getThemeColor
-import eu.kanade.tachiyomi.util.system.isTablet
-import eu.kanade.tachiyomi.util.system.logcat
-import eu.kanade.tachiyomi.util.system.toast
+import eu.kanade.tachiyomi.util.system.*
 import eu.kanade.tachiyomi.util.view.getItemView
 import eu.kanade.tachiyomi.util.view.setNavigationBarTransparentCompat
 import eu.kanade.tachiyomi.widget.ActionModeWithToolbar
@@ -89,6 +84,10 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
 
     private lateinit var router: Router
 
+    // Takoyomi -->
+    private var searchDrawable: Drawable? = null
+    // Takoyomi <--
+
     private val startScreenId by lazy {
         when (preferences.startScreen()) {
             2 -> R.id.nav_history
@@ -110,6 +109,10 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
 
     // To be checked by splash screen. If true then splash screen will be removed.
     var ready = false
+
+    // Takoyomi -->
+    var currentToolbar: Toolbar? = null
+    // Takoyomi <--
 
     // SY -->
     // Idle-until-urgent
@@ -153,6 +156,11 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+
+        // Takoyomi -->
+        var currentToolbar: Toolbar? = null
+        setFloatingToolbar(true)
+        // Takoyomi <--
 
         // Draw edge-to-edge
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -298,6 +306,19 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         }
 
         // <-- Takoyomi
+
+        // Takoyomi -->
+        binding.cardToolbar?.setNavigationOnClickListener {
+            val rootSearchController = router.backstack.lastOrNull()?.controller
+            if (rootSearchController is RootSearchInterface) {
+                rootSearchController.expandSearch()
+            } else onBackPressed()
+        }
+
+        binding.cardToolbar?.setOnClickListener {
+            binding.cardToolbar?.menu?.findItem(R.id.action_search)?.expandActionView()
+        }
+        // Takoyomi <--
 
         val container: ViewGroup = binding.controllerContainer
         router = Conductor.attachRouter(this, container, savedInstanceState)
@@ -473,6 +494,34 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         }
     }
 
+    // Takoyomi -->
+    fun setFloatingToolbar(show: Boolean, solidBG: Boolean = false) {
+        val oldTB = currentToolbar
+        currentToolbar = if (show) {
+            binding.cardToolbar
+        } else {
+            binding.toolbar
+        }
+        if (oldTB != currentToolbar) {
+            setSupportActionBar(currentToolbar)
+        }
+        binding.toolbar.isVisible = !show
+        binding.cardFrame?.isVisible = show
+        binding.appbar.setBackgroundColor(
+            if (show && !solidBG) Color.TRANSPARENT else getResourceColor(R.attr.background)
+        )
+        currentToolbar?.setNavigationOnClickListener {
+            val rootSearchController = router.backstack.lastOrNull()?.controller
+            if (rootSearchController is RootSearchInterface) {
+                rootSearchController.expandSearch()
+            } else onBackPressed()
+        }
+        if (oldTB != currentToolbar) {
+            invalidateOptionsMenu()
+        }
+    }
+    // Takoyomi <--
+
     override fun onNewIntent(intent: Intent) {
         if (!handleIntentAction(intent)) {
             super.onNewIntent(intent)
@@ -604,6 +653,10 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         // Binding sometimes isn't actually instantiated yet somehow
         nav?.setOnItemSelectedListener(null)
         binding?.toolbar.setNavigationOnClickListener(null)
+
+        // Takoyomi -->
+        binding?.cardToolbar?.setNavigationOnClickListener(null)
+        // Takoyomi <--
     }
 
     override fun onBackPressed() {
@@ -671,6 +724,17 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         }
     }
 
+    // Takoyomi -->
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        val searchItem = menu?.findItem(R.id.action_search)
+        searchItem?.isVisible = currentToolbar != binding.cardToolbar
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+    protected fun canShowFloatingToolbar(controller: Controller?) =
+        controller is FloatingSearchInterface
+    // Takoyomi <--
+
     private fun syncActivityViewWithController(
         to: Controller? = router.backstack.lastOrNull()?.controller,
         from: Controller? = null,
@@ -679,11 +743,25 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         if (from is DialogController || to is DialogController) {
             return
         }
+
+        // Takoyomi -->
+        setFloatingToolbar(canShowFloatingToolbar(to))
+        // Takoyomi <--
+
         if (from is PreferenceDialogController || to is PreferenceDialogController) {
             return
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(router.backstackSize != 1)
+
+        // Takoyomi -->
+        val onRoot = router.backstackSize == 1
+        if (onRoot) {
+            window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+            binding.toolbar.navigationIcon = searchDrawable
+            binding.cardToolbar?.navigationIcon = searchDrawable
+        }
+        // Takoyomi <--
 
         // Always show appbar again when changing controllers
         binding.appbar.setExpanded(true)
@@ -806,4 +884,24 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         const val INTENT_SEARCH_QUERY = "query"
         const val INTENT_SEARCH_FILTER = "filter"
     }
+
+    // Takoyomi -->
+    interface RootSearchInterface {
+        fun expandSearch() {
+            if (this is Controller) {
+                val mainActivity = activity as? MainActivity ?: return
+                mainActivity.binding.cardToolbar?.menu?.findItem(R.id.action_search)?.expandActionView()
+            }
+        }
+    }
+
+    interface FloatingSearchInterface {
+        fun searchTitle(title: String?): String? {
+            if (this is Controller) {
+                return activity?.getString(R.string.search_, title)
+            }
+            return title
+        }
+    }
+    // Takoyomi <--
 }
