@@ -76,6 +76,7 @@ open class BrowseSourceController(bundle: Bundle) :
     FlexibleAdapter.OnItemClickListener,
     FlexibleAdapter.OnItemLongClickListener,
     FlexibleAdapter.EndlessScrollListener,
+    MainActivity.FloatingSearchInterface,
     ChangeMangaCategoriesDialog.Listener {
 
     constructor(
@@ -150,7 +151,7 @@ open class BrowseSourceController(bundle: Bundle) :
     }
 
     override fun getTitle(): String? {
-        return presenter.source.name
+        return searchTitle(presenter.source.name)
     }
 
     override fun createPresenter(): BrowseSourcePresenter {
@@ -374,7 +375,7 @@ open class BrowseSourceController(bundle: Bundle) :
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        createOptionsMenu(menu, inflater, R.menu.source_browse, R.id.action_search)
+        createOptionsMenu(menu, inflater, R.menu.source_browse_floating, R.id.action_search)
         val searchItem = menu.findItem(R.id.action_search)
 
         searchItem.fixExpand(

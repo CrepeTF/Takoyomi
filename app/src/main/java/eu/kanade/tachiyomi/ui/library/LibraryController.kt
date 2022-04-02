@@ -442,7 +442,7 @@ class LibraryController(
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        createOptionsMenu(menu, inflater, R.menu.library, R.id.action_search)
+        createOptionsMenu(menu, inflater, R.menu.library_floating, R.id.action_search)
         // Mutate the filter icon because it needs to be tinted and the resource is shared.
         menu.findItem(R.id.action_filter).icon.mutate()
 
