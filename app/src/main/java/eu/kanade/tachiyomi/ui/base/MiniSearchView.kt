@@ -1,9 +1,14 @@
 package eu.kanade.tachiyomi.ui.base
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.LinearLayout.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
 import androidx.core.graphics.ColorUtils
@@ -23,5 +28,13 @@ class MiniSearchView @JvmOverloads constructor(context: Context, attrs: Attribut
         searchTextView?.setTextColor(actionColorAlpha)
         searchTextView?.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
         searchTextView?.setHintTextColor(actionColorAlpha)
+
+        val searchPlateView = findViewById<View>(androidx.appcompat.R.id.search_plate)
+        searchPlateView.setBackgroundColor(Color.TRANSPARENT)
+
+        setIconifiedByDefault(false)
+
+        val searchMagIconImageView = findViewById<ImageView>(androidx.appcompat.R.id.search_mag_icon)
+        searchMagIconImageView.layoutParams = LinearLayout.LayoutParams(0, 0)
     }
 }
