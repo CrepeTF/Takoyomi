@@ -507,15 +507,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         }
         binding.toolbar.isVisible = !show
         binding.cardFrame?.isVisible = show
-        binding.appbar.setBackgroundColor(
-            if (show && !solidBG) Color.TRANSPARENT else getResourceColor(R.attr.background)
-        )
-        currentToolbar?.setNavigationOnClickListener {
-            val rootSearchController = router.backstack.lastOrNull()?.controller
-            if (rootSearchController is RootSearchInterface) {
-                rootSearchController.expandSearch()
-            } else onBackPressed()
-        }
+
         if (oldTB != currentToolbar) {
             invalidateOptionsMenu()
         }
@@ -728,6 +720,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         val searchItem = menu?.findItem(R.id.action_search)
         searchItem?.isVisible = currentToolbar != binding.cardToolbar
+
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -752,14 +745,37 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             return
         }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(router.backstackSize != 1)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Takoyomi -->
         val onRoot = router.backstackSize == 1
-        if (onRoot) {
+
+        if (onRoot && binding.cardFrame?.isVisible == true) {
+            val searchIcon = getDrawable(R.drawable.ic_search_24dp)
+
             window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
             binding.toolbar.navigationIcon = searchDrawable
-            binding.cardToolbar?.navigationIcon = searchDrawable
+            binding.cardToolbar?.navigationIcon = searchIcon
+
+            binding.cardToolbar?.setNavigationOnClickListener {
+                binding.cardToolbar!!.menu.findItem(R.id.action_search)?.expandActionView()
+            }
+        } else if (onRoot) {
+            window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+            binding.toolbar.navigationIcon = null
+            binding.cardToolbar?.navigationIcon = null
+
+            binding.cardToolbar?.setNavigationOnClickListener {
+                onBackPressed()
+            }
+        } else if (router.backstackSize > 1) {
+            window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+            binding.toolbar.navigationIcon = getDrawable(R.drawable.ic_arrow_back_24dp)
+            binding.cardToolbar?.navigationIcon = getDrawable(R.drawable.ic_arrow_back_24dp)
+
+            binding.cardToolbar?.setNavigationOnClickListener {
+                onBackPressed()
+            }
         }
         // Takoyomi <--
 
