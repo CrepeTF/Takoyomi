@@ -725,7 +725,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
     }
 
     protected fun canShowFloatingToolbar(controller: Controller?) =
-        controller is FloatingSearchInterface
+        (controller is FloatingSearchInterface && controller.showFloatingBar())
     // Takoyomi <--
 
     private fun syncActivityViewWithController(
@@ -748,6 +748,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Takoyomi -->
+        setFloatingToolbar(canShowFloatingToolbar(to))
         val onRoot = router.backstackSize == 1
 
         if (onRoot && binding.cardFrame?.isVisible == true) {
@@ -918,6 +919,8 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             }
             return title
         }
+
+        fun showFloatingBar() = true
     }
     // Takoyomi <--
 }

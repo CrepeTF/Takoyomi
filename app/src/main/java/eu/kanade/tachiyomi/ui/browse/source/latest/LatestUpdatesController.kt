@@ -17,6 +17,14 @@ class LatestUpdatesController(bundle: Bundle) : BrowseSourceController(bundle) {
         bundleOf(SOURCE_ID_KEY to source.id)
     )
 
+    // Takoyomi -->
+    override fun getTitle(): String {
+        return presenter.source.name
+    }
+
+    override fun showFloatingBar() = false
+    // Takoyomi <--
+
     override fun createPresenter(): BrowseSourcePresenter {
         return LatestUpdatesPresenter(args.getLong(SOURCE_ID_KEY))
     }
