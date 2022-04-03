@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="3.1.4" changeDate="Apr 3,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r447[/b]</changelogtext>
+        <changelogtext>Added search-bar to some screens</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="3.1.2" changeDate="Mar 28,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r446[/b]</changelogtext>
     </changelogversion>
