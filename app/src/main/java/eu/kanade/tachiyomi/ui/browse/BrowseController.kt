@@ -29,7 +29,6 @@ import uy.kohesive.injekt.injectLazy
 class BrowseController :
     RxController<PagerControllerBinding>,
     RootController,
-    MainActivity.FloatingSearchInterface,
     TabbedController {
 
     constructor(toExtensions: Boolean = false) : super(
@@ -48,7 +47,7 @@ class BrowseController :
     private var adapter: BrowseAdapter? = null
 
     override fun getTitle(): String? {
-        return searchTitle(view?.context?.getString(R.string.browse))
+        return view?.context?.getString(R.string.browse)
     }
 
     override fun createBinding(inflater: LayoutInflater) = PagerControllerBinding.inflate(inflater)
