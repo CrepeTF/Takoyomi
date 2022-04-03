@@ -18,6 +18,7 @@ import eu.kanade.tachiyomi.source.CatalogueSource
 import eu.kanade.tachiyomi.ui.base.controller.SearchableNucleusController
 import eu.kanade.tachiyomi.ui.base.controller.withFadeTransaction
 import eu.kanade.tachiyomi.ui.browse.source.browse.BrowseSourceController
+import eu.kanade.tachiyomi.ui.main.MainActivity
 import eu.kanade.tachiyomi.ui.manga.MangaController
 import uy.kohesive.injekt.injectLazy
 
@@ -31,6 +32,7 @@ open class GlobalSearchController(
     protected val extensionFilter: String? = null,
     bundle: Bundle? = null
 ) : SearchableNucleusController<GlobalSearchControllerBinding, GlobalSearchPresenter>(bundle),
+    MainActivity.FloatingSearchInterface,
     GlobalSearchCardAdapter.OnMangaClickListener,
     GlobalSearchAdapter.OnTitleClickListener {
 

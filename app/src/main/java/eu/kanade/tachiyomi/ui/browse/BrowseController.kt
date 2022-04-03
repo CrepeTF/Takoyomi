@@ -47,7 +47,7 @@ class BrowseController :
     private var adapter: BrowseAdapter? = null
 
     override fun getTitle(): String? {
-        return resources!!.getString(R.string.browse)
+        return view?.context?.getString(R.string.browse)
     }
 
     override fun createBinding(inflater: LayoutInflater) = PagerControllerBinding.inflate(inflater)

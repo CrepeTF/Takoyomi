@@ -1,13 +1,20 @@
 package eu.kanade.tachiyomi.widget
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
+import android.util.TypedValue
+import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.widget.SearchView
+import androidx.core.graphics.ColorUtils
 import androidx.core.view.inputmethod.EditorInfoCompat
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.preference.PreferencesHelper
 import eu.kanade.tachiyomi.util.preference.asImmediateFlow
+import eu.kanade.tachiyomi.util.system.getResourceColor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -25,6 +32,25 @@ class TachiyomiSearchView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.searchViewStyle
 ) : SearchView(context, attrs, defStyleAttr) {
+
+    init {
+        val searchTextView =
+            findViewById<SearchAutoComplete>(androidx.appcompat.R.id.search_src_text)
+        searchTextView?.setTextAppearance(android.R.style.TextAppearance_Material_Body1)
+        val actionColorAlpha =
+            ColorUtils.setAlphaComponent(context.getResourceColor(R.attr.colorOnSurface), 200)
+        searchTextView?.setTextColor(actionColorAlpha)
+        searchTextView?.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
+        searchTextView?.setHintTextColor(actionColorAlpha)
+
+        val searchPlateView = findViewById<View>(androidx.appcompat.R.id.search_plate)
+        searchPlateView.setBackgroundColor(Color.TRANSPARENT)
+
+        setIconifiedByDefault(false)
+
+        val searchMagIconImageView = findViewById<ImageView>(androidx.appcompat.R.id.search_mag_icon)
+        searchMagIconImageView.layoutParams = LinearLayout.LayoutParams(0, 0)
+    }
 
     private var scope: CoroutineScope? = null
 

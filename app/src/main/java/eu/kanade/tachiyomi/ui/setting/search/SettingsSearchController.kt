@@ -13,6 +13,7 @@ import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.databinding.SettingsSearchControllerBinding
 import eu.kanade.tachiyomi.ui.base.controller.NucleusController
 import eu.kanade.tachiyomi.ui.base.controller.withFadeTransaction
+import eu.kanade.tachiyomi.ui.main.MainActivity
 import eu.kanade.tachiyomi.ui.setting.SettingsController
 
 /**
@@ -21,6 +22,7 @@ import eu.kanade.tachiyomi.ui.setting.SettingsController
  */
 class SettingsSearchController :
     NucleusController<SettingsSearchControllerBinding, SettingsSearchPresenter>(),
+    MainActivity.FloatingSearchInterface,
     SettingsSearchAdapter.OnTitleClickListener {
 
     /**
