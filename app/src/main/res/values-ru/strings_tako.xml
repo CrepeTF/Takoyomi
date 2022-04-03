@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="search_">Поиск %1$s</string>
+
     <string name="update_3hour">Каждые 3 часа</string>
 
     <string name="page_sheet_title">Параметры страницы</string>
