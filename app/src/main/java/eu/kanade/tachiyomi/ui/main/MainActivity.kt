@@ -766,6 +766,10 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             binding.toolbar.navigationIcon = null
             binding.cardToolbar?.navigationIcon = null
 
+            binding.toolbar.setNavigationOnClickListener {
+                onBackPressed()
+            }
+
             binding.cardToolbar?.setNavigationOnClickListener {
                 onBackPressed()
             }
@@ -773,6 +777,10 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
             binding.toolbar.navigationIcon = getDrawable(R.drawable.ic_arrow_back_24dp)
             binding.cardToolbar?.navigationIcon = getDrawable(R.drawable.ic_arrow_back_24dp)
+
+            binding.toolbar.setNavigationOnClickListener {
+                onBackPressed()
+            }
 
             binding.cardToolbar?.setNavigationOnClickListener {
                 onBackPressed()
