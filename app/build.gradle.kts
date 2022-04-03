@@ -22,7 +22,7 @@ android {
     ndkVersion = AndroidConfig.ndk
 
     defaultConfig {
-        applicationId = "eu.kanade.tachiyomi.sy.crepe.searchbar"
+        applicationId = "eu.kanade.tachiyomi.sy.crepe"
         minSdk = AndroidConfig.minSdk
         targetSdk = AndroidConfig.targetSdk
         versionCode = 39
