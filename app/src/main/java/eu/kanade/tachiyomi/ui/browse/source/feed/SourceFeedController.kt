@@ -23,6 +23,7 @@ import eu.kanade.tachiyomi.ui.base.controller.withFadeTransaction
 import eu.kanade.tachiyomi.ui.browse.source.browse.BrowseSourceController
 import eu.kanade.tachiyomi.ui.browse.source.browse.SourceFilterSheet
 import eu.kanade.tachiyomi.ui.browse.source.latest.LatestUpdatesController
+import eu.kanade.tachiyomi.ui.main.MainActivity
 import eu.kanade.tachiyomi.ui.manga.MangaController
 import eu.kanade.tachiyomi.util.system.toast
 import exh.savedsearches.models.FeedSavedSearch
@@ -41,6 +42,7 @@ import xyz.nulldev.ts.api.http.serializer.FilterSerializer
  */
 open class SourceFeedController :
     SearchableNucleusController<FeedControllerBinding, SourceFeedPresenter>,
+    MainActivity.FloatingSearchInterface,
     FabController,
     SourceFeedCardAdapter.OnMangaClickListener,
     SourceFeedAdapter.OnFeedClickListener {
@@ -79,7 +81,7 @@ open class SourceFeedController :
     }
 
     override fun getTitle(): String? {
-        return source!!.name
+        return searchTitle(source!!.name)
     }
 
     /**
