@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="3.1.6" changeDate="Apr 4,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r447[/b]</changelogtext>
+        <changelogtext>Added search-bar to tablet layout</changelogtext>
+        <changelogtext>Added ripple to search-bar</changelogtext>
+        <changelogtext>Added search-bar to custom browse view</changelogtext>
+        <changelogtext>Added a migrate button shortcut to migration bottom sheet</changelogtext>
+        <changelogtext>Migration sheet now fully expands when initiated</changelogtext>
+        <changelogtext>Fixed search-bar showing in recommendations</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="3.1.5" changeDate="Apr 4,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r447[/b]</changelogtext>
         <changelogtext>Fixed Search-bar appearing in latest</changelogtext>
