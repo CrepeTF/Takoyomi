@@ -172,14 +172,12 @@
         <item name="tabIndicatorColor">@color/library_item_foreground</item>
         <item name="tabIndicatorFullWidth">true</item>
         <item name="tabIndicatorGravity">center</item>
-        <item name="tabInlineLabel">true</item>
         <item name="tabMinWidth">75dp</item>
         <item name="tabMode">scrollable</item>
         <item name="tabRippleColor">@color/ripple_toolbar_fainter</item>
-        <item name="tabPaddingStart">12dp</item>
-        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabPaddingStart">8dp</item>
+        <item name="tabPaddingEnd">8dp</item>
         <item name="dividerThickness">0dp</item>
-        <item name="tabContentStart">25dp</item>
     </style>
 
 

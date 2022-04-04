@@ -3,6 +3,7 @@ package eu.kanade.tachiyomi.ui.browse
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.RelativeLayout
 import androidx.core.os.bundleOf
 import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.ControllerChangeHandler
@@ -24,6 +25,7 @@ import eu.kanade.tachiyomi.ui.browse.feed.FeedController
 import eu.kanade.tachiyomi.ui.browse.migration.sources.MigrationSourcesController
 import eu.kanade.tachiyomi.ui.browse.source.SourceController
 import eu.kanade.tachiyomi.ui.main.MainActivity
+import eu.kanade.tachiyomi.util.system.dpToPx
 import uy.kohesive.injekt.injectLazy
 
 class BrowseController :
@@ -82,10 +84,12 @@ class BrowseController :
 
     override fun configureTabs(tabs: TabLayout): Boolean {
         with(tabs) {
-            tabGravity = TabLayout.GRAVITY_CENTER
+            tabGravity = TabLayout.GRAVITY_FILL
             tabMode = TabLayout.MODE_FIXED
 
-            tabs.setPadding(0, 0, 0, 0)
+            val layoutParams = tabs.layoutParams as RelativeLayout.LayoutParams
+            layoutParams.setMargins(15.dpToPx, 0, 15.dpToPx, 0)
+            tabs.layoutParams = layoutParams
         }
         return true
     }

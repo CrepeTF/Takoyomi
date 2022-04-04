@@ -88,14 +88,21 @@
 
         </LinearLayout>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
+        <RelativeLayout
+            android:id="@+id/tabs_frame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/transparent_tabs_background"
-            android:clipToPadding="false"
-            android:visibility="gone"
-            app:tabRippleColor="@android:color/transparent" />
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_tabs_background"
+                android:clipToPadding="false"
+                android:visibility="gone"
+                app:tabRippleColor="@android:color/transparent" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/banners"

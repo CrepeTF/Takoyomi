@@ -2,16 +2,14 @@ package eu.kanade.tachiyomi.ui.library
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
+import android.view.*
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.children
 import androidx.core.view.doOnAttach
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import com.bluelinelabs.conductor.ControllerChangeHandler
 import com.bluelinelabs.conductor.ControllerChangeType
 import com.fredporciuncula.flow.preferences.Preference
@@ -38,6 +36,7 @@ import eu.kanade.tachiyomi.ui.main.MainActivity
 import eu.kanade.tachiyomi.ui.manga.MangaController
 import eu.kanade.tachiyomi.ui.reader.ReaderActivity
 import eu.kanade.tachiyomi.util.preference.asImmediateFlow
+import eu.kanade.tachiyomi.util.system.dpToPx
 import eu.kanade.tachiyomi.util.system.getResourceColor
 import eu.kanade.tachiyomi.util.system.openInBrowser
 import eu.kanade.tachiyomi.util.system.toast
@@ -46,20 +45,11 @@ import eu.kanade.tachiyomi.widget.EmptyView
 import eu.kanade.tachiyomi.widget.materialdialogs.QuadStateTextView
 import exh.favorites.FavoritesIntroDialog
 import exh.favorites.FavoritesSyncStatus
-import exh.source.MERGED_SOURCE_ID
-import exh.source.PERV_EDEN_EN_SOURCE_ID
-import exh.source.PERV_EDEN_IT_SOURCE_ID
-import exh.source.isEhBasedManga
-import exh.source.mangaDexSourceIds
-import exh.source.nHentaiSourceIds
+import exh.source.*
 import exh.ui.LoaderManager
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.sample
+import kotlinx.coroutines.flow.*
 import reactivecircus.flowbinding.android.view.clicks
 import reactivecircus.flowbinding.viewpager.pageSelections
 import rx.Observable
@@ -283,7 +273,13 @@ class LibraryController(
             tabGravity = TabLayout.GRAVITY_START
             tabMode = TabLayout.MODE_SCROLLABLE
 
-            tabs.setPadding(0, 0, 35, 0)
+            val layoutParams = tabs.layoutParams as RelativeLayout.LayoutParams
+            layoutParams.setMargins(0, 0, 0, 0)
+            tabs.layoutParams = layoutParams
+
+            tabs.children.forEach {
+                it.updatePadding(left = 15.dpToPx, right = 15.dpToPx)
+            }
         }
         tabsVisibilitySubscription?.unsubscribe()
         tabsVisibilitySubscription = tabsVisibilityRelay.subscribe { visible ->
