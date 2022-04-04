@@ -28,6 +28,8 @@ class MangaDexSimilarController(bundle: Bundle) : BrowseSourceController(bundle)
         return view?.context?.getString(R.string.similar, mangaTitle)
     }
 
+    override fun showFloatingBar() = false
+
     override fun createPresenter(): BrowseSourcePresenter {
         return MangaDexSimilarPresenter(args.getLong(MANGA_ID), args.getLong(SOURCE_ID_KEY))
     }

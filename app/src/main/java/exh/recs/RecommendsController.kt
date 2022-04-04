@@ -28,6 +28,8 @@ class RecommendsController(bundle: Bundle) : BrowseSourceController(bundle) {
         return (presenter as? RecommendsPresenter)?.manga?.title
     }
 
+    override fun showFloatingBar() = false
+
     override fun createPresenter(): RecommendsPresenter {
         return RecommendsPresenter(args.getLong(MANGA_ID), args.getLong(SOURCE_ID_KEY))
     }
