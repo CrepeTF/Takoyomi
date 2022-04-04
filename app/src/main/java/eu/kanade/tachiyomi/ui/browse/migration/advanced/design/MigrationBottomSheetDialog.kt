@@ -1,6 +1,5 @@
 package eu.kanade.tachiyomi.ui.browse.migration.advanced.design
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.res.Resources
 import android.os.Bundle
