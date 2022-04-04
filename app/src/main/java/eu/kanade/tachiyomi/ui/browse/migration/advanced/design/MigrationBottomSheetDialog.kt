@@ -1,6 +1,8 @@
 package eu.kanade.tachiyomi.ui.browse.migration.advanced.design
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,26 +35,24 @@ class MigrationBottomSheetDialog(private val activity: Activity, private val lis
     /**
      * Called when the sheet is created. It initializes the listeners and values of the preferences.
      */
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         initPreferences()
 
-        binding.migrateBtn.setOnClickListener {
-            preferences.skipPreMigration().set(binding.skipStep.isChecked)
-            preferences.hideNotFoundMigration().set(binding.HideNotFoundManga.isChecked)
-            listener.startMigration(
-                if (binding.useSmartSearch.isChecked && binding.extraSearchParamText.text.isNotBlank()) {
-                    binding.extraSearchParamText.toString()
-                } else null
-            )
-            dismiss()
+        listOf(binding.migrateBtn, binding.migrateBtnShortcut).forEach {
+            it.setOnClickListener {
+                preferences.skipPreMigration().set(binding.skipStep.isChecked)
+                preferences.hideNotFoundMigration().set(binding.HideNotFoundManga.isChecked)
+                listener.startMigration(
+                    if (binding.useSmartSearch.isChecked && binding.extraSearchParamText.text.isNotBlank()) {
+                        binding.extraSearchParamText.toString()
+                    } else null
+                )
+                dismiss()
+            }
         }
-    }
-
-    fun onShow() {
-        super.show()
-        behavior.state = BottomSheetBehavior.STATE_EXPANDED
     }
 
     /**
