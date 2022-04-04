@@ -35,7 +35,6 @@ class MigrationBottomSheetDialog(private val activity: Activity, private val lis
     /**
      * Called when the sheet is created. It initializes the listeners and values of the preferences.
      */
-    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -53,6 +52,9 @@ class MigrationBottomSheetDialog(private val activity: Activity, private val lis
                 dismiss()
             }
         }
+
+        behavior.peekHeight = Resources.getSystem().displayMetrics.heightPixels * 5 / 3
+        behavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
     /**
