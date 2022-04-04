@@ -54,7 +54,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="?attr/selectableItemBackground"
-                            app:contentInsetStartWithNavigation="0dp"
                             app:navigationIconTint="?android:attr/textColorSecondary"
                             app:navigationIcon="@drawable/ic_search_24dp"
                             app:navigationContentDescription="@string/action_search"
