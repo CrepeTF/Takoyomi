@@ -111,7 +111,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
     var ready = false
 
     // Takoyomi -->
-    var currentToolbar: Toolbar? = null
+    private var currentToolbar: Toolbar? = null
     // Takoyomi <--
 
     // SY -->
@@ -158,7 +158,6 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         setSupportActionBar(binding.toolbar)
 
         // Takoyomi -->
-        var currentToolbar: Toolbar? = null
         setFloatingToolbar(true)
         // Takoyomi <--
 
@@ -233,9 +232,9 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             true
         }
 
-        // --> Takoyomi
+        // Takoyomi -->
 
-        binding.downloadedOnly.setOnClickListener() {
+        binding.downloadedOnly.setOnClickListener {
             preferences.downloadedOnly().toggle()
             toast(resources.getString(R.string.pref_downloaded_only_off))
         }
@@ -244,7 +243,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             .onEach { preferences.downloadedOnly().get() }
             .launchIn(lifecycleScope)
 
-        binding.incognitoMode.setOnClickListener() {
+        binding.incognitoMode.setOnClickListener {
             preferences.incognitoMode().toggle()
             toast(resources.getString(R.string.pref_incognito_mode_off))
         }
@@ -305,18 +304,18 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             }
         }
 
-        // <-- Takoyomi
+        // Takoyomi <--
 
         // Takoyomi -->
-        binding.cardToolbar?.setNavigationOnClickListener {
+        binding.cardToolbar.setNavigationOnClickListener {
             val rootSearchController = router.backstack.lastOrNull()?.controller
             if (rootSearchController is RootSearchInterface) {
                 rootSearchController.expandSearch()
             } else onBackPressed()
         }
 
-        binding.cardToolbar?.setOnClickListener {
-            binding.cardToolbar?.menu?.findItem(R.id.action_search)?.expandActionView()
+        binding.cardToolbar.setOnClickListener {
+            binding.cardToolbar.menu.findItem(R.id.action_search)?.expandActionView()
         }
         // Takoyomi <--
 
@@ -392,11 +391,11 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         }
         // SY -->
 
-        // Tako <--
+        // Takoyomi <--
         preferences.banners()
-            .asImmediateFlow { binding.banners?.isGone = it }
+            .asImmediateFlow { binding.banners.isGone = it }
             .launchIn(lifecycleScope)
-        // Tako -->
+        // Takoyomi -->
 
         merge(preferences.showUpdatesNavBadge().asFlow(), preferences.unreadUpdatesCount().asFlow())
             .onEach { setUnreadUpdatesBadge() }
@@ -495,7 +494,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
     }
 
     // Takoyomi -->
-    fun setFloatingToolbar(show: Boolean, solidBG: Boolean = false) {
+    fun setFloatingToolbar(show: Boolean) {
         val oldTB = currentToolbar
         currentToolbar = if (show) {
             binding.cardToolbar
@@ -506,7 +505,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
             setSupportActionBar(currentToolbar)
         }
         binding.toolbar.isVisible = !show
-        binding.cardFrame?.isVisible = show
+        binding.cardFrame.isVisible = show
 
         if (oldTB != currentToolbar) {
             invalidateOptionsMenu()
@@ -638,16 +637,15 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         return true
     }
 
-    @Suppress("UNNECESSARY_SAFE_CALL")
     override fun onDestroy() {
         super.onDestroy()
 
         // Binding sometimes isn't actually instantiated yet somehow
-        nav?.setOnItemSelectedListener(null)
-        binding?.toolbar.setNavigationOnClickListener(null)
+        nav.setOnItemSelectedListener(null)
+        binding.toolbar.setNavigationOnClickListener(null)
 
         // Takoyomi -->
-        binding?.cardToolbar?.setNavigationOnClickListener(null)
+        binding.cardToolbar.setNavigationOnClickListener(null)
         // Takoyomi <--
     }
 
@@ -724,7 +722,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         return super.onPrepareOptionsMenu(menu)
     }
 
-    protected fun canShowFloatingToolbar(controller: Controller?) =
+    private fun canShowFloatingToolbar(controller: Controller?) =
         (controller is FloatingSearchInterface && controller.showFloatingBar())
     // Takoyomi <--
 
@@ -751,38 +749,38 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         setFloatingToolbar(canShowFloatingToolbar(to))
         val onRoot = router.backstackSize == 1
 
-        if (onRoot && binding.cardFrame?.isVisible == true) {
+        if (onRoot && binding.cardFrame.isVisible) {
             val searchIcon = getDrawable(R.drawable.ic_search_24dp)
 
             window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
             binding.toolbar.navigationIcon = searchDrawable
-            binding.cardToolbar?.navigationIcon = searchIcon
+            binding.cardToolbar.navigationIcon = searchIcon
 
-            binding.cardToolbar?.setNavigationOnClickListener {
-                binding.cardToolbar!!.menu.findItem(R.id.action_search)?.expandActionView()
+            binding.cardToolbar.setNavigationOnClickListener {
+                binding.cardToolbar.menu.findItem(R.id.action_search)?.expandActionView()
             }
         } else if (onRoot) {
             window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
             binding.toolbar.navigationIcon = null
-            binding.cardToolbar?.navigationIcon = null
+            binding.cardToolbar.navigationIcon = null
 
             binding.toolbar.setNavigationOnClickListener {
                 onBackPressed()
             }
 
-            binding.cardToolbar?.setNavigationOnClickListener {
+            binding.cardToolbar.setNavigationOnClickListener {
                 onBackPressed()
             }
         } else if (router.backstackSize > 1) {
             window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
             binding.toolbar.navigationIcon = getDrawable(R.drawable.ic_arrow_back_24dp)
-            binding.cardToolbar?.navigationIcon = getDrawable(R.drawable.ic_arrow_back_24dp)
+            binding.cardToolbar.navigationIcon = getDrawable(R.drawable.ic_arrow_back_24dp)
 
             binding.toolbar.setNavigationOnClickListener {
                 onBackPressed()
             }
 
-            binding.cardToolbar?.setNavigationOnClickListener {
+            binding.cardToolbar.setNavigationOnClickListener {
                 onBackPressed()
             }
         }
@@ -915,7 +913,7 @@ class MainActivity : BaseViewBindingActivity<MainActivityBinding>() {
         fun expandSearch() {
             if (this is Controller) {
                 val mainActivity = activity as? MainActivity ?: return
-                mainActivity.binding.cardToolbar?.menu?.findItem(R.id.action_search)?.expandActionView()
+                mainActivity.binding.cardToolbar.menu.findItem(R.id.action_search)?.expandActionView()
             }
         }
     }
