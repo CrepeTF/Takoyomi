@@ -3,7 +3,6 @@ package eu.kanade.tachiyomi.ui.library
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.*
-import android.widget.RelativeLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.children
@@ -13,6 +12,7 @@ import androidx.core.view.updatePadding
 import com.bluelinelabs.conductor.ControllerChangeHandler
 import com.bluelinelabs.conductor.ControllerChangeType
 import com.fredporciuncula.flow.preferences.Preference
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
 import com.jakewharton.rxrelay.BehaviorRelay
@@ -273,7 +273,7 @@ class LibraryController(
             tabGravity = TabLayout.GRAVITY_START
             tabMode = TabLayout.MODE_SCROLLABLE
 
-            val layoutParams = tabs.layoutParams as RelativeLayout.LayoutParams
+            val layoutParams = tabs.layoutParams as AppBarLayout.LayoutParams
             layoutParams.setMargins(0, 0, 0, 0)
             tabs.layoutParams = layoutParams
 

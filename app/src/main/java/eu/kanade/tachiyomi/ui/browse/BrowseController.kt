@@ -3,7 +3,6 @@ package eu.kanade.tachiyomi.ui.browse
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.RelativeLayout
 import androidx.core.os.bundleOf
 import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.ControllerChangeHandler
@@ -11,6 +10,7 @@ import com.bluelinelabs.conductor.ControllerChangeType
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.viewpager.RouterPagerAdapter
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.tabs.TabLayout
 import com.jakewharton.rxrelay.PublishRelay
@@ -87,7 +87,7 @@ class BrowseController :
             tabGravity = TabLayout.GRAVITY_FILL
             tabMode = TabLayout.MODE_FIXED
 
-            val layoutParams = tabs.layoutParams as RelativeLayout.LayoutParams
+            val layoutParams = tabs.layoutParams as AppBarLayout.LayoutParams
             layoutParams.setMargins(15.dpToPx, 0, 15.dpToPx, 0)
             tabs.layoutParams = layoutParams
         }
