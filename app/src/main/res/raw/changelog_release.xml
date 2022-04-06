@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="3.1.7" changeDate="Apr 6,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r447[/b]</changelogtext>
+        <changelogtext>Fix toolbar being transparent when it shouldn't be</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="3.1.6" changeDate="Apr 4,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r447[/b]</changelogtext>
         <changelogtext>Added search-bar to tablet layout</changelogtext>
