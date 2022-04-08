@@ -10,7 +10,6 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.bluelinelabs.conductor.Controller
 import com.fredporciuncula.flow.preferences.Preference
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import eu.kanade.tachiyomi.R
@@ -83,9 +82,9 @@ class MigrationBottomSheetDialog(private val activity: Activity, private val lis
         binding.HideNotFoundManga.isChecked = preferences.hideNotFoundMigration().get()
         binding.skipStep.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                (listener as? Controller)?.activity?.toast(
+                context.toast(
                     R.string.pre_migration_skip_toast,
-                    Toast.LENGTH_LONG
+                    Toast.LENGTH_LONG,
                 )
             }
         }

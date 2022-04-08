@@ -131,7 +131,7 @@ class SettingsMainController : SettingsController(), MainActivity.FloatingSearch
                 override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
                     return true
                 }
-            }
+            },
         )
     }
 }

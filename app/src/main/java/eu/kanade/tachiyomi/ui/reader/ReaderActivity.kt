@@ -12,6 +12,7 @@ import android.graphics.Color
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
+import android.graphics.drawable.RippleDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -82,6 +83,7 @@ import eu.kanade.tachiyomi.ui.webview.WebViewActivity
 import eu.kanade.tachiyomi.util.preference.toggle
 import eu.kanade.tachiyomi.util.system.applySystemAnimatorScale
 import eu.kanade.tachiyomi.util.system.createReaderThemeContext
+import eu.kanade.tachiyomi.util.system.getThemeColor
 import eu.kanade.tachiyomi.util.system.hasDisplayCutout
 import eu.kanade.tachiyomi.util.system.isLTR
 import eu.kanade.tachiyomi.util.system.isNightMode
@@ -445,7 +447,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                         action = MainActivity.SHORTCUT_MANGA
                         putExtra(MangaController.MANGA_EXTRA, id)
                         addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    }
+                    },
                 )
             }
         }
@@ -528,10 +530,18 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
             setCornerSize(999F)
         }
         // SY <--
+        listOf(binding.leftChapter, binding.rightChapter /* SY --> */, binding.belowChapter, binding.aboveChapter /* SY <-- */).forEach {
+            it.background = binding.readerSeekbar.background.copy(this)
+            it.foreground = RippleDrawable(
+                ColorStateList.valueOf(getThemeColor(android.R.attr.colorControlHighlight)),
+                null,
+                it.background,
+            )
+        }
 
         val toolbarColor = ColorUtils.setAlphaComponent(
             toolbarBackground.resolvedTintColor,
-            toolbarBackground.alpha
+            toolbarBackground.alpha,
         )
         window.statusBarColor = toolbarColor
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
@@ -602,7 +612,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                         R.string.on
                     } else {
                         R.string.off
-                    }
+                    },
                 )
             }
         }
@@ -704,7 +714,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                 } else {
                     it.toString()
                 }
-            }
+            },
         )
 
         binding.ehAutoscroll.checkedChanges()
@@ -714,7 +724,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                         preferences.autoscrollInterval().get().toDouble()
                     } else {
                         -1.0
-                    }
+                    },
                 )
             }
             .launchIn(lifecycleScope)
@@ -942,7 +952,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                 R.drawable.ic_crop_24dp
             } else {
                 R.drawable.ic_crop_off_24dp
-            }
+            },
         )
     }
 
@@ -965,7 +975,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                             // Fix status bar being translucent the first time it's opened.
                             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
                         }
-                    }
+                    },
                 )
                 // EXH -->
                 binding.header.startAnimation(toolbarAnimation)
@@ -1003,7 +1013,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                         override fun onAnimationEnd(animation: Animation) {
                             binding.readerMenu.isVisible = false
                         }
-                    }
+                    },
                 )
                 // EXH -->
                 binding.header.startAnimation(toolbarAnimation)
@@ -1043,7 +1053,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
             applicationContext,
             url,
             source.id,
-            presenter.manga!!.title
+            presenter.manga!!.title,
         )
         startActivity(intent)
     }
@@ -1065,7 +1075,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
         if (window.sharedElementEnterTransition is MaterialContainerTransform) {
             // Wait until transition is complete to avoid crash on API 26
             window.sharedElementEnterTransition.addListener(
-                onEnd = { setOrientation(presenter.getMangaOrientationType()) }
+                onEnd = { setOrientation(presenter.getMangaOrientationType()) },
             )
         } else {
             setOrientation(presenter.getMangaOrientationType())
@@ -1336,7 +1346,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                 page,
                 extraPage,
                 (viewer !is R2LPagerViewer) xor (viewer?.config?.invertDoublePages ?: false),
-                viewer?.config?.pageCanvasColor
+                viewer?.config?.pageCanvasColor,
             ).show()
         } catch (e: WindowManager.BadTokenException) {
             xLogE("Caught and ignoring reader page sheet launch exception!", e)
@@ -1410,7 +1420,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
 
         val intent = uri.toShareIntent(
             context = applicationContext,
-            message = /* SY --> */ text /* SY <-- */
+            message = /* SY --> */ text, // SY <--
         )
         startActivity(Intent.createChooser(intent, getString(R.string.action_share)))
     }
@@ -1462,7 +1472,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                 Success -> R.string.cover_updated
                 AddToLibraryFirst -> R.string.notification_first_add_to_library
                 Error -> R.string.notification_cover_update_failed
-            }
+            },
         )
     }
 
@@ -1509,12 +1519,12 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                                         -1f, 0f, 0f, 0f, 255f,
                                         0f, -1f, 0f, 0f, 255f,
                                         0f, 0f, -1f, 0f, 255f,
-                                        0f, 0f, 0f, 1f, 0f
-                                    )
-                                )
+                                        0f, 0f, 0f, 1f, 0f,
+                                    ),
+                                ),
                             )
                         }
-                    }
+                    },
                 )
             }
         }
@@ -1531,7 +1541,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                             2 -> R.color.reader_background_dark
                             3 -> automaticBackgroundColor()
                             else -> android.R.color.black
-                        }
+                        },
                     )
                 }
                 .launchIn(lifecycleScope)
@@ -1594,7 +1604,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                             PagerConfig.PageLayout.AUTOMATIC -> resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
                             else -> false
                         },
-                        true
+                        true,
                     )
                 }
                 .launchIn(lifecycleScope)
