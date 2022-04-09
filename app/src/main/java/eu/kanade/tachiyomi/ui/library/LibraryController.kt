@@ -834,7 +834,7 @@ class LibraryController(
             }
             is FavoritesSyncStatus.Processing,
             is FavoritesSyncStatus.Initializing,
--> {
+            -> {
                 takeSyncLocks()
 
                 if (favSyncDialog == null || (
