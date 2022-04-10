@@ -530,14 +530,6 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
             setCornerSize(999F)
         }
         // SY <--
-        listOf(binding.leftChapter, binding.rightChapter /* SY --> */, binding.belowChapter, binding.aboveChapter /* SY <-- */).forEach {
-            it.background = binding.readerSeekbar.background.copy(this)
-            it.foreground = RippleDrawable(
-                ColorStateList.valueOf(getThemeColor(android.R.attr.colorControlHighlight)),
-                null,
-                it.background,
-            )
-        }
 
         val toolbarColor = ColorUtils.setAlphaComponent(
             toolbarBackground.resolvedTintColor,
