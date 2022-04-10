@@ -10,12 +10,21 @@
         app:showAsAction="collapseActionView|ifRoom" />
 
     <item
+        android:id="@+id/action_open_in_web_view"
+        android:icon="@drawable/ic_public_24dp"
+        android:title="@string/action_open_in_web_view"
+        app:iconTint="?attr/colorOnSurface"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_display_mode"
         android:icon="@drawable/ic_view_module_24dp"
         android:title="@string/action_display_mode"
         app:iconTint="?attr/colorOnSurface"
-        app:showAsAction="ifRoom">
+        app:showAsAction="never">
+
         <menu>
+
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/action_compact_grid"
@@ -30,22 +39,17 @@
                     android:id="@+id/action_list"
                     android:title="@string/action_display_list" />
             </group>
-        </menu>
-    </item>
 
-    <item
-        android:id="@+id/action_open_in_web_view"
-        android:icon="@drawable/ic_public_24dp"
-        android:title="@string/action_open_in_web_view"
-        app:iconTint="?attr/colorOnSurface"
-        app:showAsAction="ifRoom" />
+        </menu>
+
+    </item>
 
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings_24dp"
         android:title="@string/action_settings"
         app:iconTint="?attr/colorOnSurface"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_local_source_help"

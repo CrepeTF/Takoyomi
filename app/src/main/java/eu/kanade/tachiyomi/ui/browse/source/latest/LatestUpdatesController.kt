@@ -2,6 +2,7 @@ package eu.kanade.tachiyomi.ui.browse.source.latest
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuInflater
 import androidx.core.os.bundleOf
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.source.CatalogueSource
@@ -27,6 +28,10 @@ class LatestUpdatesController(bundle: Bundle) : BrowseSourceController(bundle) {
 
     override fun createPresenter(): BrowseSourcePresenter {
         return LatestUpdatesPresenter(args.getLong(SOURCE_ID_KEY))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        createOptionsMenu(menu, inflater, R.menu.source_browse, R.id.action_search)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
