@@ -12,7 +12,6 @@ import android.graphics.Color
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
-import android.graphics.drawable.RippleDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -83,7 +82,6 @@ import eu.kanade.tachiyomi.ui.webview.WebViewActivity
 import eu.kanade.tachiyomi.util.preference.toggle
 import eu.kanade.tachiyomi.util.system.applySystemAnimatorScale
 import eu.kanade.tachiyomi.util.system.createReaderThemeContext
-import eu.kanade.tachiyomi.util.system.getThemeColor
 import eu.kanade.tachiyomi.util.system.hasDisplayCutout
 import eu.kanade.tachiyomi.util.system.isLTR
 import eu.kanade.tachiyomi.util.system.isNightMode
