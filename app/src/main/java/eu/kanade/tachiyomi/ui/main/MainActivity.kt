@@ -890,6 +890,11 @@ class MainActivity : BaseActivity() {
             nav.labelVisibilityMode = NavigationBarView.LABEL_VISIBILITY_SELECTED
         }
     }
+    // SY <--
+
+    init {
+        registerSecureActivity(this)
+    }
 
     companion object {
         // Splash screen
