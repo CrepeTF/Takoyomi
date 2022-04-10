@@ -24,7 +24,7 @@ class FloatingToolbar @JvmOverloads constructor(context: Context, attrs: Attribu
             attrs,
             R.styleable.Toolbar,
             0,
-            defStyleRes
+            defStyleRes,
         )
         a.recycle()
     }

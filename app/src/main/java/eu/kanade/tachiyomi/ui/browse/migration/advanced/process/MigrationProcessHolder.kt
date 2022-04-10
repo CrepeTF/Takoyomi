@@ -51,7 +51,7 @@ class MigrationProcessHolder(
 
             binding.skipManga.setVectorCompat(
                 R.drawable.ic_close_24dp,
-                R.attr.colorAccent
+                R.attr.colorAccent,
             )
             binding.skipManga.isVisible = true
             binding.migrationMangaCardTo.resetManga()

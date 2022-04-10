@@ -20,7 +20,7 @@ open class BaseToolbar @JvmOverloads constructor(context: Context, attrs: Attrib
             attrs,
             R.styleable.Toolbar,
             0,
-            defStyleRes
+            defStyleRes,
         )
         titleTextAppearance = a.getResourceId(R.styleable.Toolbar_titleTextAppearance, 0)
         a.recycle()
