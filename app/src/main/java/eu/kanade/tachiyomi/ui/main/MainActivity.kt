@@ -267,8 +267,6 @@ class MainActivity : BaseActivity() {
                         }
 
                         binding.downloadedOnly.alpha = 0.4F
-
-                        toast(resources.getString(R.string.pref_downloaded_only_off))
                     }
                 }
             }
@@ -299,8 +297,6 @@ class MainActivity : BaseActivity() {
                         }
 
                         binding.incognitoMode.alpha = 0.4F
-
-                        toast(resources.getString(R.string.pref_incognito_mode_off))
                     }
                 }
             }

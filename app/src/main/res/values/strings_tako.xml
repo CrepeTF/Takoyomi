@@ -14,7 +14,4 @@
     <string name="recents_shortcut">"Long press recents shortcuts"</string>
     <string name="recents_shortcut_summary">Long press on Updates/History to open up History/Updates when one is hidden</string>
 
-    <string name="pref_downloaded_only_off">Downloaded Only mode has been turned off</string>
-    <string name="pref_incognito_mode_off">Incognito mode has been turned off</string>
-
 </resources>
