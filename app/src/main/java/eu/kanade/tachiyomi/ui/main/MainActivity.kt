@@ -239,48 +239,71 @@ class MainActivity : BaseActivity() {
         val incognitoModeColor = getResourceColor(R.attr.colorPrimary)
         val optionDisabledColor = getResourceColor(R.attr.colorOnSurface)
 
+        val downloadedOnlyBtn = listOf(binding.downloadedOnlyIcon.foreground, binding.downloadedOnlyFrame?.background)
+        val incognitoModeBtn = listOf(binding.incognitoModeIcon.foreground, binding.incognitoModeFrame?.background)
+
         binding.downloadedOnly.setOnClickListener {
-            preferences.downloadedOnly().toggle()
-
-            if (isTablet() && preferences.downloadedOnly().get()) {
-                binding.downloadedOnlyIcon.foreground.setTint(downloadedOnlyColor)
-                binding.downloadedOnlyFrame?.background?.setTint(downloadedOnlyColor)
-
-                binding.downloadedOnly.alpha = 1F
-            } else if (isTablet() && !preferences.downloadedOnly().get()) {
-                binding.downloadedOnlyIcon.foreground.setTint(optionDisabledColor)
-                binding.downloadedOnlyFrame?.background?.setTint(optionDisabledColor)
-
-                binding.downloadedOnly.alpha = 0.4F
-
-                toast(resources.getString(R.string.pref_downloaded_only_off))
+            if (isTablet()) {
+                preferences.downloadedOnly().toggle()
             }
         }
 
         preferences.downloadedOnly().asFlow()
-            .onEach { preferences.downloadedOnly().get() }
+            .onEach {
+                preferences.downloadedOnly().get()
+
+                if (isTablet() && preferences.downloadedOnly().get()) {
+                    preferences.downloadedOnly().asImmediateFlow {
+                        downloadedOnlyBtn.forEach {
+                            it?.setTint(downloadedOnlyColor)
+                        }
+
+                        binding.downloadedOnly.alpha = 1F
+                    }
+                } else if (isTablet() && !preferences.downloadedOnly().get()) {
+                    preferences.downloadedOnly().asImmediateFlow {
+                        downloadedOnlyBtn.forEach {
+                            it?.setTint(optionDisabledColor)
+                        }
+
+                        binding.downloadedOnly.alpha = 0.4F
+
+                        toast(resources.getString(R.string.pref_downloaded_only_off))
+                    }
+                }
+            }
             .launchIn(lifecycleScope)
 
         binding.incognitoMode.setOnClickListener {
-            preferences.incognitoMode().toggle()
-
-            if (isTablet() && preferences.incognitoMode().get()) {
-                binding.incognitoModeIcon.foreground.setTint(incognitoModeColor)
-                binding.incognitoModeFrame?.background?.setTint(incognitoModeColor)
-
-                binding.incognitoMode.alpha = 1F
-            } else if (isTablet() && !preferences.incognitoMode().get()) {
-                binding.incognitoModeIcon.foreground.setTint(optionDisabledColor)
-                binding.incognitoModeFrame?.background?.setTint(optionDisabledColor)
-
-                binding.incognitoMode.alpha = 0.4F
-
-                toast(resources.getString(R.string.pref_incognito_mode_off))
+            if (isTablet()) {
+                preferences.incognitoMode().toggle()
             }
         }
 
         preferences.incognitoMode().asFlow()
-            .onEach { preferences.incognitoMode().get() }
+            .onEach {
+                preferences.incognitoMode().get()
+
+                if (isTablet() && preferences.incognitoMode().get()) {
+                    preferences.incognitoMode().asImmediateFlow {
+                        incognitoModeBtn.forEach {
+                            it?.setTint(incognitoModeColor)
+                        }
+
+                        binding.incognitoMode.alpha = 1F
+                    }
+                } else if (isTablet() && !preferences.incognitoMode().get()) {
+                    preferences.incognitoMode().asImmediateFlow {
+                        incognitoModeBtn.forEach {
+                            it?.setTint(optionDisabledColor)
+                        }
+
+                        binding.incognitoMode.alpha = 0.4F
+
+                        toast(resources.getString(R.string.pref_incognito_mode_off))
+                    }
+                }
+            }
             .launchIn(lifecycleScope)
 
         if (
@@ -425,11 +448,7 @@ class MainActivity : BaseActivity() {
         // Takoyomi <--
         preferences.banners()
             .asImmediateFlow {
-                if (!isTablet()) {
-                    binding.banners.isGone = it
-                } else {
-                    !binding.banners.isGone
-                }
+                binding.banners.isVisible = !it
             }
             .launchIn(lifecycleScope)
         // Takoyomi -->
@@ -864,7 +883,7 @@ class MainActivity : BaseActivity() {
             binding.fabLayout.rootFab.hide()
         }
 
-        if (!isTablet()) {
+        if (!isTablet() || isTablet()) {
             // Save lift state
             if (isPush) {
                 if (router.backstackSize > 1) {
