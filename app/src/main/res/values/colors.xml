@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="splash">@color/md_black_1000</color>
+    <color name="splash">#1D1D1B</color>
 
     <color name="cover_placeholder">#1F888888</color>
 
