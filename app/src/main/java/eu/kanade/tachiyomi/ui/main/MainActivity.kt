@@ -235,10 +235,26 @@ class MainActivity : BaseActivity() {
         }
 
         // Takoyomi -->
+        val downloadedOnlyColor = getResourceColor(R.attr.colorFilterActive)
+        val incognitoModeColor = getResourceColor(R.attr.colorPrimary)
+        val optionDisabledColor = getResourceColor(R.attr.colorOnSurface)
 
         binding.downloadedOnly.setOnClickListener {
             preferences.downloadedOnly().toggle()
-            toast(resources.getString(R.string.pref_downloaded_only_off))
+
+            if (isTablet() && preferences.downloadedOnly().get()) {
+                binding.downloadedOnlyIcon.foreground.setTint(downloadedOnlyColor)
+                binding.downloadedOnlyFrame?.background?.setTint(downloadedOnlyColor)
+
+                binding.downloadedOnly.alpha = 1F
+            } else if (isTablet() && !preferences.downloadedOnly().get()) {
+                binding.downloadedOnlyIcon.foreground.setTint(optionDisabledColor)
+                binding.downloadedOnlyFrame?.background?.setTint(optionDisabledColor)
+
+                binding.downloadedOnly.alpha = 0.4F
+
+                toast(resources.getString(R.string.pref_downloaded_only_off))
+            }
         }
 
         preferences.downloadedOnly().asFlow()
@@ -247,7 +263,20 @@ class MainActivity : BaseActivity() {
 
         binding.incognitoMode.setOnClickListener {
             preferences.incognitoMode().toggle()
-            toast(resources.getString(R.string.pref_incognito_mode_off))
+
+            if (isTablet() && preferences.incognitoMode().get()) {
+                binding.incognitoModeIcon.foreground.setTint(incognitoModeColor)
+                binding.incognitoModeFrame?.background?.setTint(incognitoModeColor)
+
+                binding.incognitoMode.alpha = 1F
+            } else if (isTablet() && !preferences.incognitoMode().get()) {
+                binding.incognitoModeIcon.foreground.setTint(optionDisabledColor)
+                binding.incognitoModeFrame?.background?.setTint(optionDisabledColor)
+
+                binding.incognitoMode.alpha = 0.4F
+
+                toast(resources.getString(R.string.pref_incognito_mode_off))
+            }
         }
 
         preferences.incognitoMode().asFlow()
@@ -395,7 +424,13 @@ class MainActivity : BaseActivity() {
 
         // Takoyomi <--
         preferences.banners()
-            .asImmediateFlow { binding.banners.isGone = it }
+            .asImmediateFlow {
+                if (!isTablet()) {
+                    binding.banners.isGone = it
+                } else {
+                    !binding.banners.isGone
+                }
+            }
             .launchIn(lifecycleScope)
         // Takoyomi -->
 
@@ -408,14 +443,23 @@ class MainActivity : BaseActivity() {
             .launchIn(lifecycleScope)
 
         preferences.downloadedOnly()
-            .asImmediateFlow { binding.downloadedOnly.isVisible = it }
+            .asImmediateFlow {
+                if (!isTablet()) {
+                    binding.downloadedOnly.isVisible = it
+                } else {
+                    binding.downloadedOnly.isVisible
+                }
+            }
             .launchIn(lifecycleScope)
 
-        binding.incognitoMode.isVisible = preferences.incognitoMode().get()
         preferences.incognitoMode().asFlow()
             .drop(1)
             .onEach {
-                binding.incognitoMode.isVisible = it
+                if (!isTablet()) {
+                    binding.incognitoMode.isVisible = it
+                } else {
+                    binding.incognitoMode.isVisible
+                }
 
                 // Close BrowseSourceController and its MangaController child when incognito mode is disabled
                 if (!it) {

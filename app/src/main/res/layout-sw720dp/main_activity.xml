@@ -128,63 +128,86 @@
             app:menu="@menu/main_nav">
 
             <LinearLayout
-                android:id="@+id/banners"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:paddingBottom="8dp"
                 android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:visibility="visible"
-                tools:visibility="visible">
+                android:orientation="vertical">
 
-                <androidx.coordinatorlayout.widget.CoordinatorLayout
-                    android:id="@+id/downloaded_only"
-                    android:layout_width="wrap_content"
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginVertical="6dp"
+                    android:background="?android:attr/divider"/>
+
+                <LinearLayout
+                    android:id="@+id/banners"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    tools:visibility="visible" >
+                    android:layout_gravity="bottom"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    tools:visibility="visible">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:foreground="@drawable/ic_cloud_off_24dp"
-                        android:foregroundTint="?attr/colorTertiary" />
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                    <androidx.coordinatorlayout.widget.CoordinatorLayout
+                        android:id="@+id/downloaded_only"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_margin="4dp"
-                        android:alpha="0.2"
-                        app:cardBackgroundColor="?attr/colorTertiary"
-                        app:cardElevation="0dp" />
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:alpha="0.4"
+                        tools:visibility="visible" >
 
-                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                        <FrameLayout
+                            android:id="@+id/downloaded_only_icon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:foreground="@drawable/ic_cloud_off_24dp"
+                            android:foregroundTint="?attr/colorOnSurface" />
 
-                <androidx.coordinatorlayout.widget.CoordinatorLayout
-                    android:id="@+id/incognito_mode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    tools:visibility="visible" >
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/downloaded_only_frame"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_margin="4dp"
+                            android:alpha="0.2"
+                            app:cardBackgroundColor="?attr/colorOnSurface"
+                            app:cardElevation="0dp" />
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:foreground="@drawable/ic_glasses_24dp"
-                        android:foregroundTint="?attr/colorPrimary" />
+                    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:alpha="0.2"
-                        app:cardBackgroundColor="?attr/colorPrimary"
-                        app:cardElevation="0dp" />
+                    <androidx.coordinatorlayout.widget.CoordinatorLayout
+                        android:id="@+id/incognito_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:alpha="0.4"
+                        tools:visibility="visible" >
 
-                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                        <FrameLayout
+                            android:id="@+id/incognito_mode_icon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:foreground="@drawable/ic_glasses_24dp"
+                            android:foregroundTint="?attr/colorOnSurface" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/incognito_mode_frame"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:alpha="0.2"
+                            app:cardBackgroundColor="?attr/colorOnSurface"
+                            app:cardElevation="0dp" />
+
+                    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 
