@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="3.2.0" changeDate="Apr 12,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r448[/b]</changelogtext>
+        <changelogtext>Upgraded navigation rail controls</changelogtext>
+        <changelogtext>Fixed splashscreen</changelogtext>
+        <changelogtext>Tweaked some notification icons</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="3.1.9" changeDate="Apr 10,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r448[/b]</changelogtext>
         <changelogtext>Added elevation to navigation rail</changelogtext>
