@@ -274,13 +274,20 @@ class Downloader(
 
             // Start downloader if needed
             if (autoStart && wasEmpty) {
+                val queuedDownloads = queue.filter { it.source !is UnmeteredSource }.count()
                 val maxDownloadsFromSource = queue
                     .groupBy { it.source }
                     .filterKeys { it !is UnmeteredSource }
                     .maxOf { it.value.size }
-                if (maxDownloadsFromSource > CHAPTERS_PER_SOURCE_QUEUE_WARNING_THRESHOLD) {
+                if (
+                    queuedDownloads > DOWNLOADS_QUEUED_WARNING_THRESHOLD ||
+                    maxDownloadsFromSource > CHAPTERS_PER_SOURCE_QUEUE_WARNING_THRESHOLD
+                ) {
                     withUIContext {
-//                        context.toast(R.string.download_queue_size_warning, Toast.LENGTH_LONG)
+                        notifier.onWarning(
+                            context.getString(R.string.download_queue_size_warning),
+                            WARNING_NOTIF_TIMEOUT_MS,
+                        )
                     }
                 }
                 DownloadService.start(context)
@@ -563,7 +570,9 @@ class Downloader(
 
     companion object {
         const val TMP_DIR_SUFFIX = "_tmp"
+        const val WARNING_NOTIF_TIMEOUT_MS = 30_000L
         const val CHAPTERS_PER_SOURCE_QUEUE_WARNING_THRESHOLD = 15
+        private const val DOWNLOADS_QUEUED_WARNING_THRESHOLD = 30
     }
 }
 
