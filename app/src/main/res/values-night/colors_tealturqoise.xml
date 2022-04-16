@@ -23,5 +23,5 @@
     <color name="tealturquoise_inverseOnSurface">#202125</color>
     <color name="tealturquoise_inverseSurface">#DFDEDA</color>
     <color name="tealturquoise_primaryInverse">#008080</color>
-    <color name="tealturquoise_elevationOverlay">#18544E</color>
+    <color name="tealturquoise_elevationOverlay">@color/tealturquoise_onSurface</color>
 </resources>
