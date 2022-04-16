@@ -105,7 +105,7 @@ class LibraryUpdateNotifier(private val context: Context) {
             notificationBuilder.build(),
         )
     }
-    */
+     */
 
     /**
      * Shows notification containing update entries that failed with action to open full log.
