@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="3.2.2" changeDate="Apr 16,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r449[/b]</changelogtext>
+        <changelogtext>Added back Lime theme</changelogtext>
+        <changelogtext>Updated search-bar styling</changelogtext>
+        <changelogtext>Lightened elevation for some themes</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="3.2.1" changeDate="Apr 16,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r449[/b]</changelogtext>
     </changelogversion>
