@@ -36,7 +36,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/card_frame"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize">
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginBottom="8dp">
 
                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/guideline_searchbar_left"

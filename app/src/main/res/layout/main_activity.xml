@@ -34,7 +34,8 @@
             <FrameLayout
                 android:id="@+id/card_frame"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginBottom="8dp">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_view"
@@ -42,10 +43,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginVertical="4dp"
                     android:layout_marginHorizontal="14dp"
-                    app:strokeWidth="1dp"
+                    app:strokeWidth="0dp"
                     app:strokeColor="?android:attr/divider"
                     app:cardCornerRadius="99dp"
-                    app:cardElevation="0dp">
+                    app:cardElevation="1dp">
 
                     <eu.kanade.tachiyomi.ui.base.FloatingToolbar
                         android:id="@+id/card_toolbar"
