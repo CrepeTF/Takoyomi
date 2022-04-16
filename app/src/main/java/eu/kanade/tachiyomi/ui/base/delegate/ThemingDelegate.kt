@@ -17,6 +17,9 @@ interface ThemingDelegate {
                 PreferenceValues.AppTheme.MONET -> {
                     resIds += R.style.Theme_Tachiyomi_Monet
                 }
+                PreferenceValues.AppTheme.LIME -> {
+                    resIds += R.style.Theme_Tachiyomi_Lime
+                }
                 PreferenceValues.AppTheme.GREEN_APPLE -> {
                     resIds += R.style.Theme_Tachiyomi_GreenApple
                 }

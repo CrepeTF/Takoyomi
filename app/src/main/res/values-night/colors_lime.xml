@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lime_primary">#4AF88A</color>
+    <color name="lime_onPrimary">#003915</color>
+    <color name="lime_primaryContainer">#4AF88A</color>
+    <color name="lime_onPrimaryContainer">#203C2A</color>
+    <color name="lime_secondary">#4AF88A</color>
+    <color name="lime_onSecondary">#203C2A</color>
+    <color name="lime_secondaryContainer">#32493A</color>
+    <color name="lime_onSecondaryContainer">#96F8A9</color>
+    <color name="lime_tertiary">#FF87B7</color>
+    <color name="lime_onTertiary">#680006</color>
+    <color name="lime_tertiaryContainer">#93000D</color>
+    <color name="lime_onTertiaryContainer">#FFDAD5</color>
+    <color name="lime_background">#1B1B1E</color>
+    <color name="lime_onBackground">#E4E2E6</color>
+    <color name="lime_surface">#1B1B1E</color>
+    <color name="lime_onSurface">#E4E2E6</color>
+    <color name="lime_surfaceVariant">#44464E</color>
+    <color name="lime_onSurfaceVariant">#C5C6D0</color>
+    <color name="lime_outline">#8E9099</color>
+    <color name="lime_inverseOnSurface">#1B1B1E</color>
+    <color name="lime_inverseSurface">#E4E2E6</color>
+    <color name="lime_primaryInverse">#006D2F</color>
+    <color name="lime_elevationOverlay">#7EBDBB</color>
+</resources>

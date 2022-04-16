@@ -121,6 +121,34 @@
         <item name="colorPrimaryInverse">@color/greenapple_primaryInverse</item>
     </style>
 
+    <!--== Lime Theme ==-->
+    <style name="Theme.Tachiyomi.Lime">
+        <!-- Theme Colors -->
+        <item name="colorPrimary">@color/lime_primary</item>
+        <item name="colorOnPrimary">@color/lime_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/lime_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/lime_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/lime_secondary</item>
+        <item name="colorOnSecondary">@color/lime_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/lime_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/lime_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/lime_tertiary</item>
+        <item name="colorOnTertiary">@color/lime_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/lime_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/lime_onTertiaryContainer</item>
+        <item name="android:colorBackground">@color/lime_background</item>
+        <item name="colorOnBackground">@color/lime_onBackground</item>
+        <item name="colorSurface">@color/lime_surface</item>
+        <item name="colorOnSurface">@color/lime_onSurface</item>
+        <item name="colorSurfaceVariant">@color/lime_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/lime_onSurfaceVariant</item>
+        <item name="colorOutline">@color/lime_outline</item>
+        <item name="colorOnSurfaceInverse">@color/lime_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/lime_inverseSurface</item>
+        <item name="colorPrimaryInverse">@color/lime_primaryInverse</item>
+        <item name="elevationOverlayColor">@color/lime_elevationOverlay</item>
+    </style>
+
     <!--== Midnight Dusk Theme ==-->
     <style name="Theme.Tachiyomi.MidnightDusk">
         <!-- Theme Colors -->
