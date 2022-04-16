@@ -33,5 +33,5 @@
     <color name="midnightdusk_inverseSurface">#333043</color>
     <color name="midnightdusk_inverseOnSurface">#FFFFFF</color>
     <color name="midnightdusk_primaryInverse">#F02475</color>
-    <color name="midnightdusk_elevationOverlay">#2C0013</color>
+    <color name="midnightdusk_elevationOverlay">@color/midnightdusk_onSurfaceVariant</color>
 </resources>
