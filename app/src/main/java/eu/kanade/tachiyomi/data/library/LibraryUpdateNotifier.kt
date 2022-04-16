@@ -91,6 +91,7 @@ class LibraryUpdateNotifier(private val context: Context) {
         )
     }
 
+    /*
     fun showQueueSizeWarningNotification() {
         val notificationBuilder = context.notificationBuilder(Notifications.CHANNEL_LIBRARY_PROGRESS) {
             setContentTitle(context.getString(R.string.label_warning))
@@ -104,6 +105,7 @@ class LibraryUpdateNotifier(private val context: Context) {
             notificationBuilder.build(),
         )
     }
+    */
 
     /**
      * Shows notification containing update entries that failed with action to open full log.

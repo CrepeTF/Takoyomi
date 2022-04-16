@@ -346,6 +346,7 @@ class LibraryUpdateService(
             .distinctBy { it.id }
             .sortedBy { it.title }
 
+        /*
         // Warn when excessively checking a single source
         val maxUpdatesFromSource = mangaToUpdate
             .groupBy { it.source }
@@ -354,6 +355,7 @@ class LibraryUpdateService(
         if (maxUpdatesFromSource > MANGA_PER_SOURCE_QUEUE_WARNING_THRESHOLD) {
             notifier.showQueueSizeWarningNotification()
         }
+        */
     }
 
     /**
