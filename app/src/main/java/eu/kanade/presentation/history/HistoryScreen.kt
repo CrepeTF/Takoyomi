@@ -60,7 +60,7 @@ import java.util.Date
 fun HistoryScreen(
     composeView: ComposeView,
     presenter: HistoryPresenter,
-    onClickItem: (HistoryWithRelations) -> Unit,
+    onClickCover: (HistoryWithRelations) -> Unit,
     onClickResume: (HistoryWithRelations) -> Unit,
     onClickDelete: (HistoryWithRelations, Boolean) -> Unit,
 ) {
@@ -80,7 +80,7 @@ fun HistoryScreen(
             HistoryContent(
                 nestedScroll = nestedScrollInterop,
                 history = history,
-                onClickItem = onClickItem,
+                onClickCover = onClickCover,
                 onClickResume = onClickResume,
                 onClickDelete = onClickDelete,
             )
@@ -91,7 +91,7 @@ fun HistoryScreen(
 @Composable
 fun HistoryContent(
     history: LazyPagingItems<UiModel>,
-    onClickItem: (HistoryWithRelations) -> Unit,
+    onClickCover: (HistoryWithRelations) -> Unit,
     onClickResume: (HistoryWithRelations) -> Unit,
     onClickDelete: (HistoryWithRelations, Boolean) -> Unit,
     preferences: PreferencesHelper = Injekt.get(),
@@ -124,7 +124,7 @@ fun HistoryContent(
                     HistoryItem(
                         modifier = Modifier.animateItemPlacement(),
                         history = value,
-                        onClickItem = { onClickItem(value) },
+                        onClickCover = { onClickCover(value) },
                         onClickResume = { onClickResume(value) },
                         onClickDelete = { setRemoveState(value) },
                     )
@@ -174,7 +174,7 @@ fun HistoryHeader(
 fun HistoryItem(
     modifier: Modifier = Modifier,
     history: HistoryWithRelations,
-    onClickItem: () -> Unit,
+    onClickCover: () -> Unit,
     onClickResume: () -> Unit,
     onClickDelete: () -> Unit,
 ) {
@@ -188,7 +188,7 @@ fun HistoryItem(
         MangaCover(
             modifier = Modifier
                 .fillMaxHeight()
-                .clickable(onClick = onClickItem),
+                .clickable(onClick = onClickCover),
             data = history.thumbnailUrl,
             aspect = MangaCoverAspect.COVER
         )
