@@ -32,7 +32,7 @@ class HistoryController : ComposeController<HistoryPresenter>(), RootController 
         HistoryScreen(
             composeView = binding.root,
             presenter = presenter,
-            onClickItem = { history ->
+            onClickCover = { history ->
                 router.pushController(MangaController(history).withFadeTransaction())
             },
             onClickResume = { history ->
