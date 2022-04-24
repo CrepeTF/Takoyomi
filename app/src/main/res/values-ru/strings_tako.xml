@@ -9,8 +9,8 @@
     <string name="page_sheet_title">Параметры страницы</string>
 
     <string name="banner">Баннеры</string>
-    <string name="pref_hide_banners">Скрыть баннеры</string>
-    <string name="pref_hide_banners_summary">Скрывает баннеры индикации «Только загруженные главы» и «Режим инкогнито»</string>
+    <string name="pref_hide_banners">Скрыть индикаторы состояния</string>
+    <string name="pref_hide_banners_summary">Скрывает индикаторы «Только загруженные главы» и «Режим инкогнито»</string>
 
     <string name="history_download_shortcut">Используйте вкладку «История» для быстрого доступа к загрузкам</string>
     <string name="recents_shortcut">"Длительное нажатие по вкладкам"</string>
