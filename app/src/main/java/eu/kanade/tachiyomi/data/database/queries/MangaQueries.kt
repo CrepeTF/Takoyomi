@@ -197,8 +197,6 @@ interface MangaQueries : DbProvider {
 
     fun deleteManga(manga: Manga) = db.delete().`object`(manga).prepare()
 
-    fun deleteMangas(mangas: List<Manga>) = db.delete().objects(mangas).prepare()
-
     fun deleteMangasNotInLibraryBySourceIds(sourceIds: List<Long>) = db.delete()
         .byQuery(
             DeleteQuery.builder()
@@ -236,14 +234,6 @@ interface MangaQueries : DbProvider {
         )
         .prepare()
     // SY <--
-
-    fun deleteMangas() = db.delete()
-        .byQuery(
-            DeleteQuery.builder()
-                .table(MangaTable.TABLE)
-                .build(),
-        )
-        .prepare()
 
     fun getLastReadManga() = db.get()
         .listOfObjects(Manga::class.java)
