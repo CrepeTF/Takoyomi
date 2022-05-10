@@ -8,7 +8,7 @@
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search_24dp"
         android:title="@string/action_search"
-        app:actionViewClass="eu.kanade.tachiyomi.ui.base.MiniSearchView"
+        app:actionViewClass="eu.kanade.tachiyomi.widget.TachiyomiSearchView"
         android:visible="false"
         app:showAsAction="collapseActionView|ifRoom" />
 
