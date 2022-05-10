@@ -181,6 +181,14 @@ class MangaInfoHeaderAdapter(
                     .launchIn(controller.viewScope)
             }
 
+            // Tako -->
+            binding.btnWebview.longClicks()
+                .onEach {
+                    controller.performGlobalSearch(binding.mangaFullTitle.text.toString())
+                }
+                .launchIn(controller.viewScope)
+            // Tako <--
+
             // SY -->
             binding.btnMerge.isVisible = controller.presenter.manga.favorite
             binding.btnMerge.clicks()
@@ -199,7 +207,11 @@ class MangaInfoHeaderAdapter(
 
             binding.mangaFullTitle.clicks()
                 .onEach {
-                    controller.performGlobalSearch(binding.mangaFullTitle.text.toString())
+                    if (binding.mangaFullTitle.maxLines < 100) {
+                        binding.mangaFullTitle.maxLines = 100
+                    } else {
+                        binding.mangaFullTitle.maxLines = 5
+                    }
                 }
                 .launchIn(controller.viewScope)
 
