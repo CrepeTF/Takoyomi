@@ -239,8 +239,8 @@ class MainActivity : BaseActivity() {
         val incognitoModeColor = getResourceColor(R.attr.colorPrimary)
         val optionDisabledColor = getResourceColor(R.attr.colorOnSurface)
 
-        val downloadedOnlyBtn = listOf(binding.downloadedOnlyIcon.foreground, binding.downloadedOnlyFrame?.background)
-        val incognitoModeBtn = listOf(binding.incognitoModeIcon.foreground, binding.incognitoModeFrame?.background)
+        val downloadedOnlyBtn = listOf(binding.downloadedOnlyIcon?.foreground, binding.downloadedOnlyFrame?.background)
+        val incognitoModeBtn = listOf(binding.incognitoModeIcon?.foreground, binding.incognitoModeFrame?.background)
 
         binding.downloadedOnly.setOnClickListener {
             if (isTablet()) {
