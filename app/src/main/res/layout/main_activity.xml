@@ -83,7 +83,9 @@
                                     android:layout_gravity="start|center"
                                     android:padding="4dp"
                                     android:background="@drawable/ic_cloud_off_24dp"
-                                    android:backgroundTint="?attr/colorOnSurface" />
+                                    android:backgroundTint="?attr/colorOnSurface"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
 
                                 <ImageView
                                     android:id="@+id/incognito_mode"
@@ -93,7 +95,9 @@
                                     android:layout_gravity="start|center"
                                     android:padding="4dp"
                                     android:background="@drawable/ic_glasses_24dp"
-                                    android:backgroundTint="?attr/colorOnSurface" />
+                                    android:backgroundTint="?attr/colorOnSurface"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
 
                             </LinearLayout>
 
