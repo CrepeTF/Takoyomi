@@ -118,7 +118,7 @@ class MangaInfoHeaderAdapter(
     private fun updateCoverPosition() {
         if (isTablet) return
         val appBarHeight = controller.getMainAppBarHeight()
-        binding.mangaCover.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+        binding.mangaCover?.updateLayoutParams<ViewGroup.MarginLayoutParams> {
             topMargin += appBarHeight
         }
     }
@@ -130,7 +130,9 @@ class MangaInfoHeaderAdapter(
     inner class HeaderViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind() {
             // For rounded corners
-            binding.mangaCover.clipToOutline = true
+            if (isTablet) {
+                binding.mangaCover?.clipToOutline = true
+            }
 
             binding.btnFavorite.clicks()
                 .onEach { controller.onFavoriteClick() }
@@ -243,17 +245,31 @@ class MangaInfoHeaderAdapter(
                 }
                 .launchIn(controller.viewScope)
 
-            binding.mangaCover.clicks()
-                .onEach {
-                    controller.showFullCoverDialog()
-                }
-                .launchIn(controller.viewScope)
+            if (isTablet) {
+                binding.mangaCover?.clicks()
+                    ?.onEach {
+                        controller.showFullCoverDialog()
+                    }
+                    ?.launchIn(controller.viewScope)
 
-            binding.mangaCover.longClicks()
-                .onEach {
-                    showCoverOptionsDialog()
-                }
-                .launchIn(controller.viewScope)
+                binding.mangaCover?.longClicks()
+                    ?.onEach {
+                        showCoverOptionsDialog()
+                    }
+                    ?.launchIn(controller.viewScope)
+            } else {
+                binding.backdropOverlay.clicks()
+                    .onEach {
+                        controller.showFullCoverDialog()
+                    }
+                    .launchIn(controller.viewScope)
+
+                binding.backdropOverlay.longClicks()
+                    .onEach {
+                        showCoverOptionsDialog()
+                    }
+                    .launchIn(controller.viewScope)
+            }
 
             setMangaInfo()
         }
@@ -303,6 +319,7 @@ class MangaInfoHeaderAdapter(
             // Update artist TextView.
             val hasArtist = !manga.artist.isNullOrBlank() && manga.artist != manga.author
             binding.mangaArtist.isVisible = hasArtist
+            binding.artistIcon?.isVisible = hasArtist
             if (hasArtist) {
                 binding.mangaArtist.text = manga.artist
             }
@@ -359,7 +376,9 @@ class MangaInfoHeaderAdapter(
 
             // Set cover if changed.
             binding.backdrop.loadAutoPause(manga)
-            binding.mangaCover.loadAutoPause(manga)
+            if (isTablet) {
+                binding.mangaCover?.loadAutoPause(manga)
+            }
 
             // Manga info section
             // SY -->
