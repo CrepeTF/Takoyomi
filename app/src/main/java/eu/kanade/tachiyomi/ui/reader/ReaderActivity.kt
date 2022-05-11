@@ -957,7 +957,7 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
             binding.readerMenu.isVisible = true
 
             if (animate) {
-                val toolbarAnimation = AnimationUtils.loadAnimation(this, R.anim.enter_from_top)
+                val toolbarAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_top)
                 toolbarAnimation.applySystemAnimatorScale(this)
                 toolbarAnimation.setAnimationListener(
                     object : SimpleAnimationListener() {
@@ -980,10 +980,10 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                     binding.seekbarVertContainer.startAnimation(vertAnimation)
                 }
 
-                val bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom)
-                bottomAnimation.applySystemAnimatorScale(this)
-                binding.readerMenuBottom.startAnimation(bottomAnimation)
-                binding.belowGradientOverlay.startAnimation(bottomAnimation)
+                val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_bottom)
+                binding.belowGradientOverlay.startAnimation(fadeInAnimation)
+                binding.readerMenuBottom.startAnimation(fadeInAnimation)
+                binding.readerNavHorz.startAnimation(fadeInAnimation)
             }
 
             if (preferences.showPageNumber().get()) {
@@ -1007,7 +1007,10 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                 )
                 // EXH -->
                 binding.header.startAnimation(toolbarAnimation)
-                binding.aboveGradientOverlay.startAnimation(toolbarAnimation)
+
+                val fadeOutTopAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out_top)
+                fadeOutTopAnimation.applySystemAnimatorScale(this)
+                binding.aboveGradientOverlay.startAnimation(fadeOutTopAnimation)
                 // EXH <--
 
                 val vertAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out_side)
@@ -1018,10 +1021,11 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                     binding.seekbarVertContainer.startAnimation(vertAnimation)
                 }
 
-                val bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.exit_to_bottom)
-                bottomAnimation.applySystemAnimatorScale(this)
-                binding.readerMenuBottom.startAnimation(bottomAnimation)
-                binding.belowGradientOverlay.startAnimation(bottomAnimation)
+                val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out_bottom)
+                fadeOutAnimation.applySystemAnimatorScale(this)
+                binding.belowGradientOverlay.startAnimation(fadeOutAnimation)
+                binding.readerMenuBottom.startAnimation(fadeOutAnimation)
+                binding.toolbarBottom.startAnimation(fadeOutAnimation)
             }
 
             if (preferences.showPageNumber().get()) {
