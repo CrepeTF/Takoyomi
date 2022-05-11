@@ -2,6 +2,12 @@
 <changelog bulletedList="true">
     <changelogversion versionName="3.2.3" changeDate="May 11,2022">
         <changelogtext>[b]Based on TachiyomiSY preview r449[/b]</changelogtext>
+        <changelogtext>Tweaked manga info</changelogtext>
+        <changelogtext>Fix reader activity menu animations in vertical reading modes</changelogtext>
+    </changelogversion>
+
+    <changelogversion versionName="3.2.3" changeDate="May 11,2022">
+        <changelogtext>[b]Based on TachiyomiSY preview r449[/b]</changelogtext>
         <changelogtext>Updated manga info UI</changelogtext>
         <changelogtext>Move downloaded only and incognito mode indicators inside search-bar</changelogtext>
         <changelogtext>Tweak reader activity menu animations</changelogtext>
