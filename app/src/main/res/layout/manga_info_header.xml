@@ -47,7 +47,7 @@
             android:id="@+id/manga_full_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="60dp"
+            android:layout_marginEnd="60dp"
             android:text="@string/manga_info_full_title_label"
             android:textAppearance="?attr/textAppearanceHeadline4"
             android:textColor="?attr/colorOnSurface"
