@@ -983,7 +983,6 @@ class ReaderActivity : BaseRxActivity<ReaderPresenter>() {
                 val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_bottom)
                 binding.belowGradientOverlay.startAnimation(fadeInAnimation)
                 binding.readerMenuBottom.startAnimation(fadeInAnimation)
-                binding.readerNavHorz.startAnimation(fadeInAnimation)
             }
 
             if (preferences.showPageNumber().get()) {
