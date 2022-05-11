@@ -45,11 +45,12 @@
 
         <TextView
             android:id="@+id/manga_full_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingEnd="60dp"
             android:text="@string/manga_info_full_title_label"
             android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textColor="?attr/colorOnSurface"
             android:textIsSelectable="false"
             android:maxLines="5"
             android:ellipsize="end"
@@ -62,7 +63,7 @@
 
             <ImageView
                 android:id="@+id/author_icon"
-                android:layout_width="16dp"
+                android:layout_width="15dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 app:srcCompat="@drawable/ic_baseline_person_outline_24"
@@ -73,7 +74,7 @@
                 android:id="@+id/manga_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textIsSelectable="false"
                 tools:text="Author" />
@@ -82,12 +83,11 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/artist_icon"
-                android:layout_width="16dp"
+                android:layout_width="15dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 android:foregroundGravity="top"
@@ -99,7 +99,7 @@
                 android:id="@+id/manga_artist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textIsSelectable="false"
                 tools:text="Artist" />
@@ -109,12 +109,11 @@
         <LinearLayout
             android:id="@+id/manga_status_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/manga_status_icon"
-                android:layout_width="16dp"
+                android:layout_width="15dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="4dp"
                 app:srcCompat="@drawable/ic_status_unknown_24dp"
@@ -127,7 +126,7 @@
                 android:layout_height="match_parent"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textIsSelectable="false"
                 tools:text="Status" />
@@ -138,7 +137,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
                 android:text="•"
-                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textIsSelectable="false"
                 tools:ignore="HardcodedText" />
@@ -149,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textIsSelectable="false"
                 tools:text="Source" />
@@ -189,10 +188,10 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/manga_tracking_tab"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textColor="@color/button_action_selector"
             android:visibility="gone"
             app:icon="@drawable/ic_sync_24dp"
-            app:iconTint="?android:attr/textColorSecondary"
+            app:iconTint="@color/button_action_selector"
             tools:visibility="visible" />
 
         <com.google.android.material.button.MaterialButton
@@ -205,10 +204,10 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/action_web_view"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textColor="@color/button_action_selector"
             android:visibility="gone"
             app:icon="@drawable/ic_public_24dp"
-            app:iconTint="?android:attr/textColorSecondary"
+            app:iconTint="@color/button_action_selector"
             tools:visibility="visible" />
 
         <com.google.android.material.button.MaterialButton
@@ -222,7 +221,7 @@
             android:insetBottom="0dp"
             android:visibility="gone"
             app:icon="@drawable/ic_merge_type_24dp"
-            app:iconTint="?android:attr/textColorSecondary"
+            app:iconTint="@color/button_action_selector"
             app:iconSize="24dp"
             app:iconGravity="end"
             tools:visibility="visible" />
