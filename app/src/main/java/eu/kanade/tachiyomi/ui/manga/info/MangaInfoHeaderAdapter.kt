@@ -210,7 +210,7 @@ class MangaInfoHeaderAdapter(
                     if (binding.mangaFullTitle.maxLines < 100) {
                         binding.mangaFullTitle.maxLines = 100
                     } else {
-                        binding.mangaFullTitle.maxLines = 5
+                        binding.mangaFullTitle.maxLines = 4
                     }
                 }
                 .launchIn(controller.viewScope)
