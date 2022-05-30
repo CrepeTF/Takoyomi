@@ -160,7 +160,7 @@
     <LinearLayout
         android:id="@+id/manga_actions"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="38dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="16dp"
         android:orientation="horizontal"
@@ -200,7 +200,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="3dp"
-            android:padding="14dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/action_web_view"
