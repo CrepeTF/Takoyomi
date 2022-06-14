@@ -14,6 +14,7 @@
         android:layout_height="3dp"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
+        android:alpha="0.2"
         android:src="@drawable/oval"
         app:tint="?attr/colorOnSurfaceVariant" />
 
@@ -27,13 +28,6 @@
         android:textSize="20sp"
         android:textColor="?attr/colorOnSurface"
         android:textStyle="bold" />
-
-    <View
-        android:id="@+id/title_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="?android:attr/divider" />
 
     <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/track_recycler"
