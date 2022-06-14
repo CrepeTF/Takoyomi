@@ -39,11 +39,11 @@
                 app:layout_constraintBottom_toBottomOf="parent" />
 
             <ImageButton
-                android:id="@+id/filter_btn"
+                android:id="@+id/save_search_btn"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:contentDescription="@string/action_filter"
+                android:contentDescription="@string/action_save"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -51,7 +51,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:srcCompat="@drawable/ic_search_24dp"
+                app:srcCompat="@drawable/ic_save_24dp"
                 app:tint="?attr/colorAccent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -86,11 +86,11 @@
             android:paddingEnd="10dp">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/save_search_btn"
+                android:id="@+id/reset_btn"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/action_save"
+                android:text="@string/action_reset"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -98,14 +98,14 @@
                 app:strokeColor="?android:attr/divider"/>
 
             <Button
-                android:id="@+id/reset_btn"
+                android:id="@+id/filter_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:text="@string/action_reset"
+                android:text="@string/action_filter"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/save_search_btn"
+                app:layout_constraintStart_toEndOf="@id/reset_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
