@@ -34,11 +34,11 @@ class MangaDexFabHeaderAdapter(val controller: BaseController<*>, val source: Ca
 
     inner class SavedSearchesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind() {
-            binding.mangadexFollows.setOnClickListener {
+            binding.mangadexFollowsFrame.setOnClickListener {
                 controller.router.replaceTopController(MangaDexFollowsController(source).withFadeTransaction())
                 onClick()
             }
-            binding.mangadexRandom.clicks()
+            binding.mangadexRandomFrame.clicks()
                 .onEach {
                     val randomMangaUrl = withIOContext {
                         (source as? RandomMangaSource)?.fetchRandomMangaUrl()
