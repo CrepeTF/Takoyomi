@@ -36,6 +36,7 @@ import kotlinx.coroutines.flow.onEach
 import logcat.LogPriority
 import reactivecircus.flowbinding.appcompat.queryTextChanges
 import uy.kohesive.injekt.injectLazy
+import java.util.*
 
 /**
  * Fragment that shows recently read manga.
@@ -70,7 +71,7 @@ class HistoryController :
     private var query = ""
 
     override fun getTitle(): String? {
-        return searchTitle(resources?.getString(R.string.label_recent_manga))
+        return searchTitle(resources?.getString(R.string.label_recent_manga)?.lowercase(Locale.ROOT))
     }
 
     override fun createPresenter(): HistoryPresenter {

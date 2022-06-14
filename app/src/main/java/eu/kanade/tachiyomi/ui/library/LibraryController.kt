@@ -57,6 +57,7 @@ import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
+import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
@@ -163,7 +164,7 @@ class LibraryController(
         }
 
     override fun getTitle(): String? {
-        return searchTitle(resources?.getString(R.string.label_library))
+        return searchTitle(resources?.getString(R.string.label_library)?.lowercase(Locale.ROOT))
     }
 
     private fun updateTitle() {

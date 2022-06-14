@@ -33,6 +33,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
+import java.util.*
 
 abstract class SettingsController : PreferenceController() {
 
@@ -124,7 +125,7 @@ abstract class SettingsController : PreferenceController() {
 
     open fun getTitle(): String? {
         if (this is MainActivity.FloatingSearchInterface) {
-            return searchTitle(preferenceScreen?.title?.toString())
+            return searchTitle(preferenceScreen?.title?.toString()?.lowercase(Locale.ROOT))
         }
 
         return preferenceScreen?.title?.toString()
