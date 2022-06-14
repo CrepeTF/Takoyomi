@@ -16,6 +16,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
+            android:alpha="0.2"
             android:src="@drawable/oval"
             app:tint="?attr/colorOnSurfaceVariant"/>
 

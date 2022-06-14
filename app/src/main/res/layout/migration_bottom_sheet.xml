@@ -13,6 +13,7 @@
         android:layout_height="3dp"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
+        android:alpha="0.2"
         android:src="@drawable/oval"
         app:tint="?attr/colorOnSurfaceVariant"
         app:layout_constraintEnd_toEndOf="parent"
