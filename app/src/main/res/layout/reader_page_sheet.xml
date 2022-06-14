@@ -25,16 +25,6 @@
         android:textColor="?attr/colorOnSurface"
         android:textStyle="bold" />
 
-    <View
-        android:id="@+id/title_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="?android:attr/divider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/migrate_title"/>
-
     <TextView
         android:id="@+id/set_as_cover"
         android:layout_width="match_parent"
