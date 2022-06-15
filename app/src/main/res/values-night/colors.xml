@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="splash">?android:colorBackground</color>
+    <color name="splash">#1D1D1B</color>
 
     <color name="error">#FFB4A9</color>
     <color name="errorContainer">#930006</color>
