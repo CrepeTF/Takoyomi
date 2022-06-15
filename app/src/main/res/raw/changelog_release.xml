@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
-    <changelogversion versionName="3.2.5" changeDate="June 14,2022">
-        <changelogtext>Added MangaUpdates tracker</changelogtext>
-        <changelogtext>Rearrange source browse filter sheet buttons</changelogtext>
-        <changelogtext>Use lowercased phrases for "search" screen titles</changelogtext>
-        <changelogtext>Made backdrop cover slightly more visible</changelogtext>
-        <changelogtext>Update MangaDex source filter buttons</changelogtext>
-        <changelogtext>General updates to sheet headers styling</changelogtext>
+    <changelogversion versionName="3.2.6" changeDate="June 14,2022">
+        <changelogtext>Fixed crashing on splash screen</changelogtext>
     </changelogversion>
 </changelog>
