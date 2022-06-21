@@ -34,6 +34,7 @@ object PreferenceValues {
         STRAWBERRY_DAIQUIRI(R.string.theme_strawberrydaiquiri),
         YOTSUBA(R.string.theme_yotsuba),
         TAKO(R.string.theme_tako),
+        KINDA_PURPLE(R.string.theme_kindapurple),
         GREEN_APPLE(R.string.theme_greenapple),
         TEALTURQUOISE(R.string.theme_tealturquoise),
         YINYANG(R.string.theme_yinyang),

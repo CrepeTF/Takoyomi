@@ -29,6 +29,9 @@ interface ThemingDelegate {
                 PreferenceValues.AppTheme.TAKO -> {
                     resIds += R.style.Theme_Tachiyomi_Tako
                 }
+                PreferenceValues.AppTheme.KINDA_PURPLE -> {
+                    resIds += R.style.Theme_Tachiyomi_KindaPurple
+                }
                 PreferenceValues.AppTheme.TEALTURQUOISE -> {
                     resIds += R.style.Theme_Tachiyomi_TealTurquoise
                 }
