@@ -4,19 +4,19 @@
   ~ Original color scheme by CrepeTF
   ~
   ~ Key colors:
-  ~ Primary #7760AB
+  ~ Primary #573467
   ~ Secondary #351F3F
   ~ Tertiary #DDD3F4
   ~ Neutral #221437
 -->
 <resources>
-    <color name="kindapurple_primary">#7760AB</color>
+    <color name="kindapurple_primary">#573467</color>
     <color name="kindapurple_onPrimary">#DDD3F4</color>
     <color name="kindapurple_primaryContainer">#573467</color>
     <color name="kindapurple_onPrimaryContainer">#DDD3F4</color>
     <color name="kindapurple_secondary">#351F3F</color>
     <color name="kindapurple_onSecondary">#DDD3F4</color>
-    <color name="kindapurple_secondaryContainer">#7760AB</color>
+    <color name="kindapurple_secondaryContainer">#573467</color>
     <color name="kindapurple_onSecondaryContainer">#DDD3F4</color>
     <color name="kindapurple_tertiary">#DDD3F4</color>
     <color name="kindapurple_onTertiary">#351F3F</color>
