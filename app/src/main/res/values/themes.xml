@@ -232,6 +232,34 @@
         <item name="elevationOverlayColor">@color/tako_elevationOverlay</item>
     </style>
 
+    <!--== Kinda Purple Theme ==-->
+    <style name="Theme.Tachiyomi.KindaPurple">
+        <!-- Theme Colors -->
+        <item name="colorPrimary">@color/kindapurple_primary</item>
+        <item name="colorOnPrimary">@color/kindapurple_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/kindapurple_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/kindapurple_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/kindapurple_secondary</item>
+        <item name="colorOnSecondary">@color/kindapurple_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/kindapurple_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/kindapurple_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/kindapurple_tertiary</item>
+        <item name="colorOnTertiary">@color/kindapurple_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/kindapurple_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/kindapurple_onTertiaryContainer</item>
+        <item name="android:colorBackground">@color/kindapurple_background</item>
+        <item name="colorOnBackground">@color/kindapurple_onBackground</item>
+        <item name="colorSurface">@color/kindapurple_surface</item>
+        <item name="colorOnSurface">@color/kindapurple_onSurface</item>
+        <item name="colorSurfaceVariant">@color/kindapurple_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/kindapurple_onSurfaceVariant</item>
+        <item name="colorOutline">@color/kindapurple_outline</item>
+        <item name="colorOnSurfaceInverse">@color/kindapurple_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/kindapurple_inverseSurface</item>
+        <item name="colorPrimaryInverse">@color/kindapurple_primaryInverse</item>
+        <item name="elevationOverlayColor">@color/kindapurple_elevationOverlay</item>
+    </style>
+
     <!--== Teal & Turquoise Theme ==-->
     <style name="Theme.Tachiyomi.TealTurquoise">
         <!-- Theme Colors -->

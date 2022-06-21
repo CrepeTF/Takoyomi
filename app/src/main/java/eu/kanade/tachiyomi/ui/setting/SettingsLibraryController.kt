@@ -167,8 +167,7 @@ class SettingsLibraryController : SettingsController() {
                 titleRes = R.string.pref_library_update_interval
                 entriesRes = arrayOf(
                     R.string.update_never,
-                    R.string.update_3hour,
-                    R.string.update_6hour,
+                    R.string.update_8hour,
                     R.string.update_12hour,
                     R.string.update_24hour,
                     R.string.update_48hour,

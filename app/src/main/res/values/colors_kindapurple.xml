@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Colors for Kinda Purple theme
+  ~ Original color scheme by CrepeTF
+  ~
+  ~ Key colors:
+  ~ Primary #DDD3F4
+  ~ Secondary #DDD3F4
+  ~ Tertiary #7760AB
+  ~ Neutral #21212E
+-->
+<resources>
+    <color name="kindapurple_primary">#7760AB</color>
+    <color name="kindapurple_onPrimary">#DDD3F4</color>
+    <color name="kindapurple_primaryContainer">#573467</color>
+    <color name="kindapurple_onPrimaryContainer">#DDD3F4</color>
+    <color name="kindapurple_secondary">#351F3F</color>
+    <color name="kindapurple_onSecondary">#DDD3F4</color>
+    <color name="kindapurple_secondaryContainer">#7760AB</color>
+    <color name="kindapurple_onSecondaryContainer">#DDD3F4</color>
+    <color name="kindapurple_tertiary">#DDD3F4</color>
+    <color name="kindapurple_onTertiary">#351F3F</color>
+    <color name="kindapurple_tertiaryContainer">#FDD6B0</color>
+    <color name="kindapurple_onTertiaryContainer">#221437</color>
+    <color name="kindapurple_background">#DDD3F4</color>
+    <color name="kindapurple_onBackground">#1B1B22</color>
+    <color name="kindapurple_surface">#DDD3F4</color>
+    <color name="kindapurple_onSurface">#1B1B22</color>
+    <color name="kindapurple_surfaceVariant">#B9B0CC</color>
+    <color name="kindapurple_onSurfaceVariant">#49454E</color>
+    <color name="kindapurple_outline">#573467</color>
+    <color name="kindapurple_inverseOnSurface">#F3EFF4</color>
+    <color name="kindapurple_inverseSurface">#313033</color>
+    <color name="kindapurple_primaryInverse">#D6BAFF</color>
+    <color name="kindapurple_elevationOverlay">@color/kindapurple_primary</color>
+</resources>
