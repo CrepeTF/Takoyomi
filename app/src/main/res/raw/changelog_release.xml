@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
-    <changelogversion versionName="3.2.6" changeDate="June 14,2022">
-        <changelogtext>Fixed crashing on splash screen</changelogtext>
+    <changelogversion versionName="3.2.7" changeDate="June 22,2022">
+        <changelogtext>Added theme Kinda Purple</changelogtext>
+        <changelogtext>Added auto split downloaded tall images from upstream</changelogtext>
+        <changelogtext>Added missing margin for page options header</changelogtext>
+        <changelogtext>Update library update intervals</changelogtext>
     </changelogversion>
 </changelog>
