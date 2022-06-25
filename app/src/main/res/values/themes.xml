@@ -146,6 +146,7 @@
         <item name="colorOnSurfaceInverse">@color/lavender_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/lavender_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/lavender_primaryInverse</item>
+        <item name="elevationOverlayColor">@color/lavender_elevationOverlay</item>
     </style>
 
     <!--== Midnight Dusk Theme ==-->
